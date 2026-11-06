@@ -1,0 +1,9 @@
+// 业务模型在产品需求批准后追加，不从评测示例复制工单模型。
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}

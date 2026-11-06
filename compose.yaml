@@ -1,0 +1,57 @@
+name: hrm
+services:
+  db:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_USER: hrm
+      POSTGRES_PASSWORD: local-development-only
+      POSTGRES_DB: hrm
+    ports: ["127.0.0.1:5436:5432"]
+    volumes: ["hrm-data:/var/lib/postgresql/data"]
+    networks: [hrm]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hrm -d hrm"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    mem_limit: 256m
+    pids_limit: 100
+  api:
+    build: {context: ., target: api}
+    environment:
+      DATABASE_URL: postgresql://hrm:local-development-only@db:5432/hrm
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [hrm]
+    read_only: true
+    tmpfs: ["/tmp:size=64m"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "node", "--input-type=module", "-e", "const r=await fetch('http://127.0.0.1:3001/api/health/ready');process.exit(r.ok?0:1)"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+    mem_limit: 512m
+    pids_limit: 100
+  web:
+    build: {context: ., target: web, args: {API_INTERNAL_URL: "http://api:3001"}}
+    depends_on:
+      api: {condition: service_healthy}
+    ports: ["127.0.0.1:3100:3000"]
+    networks: [hrm]
+    read_only: true
+    tmpfs: ["/tmp:size=64m"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "node", "--input-type=module", "-e", "const r=await fetch('http://127.0.0.1:3000');process.exit(r.ok?0:1)"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+    mem_limit: 768m
+    pids_limit: 100
+networks:
+  hrm: {}
+volumes:
+  hrm-data: {}

@@ -1,0 +1,38 @@
+{
+  "name": "hrm",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.6.0",
+  "engines": {
+    "node": ">=24 <25",
+    "pnpm": "10.6.0"
+  },
+  "scripts": {
+    "dev:web": "pnpm --filter @hrm/web dev",
+    "dev:api": "pnpm --filter @hrm/api dev",
+    "db:generate": "pnpm --filter @hrm/database generate",
+    "db:validate": "pnpm --filter @hrm/database validate",
+    "db:migrate": "pnpm --filter @hrm/database migrate:dev",
+    "db:deploy": "pnpm --filter @hrm/database migrate:deploy",
+    "check": "pnpm db:generate && pnpm --filter @hrm/database build && pnpm -r check",
+    "build": "pnpm db:generate && pnpm -r build",
+    "smoke": "node scripts/smoke.mjs",
+    "docker:up": "docker --context desktop-linux compose up --build -d --wait",
+    "docker:down": "docker --context desktop-linux compose down",
+    "docker:logs": "docker --context desktop-linux compose logs -f"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "24.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@nestjs/core",
+      "@prisma/engines",
+      "prisma",
+      "sharp",
+      "unrs-resolver",
+      "esbuild"
+    ]
+  }
+}
