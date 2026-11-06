@@ -1,7 +1,7 @@
 # HRM业务仓库采用pnpm workspace
 
 - 日期：2026-11-06
-- 状态：用户确认仓库与pnpm monorepo；基础工程已实现；最终容器运行受引擎故障阻塞
+- 状态：用户确认仓库与pnpm monorepo；基础工程已实现；引擎重启后最终容器与浏览器验证通过
 - 仓库：leidaibo-lab/hrm
 
 ## 边界与选择

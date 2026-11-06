@@ -53,4 +53,4 @@ API读取本机.env；web以同源/api代理127.0.0.1:3001。schema暂不含业�
 
 CI模板保存在[docs/ci.example.yml](./docs/ci.example.yml)；当前GitHub凭据缺少workflow权限，尚未激活托管CI。获得权限后移到.github/workflows/ci.yml即可触发。
 
-实际验证结果见[初始化记录](./docs/bootstrap-2026-11-06.md)，架构取舍见[决策](./docs/decisions/2026-11-06-pnpm-monorepo.md)。已通过本机类型检查和生产构建；最终Docker运行受本机引擎I/O故障阻塞。健康检查不代表招聘功能、身份权限、产品审批或生产部署通过。
+实际验证结果见[初始化记录](./docs/bootstrap-2026-11-06.md)，架构取舍见[决策](./docs/decisions/2026-11-06-pnpm-monorepo.md)。已通过本机类型检查、生产构建、最终Docker镜像构建、页面/API/数据库smoke，以及浏览器成功、失败恢复与390px窄视口验证。健康检查不代表招聘功能、身份权限、产品审批或生产部署通过。
