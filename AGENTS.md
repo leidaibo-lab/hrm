@@ -8,3 +8,5 @@
 - 修改前阅读docs/decisions；影响API、数据库或权限时先写清契约与迁移方案。提交遵守type(scope): 中文说明。
 - 交付须记录实际check/build/smoke结果，浏览器交互与HTTP检查分开，不能冒称生产验收。
 - Docker使用显式desktop-linux context；本地预览保留数据卷，pnpm docker:down不删除卷。只有用户明确要求才清空数据库。
+
+- 全链路业务产物统一归本仓库：product（sources/产品与研发交接）、testSet（测试）、deploy（发布）。先读 docs/delivery-assets.md；Mastra 运行事实与凭据不入库。参考资料不自动成为批准需求。

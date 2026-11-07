@@ -1,6 +1,6 @@
 # HRM
 
-HRM业务应用仓库，使用pnpm monorepo。Mastra产研编排继续由ai-platform负责，本仓库保存业务代码和运行配置。当前是工程骨架，招聘功能待产品稿在Workflow中确认后开发。
+HRM业务应用仓库，使用pnpm monorepo。Mastra产研编排继续由ai-platform负责，本仓库统一保存业务代码、产品、测试和发布交付资源。当前是工程骨架，招聘功能待产品稿在Workflow中确认后开发。
 
 ## 目录
 
@@ -9,6 +9,9 @@ apps/web             Next.js / React页面与同源API代理
 apps/api             NestJS业务API、进程存活与数据库就绪探针
 packages/database    Prisma schema、客户端工厂及后续迁移
 scripts              可复跑环境smoke
+product              原始资料、PRD及技术交接产物
+testSet              测试用例、报告、缺陷与回归记录
+deploy               上线文档、发布/健康/回滚记录
 ```
 
 版本沿用已选全栈基线：Node24、pnpm10.6.0、Next16.4.5、React19.3.1、Nest12.4.0、Prisma7.10.1。全仓仅一个pnpm-lock.yaml；包间依赖使用workspace:*。
@@ -54,3 +57,5 @@ API读取本机.env；web以同源/api代理127.0.0.1:3001。schema暂不含业�
 CI模板保存在[docs/ci.example.yml](./docs/ci.example.yml)；当前GitHub凭据缺少workflow权限，尚未激活托管CI。获得权限后移到.github/workflows/ci.yml即可触发。
 
 实际验证结果见[初始化记录](./docs/bootstrap-2026-11-06.md)，架构取舍见[决策](./docs/decisions/2026-11-06-pnpm-monorepo.md)。已通过本机类型检查、生产构建、最终Docker镜像构建、页面/API/数据库smoke，以及浏览器成功、失败恢复与390px窄视口验证。健康检查不代表招聘功能、身份权限、产品审批或生产部署通过。
+
+资产落地、资料来源与未接环节见[交付资产约定](./docs/delivery-assets.md)。新流程归档写本地工作树，不自动提交或推送；实际能力以对应执行证据为准。
