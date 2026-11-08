@@ -1,0 +1,117 @@
+{
+  "hash": "fe0c365b2ddf9c2725aeed40bb19bb27056287e945a77f821c386fdfd7a0142b",
+  "reviewer": "产品-雷",
+  "answers": [
+    {
+      "questionId": "Q19_scope",
+      "selected": [
+        "B"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q20_followup_fields",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q21_interview_completion",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q22_valid_evaluations",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q23_evaluation_edits",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q24_business_corrections",
+      "selected": [
+        "B"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q25_candidate_identity",
+      "selected": [
+        "B"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q26_waiting_slot",
+      "selected": [
+        "B"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q27_responsibility_transfer",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q28_combined_roles",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q29_task_lifecycle",
+      "selected": [
+        "B"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q30_minimum_fields",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q31_hr_not_recommend",
+      "selected": [
+        "A"
+      ],
+      "custom": "hr 筛选时第一次 筛选 还是面试最后一个轮次hr面试\n1. 如果是第一次筛选 hr不要的直接不要即可标记为不合格状态即可\n2. 最后hr面试轮次时 以A为主"
+    },
+    {
+      "questionId": "Q32_attachments_retention",
+      "selected": [],
+      "custom": "附件与当前流程绑定 暂时不允许删除、过期"
+    },
+    {
+      "questionId": "Q33_failure_contract",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    },
+    {
+      "questionId": "Q34_repeated_concurrent_actions",
+      "selected": [
+        "A"
+      ],
+      "custom": ""
+    }
+  ],
+  "supplement": ""
+}
