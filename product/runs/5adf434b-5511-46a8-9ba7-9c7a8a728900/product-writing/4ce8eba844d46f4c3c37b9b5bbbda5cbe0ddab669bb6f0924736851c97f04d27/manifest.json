@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 2,
+  "repository": "https://github.com/leidaibo-lab/hrm.git",
+  "runId": "5adf434b-5511-46a8-9ba7-9c7a8a728900",
+  "stage": "product-writing",
+  "mode": "live",
+  "event": "completed",
+  "projectionHash": "4ce8eba844d46f4c3c37b9b5bbbda5cbe0ddab669bb6f0924736851c97f04d27",
+  "authority": "workflow-export",
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "unassigned",
+    "runId": "5adf434b-5511-46a8-9ba7-9c7a8a728900",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-09T09:20:27.947Z",
+  "files": {
+    "brief.md": "7c52437a5026457fa2eb64bab49e8290ebcb7c4a0ca7358cbb01347226530dee",
+    "reviews.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outcome.json": "f372cf6fde249267308d0c0dda841445db72ec9f720428776375c2212c6a0ceb",
+    "intake.json": "0d60a6783cbdf53c0f8c067ff1c3025a67d7f43565a5a2f3a4d13a6ef91223e2",
+    "role-coordinator.md": "a02bf0ac957e36d45c7ecd8f86f4175ac95f45624e4f4a5b03be5db613f9faa3",
+    "role-clarification.md": "3f318fcc7d9a0f2c59740e94890c283612b6a34e7aa290e17be22d10992e4bfb",
+    "role-closure.md": "a12f40a5b07945558d777014d6ad1e2882979add61cbecf177b9ca4187e6e96c",
+    "role-writing.md": "1c88b10e2ece0cc54d9fe48798651594d05b1555d3e6c734bcb58a9af1551f76",
+    "event.json": "ad0220589ffa362d1b081c82292c5db8a0470c1074b79f3b881162acf1db4e62"
+  }
+}
