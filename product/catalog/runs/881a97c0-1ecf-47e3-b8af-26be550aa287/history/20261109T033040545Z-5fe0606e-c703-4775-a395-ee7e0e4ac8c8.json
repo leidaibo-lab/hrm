@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "run-archive.v1",
+  "authority": "mastra-store-projection",
+  "projectId": "hrm",
+  "iterationId": "unassigned",
+  "runId": "881a97c0-1ecf-47e3-b8af-26be550aa287",
+  "workflowId": "productDevelopmentWorkflow",
+  "workflowDefinitionId": "product-development",
+  "workflowVersion": "product-development.archive.v1",
+  "mode": "live",
+  "scope": "step",
+  "stage": "confirm-requirements",
+  "status": "suspended",
+  "observedAt": "2026-11-09T03:30:40.545Z",
+  "reason": "human-or-recovery-gate",
+  "code": {
+    "revision": "9c2262c91aaffaa3ea8096eb6cfce1af86644d1e",
+    "dirty": true
+  },
+  "artifacts": [
+    {
+      "version": "remote-handoff.v1",
+      "branch": "codex/workflow/881a97c0-1ecf-47e3-b8af-26be550aa287",
+      "commit": "fcdd817ff154b54f5b9164f7f0e3f7b5b400de22",
+      "files": {
+        "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/brief.md": "7c52437a5026457fa2eb64bab49e8290ebcb7c4a0ca7358cbb01347226530dee",
+        "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/reviews.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/outcome.json": "f372cf6fde249267308d0c0dda841445db72ec9f720428776375c2212c6a0ceb",
+        "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/intake.json": "670cfc7f8aef41ca392b238d3e83cdbaa2ecc13f7a32d0d1af1dcab3bb1078f5",
+        "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/event.json": "40f246cf4018ad2025b5d38d1a2582bb2ecbd3a68594cc0cb87d1f87a7f65acf",
+        "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/sources-observed-at-export.json": "be93c85c2bbd6df1e9b414975cced1cf2457715635dfb1247788a69c3ebb6097",
+        "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/manifest.json": "96bd311557e413615d34b4e49ea734f4e85420224df9916d645a4560fd76496d"
+      }
+    }
+  ],
+  "artifactPaths": [
+    "product/runs/881a97c0-1ecf-47e3-b8af-26be550aa287/initialize-product-development/7b91fa238cab2935ea4d471b9e576b881585f38a1f5fd8906ee6f3d9cf8234ed/manifest.json"
+  ],
+  "recovery": {
+    "source": "Mastra Store",
+    "portable": false,
+    "condition": "wait-for-human-or-sync"
+  }
+}
