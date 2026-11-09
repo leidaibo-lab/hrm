@@ -1,0 +1,1416 @@
+{
+  "mode": "live",
+  "productHash": "6520bd72c03d37e159530e12df42542dd87afcc2fc8acb5b546576d56ee8bbef",
+  "requirements": [
+    {
+      "id": "product:L1",
+      "line": 1,
+      "text": "# 内部 HRM 招聘协作系统",
+      "hash": "493b171bf0dd331be1c84c07c8625de8329f66a56a2d5c9185eb9321083233b7"
+    },
+    {
+      "id": "product:L2",
+      "line": 2,
+      "text": "## 项目总览、招聘管理与招聘待办工作台需求稿",
+      "hash": "49762de4d552296126c9623400be742465f1d163e1510e43688134db37381f86"
+    },
+    {
+      "id": "product:L4",
+      "line": 4,
+      "text": "**文档状态：** 写作稿，尚未形成完整需求基线  ",
+      "hash": "9b63b6d1101e8c2b00cdedebbe301200aa0282f13a35960ef108f767672b5fdb"
+    },
+    {
+      "id": "product:L5",
+      "line": 5,
+      "text": "**适用对象：** 产品、研发、测试、设计  ",
+      "hash": "5d534a238c0fb86829e1235d869a490e34454176048bf2c8a2a4dfecfd340c56"
+    },
+    {
+      "id": "product:L6",
+      "line": 6,
+      "text": "**版本范围：** 首期招聘协作与招聘待办工作台  ",
+      "hash": "67dba0d6b4caf7b0b55905bf4f6eda421ac1e12e6739d4b516af67404a62da5b"
+    },
+    {
+      "id": "product:L7",
+      "line": 7,
+      "text": "**重要说明：** 已确认规则可作为本稿的需求依据；建议和未决项不构成已批准行为。完整招聘链路、关键权限和试点最低验收门槛仍有阻塞。",
+      "hash": "9874697b5cf5dbcecde0189c89b93a7d7389960f985864d846517ad097ab15fd"
+    },
+    {
+      "id": "product:L9",
+      "line": 9,
+      "text": "## 1. 项目总览",
+      "hash": "ffc83d90c13ed56c29cc4e33d2ae874b3ab7d74f7f605e3d210520c4a869b798"
+    },
+    {
+      "id": "product:L11",
+      "line": 11,
+      "text": "### 1.1 背景与目标",
+      "hash": "6e147d1edde4d856154b4861b15a2a1b27e3c6e12d78239a6114d9359d04afd2"
+    },
+    {
+      "id": "product:L13",
+      "line": 13,
+      "text": "公司目前缺少 HRM 系统，招聘资料分散在招聘平台、飞书云盘和零散消息中，跨角色沟通和推进成本较高。团队希望借真实业务项目实践全栈能力，同时先解决招聘协作问题。",
+      "hash": "3da711813b3cc670b2c515c8ab42c55a99bf79a4d3ec39c4147c9cee985448a9"
+    },
+    {
+      "id": "product:L15",
+      "line": 15,
+      "text": "首期建设内部 HRM 招聘协作系统：飞书继续承担招聘申请、审批和职位发布；HRM 从职位发布后承接招聘信息与过程协作，覆盖招聘推进至候选人实际到岗或确认未到岗，并提供面向不同角色的招聘待办工作台。",
+      "hash": "571a77c836c019f45b4b0b778b98a4da774e090165173705b05b0758865f4520"
+    },
+    {
+      "id": "product:L17",
+      "line": 17,
+      "text": "### 1.2 目标用户与场景",
+      "hash": "9fa7958f6fbf5a76f67083fa7bc0b78a43995ab8887765d86b8117e59ab26c24"
+    },
+    {
+      "id": "product:L19",
+      "line": 19,
+      "text": "- **HR：** 录入候选人资料、筛选推荐、记录外部邀约、安排面试并跟进招聘结果。",
+      "hash": "077e6f8a2f0d4561f320913e7ed2af6996eceaa6ac1caef8bebf63489d03f748"
+    },
+    {
+      "id": "product:L20",
+      "line": 20,
+      "text": "- **用人负责人：** 初筛候选人，并作出最终招聘决定。",
+      "hash": "fd44bc6813df5380903bedbadd806dd0deebe377bfd0704a15c80a85212be39f"
+    },
+    {
+      "id": "product:L21",
+      "line": 21,
+      "text": "- **面试官：** 按指定轮次参与面试并提交评价。",
+      "hash": "cd3bfcb636c7e38a7cce3983955eda39ffbfd5cd74b01209bea9e97b117b1d41"
+    },
+    {
+      "id": "product:L22",
+      "line": 22,
+      "text": "- **管理员：** 系统涉及此角色，但其对敏感招聘资料的访问权限尚未确认。",
+      "hash": "727fa82d41e28bacc80b9df54351d24b873e52d734bcd44758cdbe0a76747e34"
+    },
+    {
+      "id": "product:L24",
+      "line": 24,
+      "text": "首批试点对象为技术部前端高级开发招聘，涉及 4 位 HR，预期筛选数百位候选人；面试官按业务线及轮次安排。用户希望于 2026 年 11 月 15 日开始使用，但最低试用结果尚未明确；该日期是期望，不是已评估的工程交付承诺。",
+      "hash": "0951ca5cbb65feeae887fadfd503610bf66cb9f921f7f7f3f5450e880c08a8b0"
+    },
+    {
+      "id": "product:L26",
+      "line": 26,
+      "text": "### 1.3 价值主张",
+      "hash": "ac167b540718aba0bf9b3c82a93dc89277900399fcac94b6c307c2156ad9e95f"
+    },
+    {
+      "id": "product:L28",
+      "line": 28,
+      "text": "**HR：** 当招聘资料和推进状态分散、需要跨角色协调时，HR 需要在一个内部工作区中记录候选人资料、招聘过程和跟进事项；相比继续依赖云盘与零散消息，系统应让资料和责任更集中、进展更易跟踪。候选人和过程字段、待办触发规则及实际节省效果仍待确定。",
+      "hash": "18426a29df84fce0c76ca643eeac117f8886036bdb1f2c71aebf29d22fe1f19d"
+    },
+    {
+      "id": "product:L30",
+      "line": 30,
+      "text": "**用人负责人和面试官：** 当需要筛选候选人或完成某轮评价时，他们需要看到自己参与范围内的招聘信息并完成相应动作；HRM 承接职位发布后的内部协作，飞书申请、审批和职位发布仍保留。",
+      "hash": "8737a139f508bc9386332bc971a5fa7bdfb42682f58af4ff01763122c6ffef1d"
+    },
+    {
+      "id": "product:L32",
+      "line": 32,
+      "text": "### 1.4 成功衡量",
+      "hash": "16c458dc426f86893a790413e1e284e6593e7d393033427c378d489eb99d05e8"
+    },
+    {
+      "id": "product:L34",
+      "line": 34,
+      "text": "当前没有确认的指标基线、目标值或试点最低通过门槛。建议后续以招聘资料集中度、跨角色事项逾期情况、候选人停滞情况及实际到岗记录完整性为候选衡量方向；这些仅为建议，不能据此判定上线或试点通过。",
+      "hash": "e03c8114aeba22c0ffa3655a4a5e4b10ee35a6c9dce313949c61e95a35ec1542"
+    },
+    {
+      "id": "product:L36",
+      "line": 36,
+      "text": "## 2. 范围与非目标",
+      "hash": "4b54ba636381814eac17ac77cb6ab6c1447c0ab6213c079a64d988299beed1b1"
+    },
+    {
+      "id": "product:L38",
+      "line": 38,
+      "text": "### 2.1 首期范围",
+      "hash": "23de7ba4bcdc84aeb1ac7642314882952a4c7072286af5a5f8cd95eef8100079"
+    },
+    {
+      "id": "product:L40",
+      "line": 40,
+      "text": "- 职位发布后的内部招聘协作。",
+      "hash": "5523435df87858748daa3c67d813464a400fdd8bd1d8d160671e8dc0aa8b9286"
+    },
+    {
+      "id": "product:L41",
+      "line": 41,
+      "text": "- 人工录入候选人资料和招聘过程；集中管理简历与招聘资料。",
+      "hash": "f364e7116ab43a4fed65fc37d655647facbc30911ad7ff61067ff4f127c085c8"
+    },
+    {
+      "id": "product:L42",
+      "line": 42,
+      "text": "- 按职位及招聘参与关系分配 HR、用人负责人和面试官职责。",
+      "hash": "0f249fa943a755563304c18122b325436afd0305e1594f668062427fb64ee565"
+    },
+    {
+      "id": "product:L43",
+      "line": 43,
+      "text": "- 提供招聘待办工作台，重点关注评价未提交、面试逾期、候选人长期未推进。",
+      "hash": "808bee588833576d013de2d68145d2bf060e2ed3c8807d5393bb44ffdd513437"
+    },
+    {
+      "id": "product:L44",
+      "line": 44,
+      "text": "- 跟踪候选人是否实际到岗或未到岗；实际到岗才计为已使用名额，到岗前单列待入职人数。",
+      "hash": "28d71378c256cb504b138645e06343bfde086439f705f463c30761fcb0944cd8"
+    },
+    {
+      "id": "product:L46",
+      "line": 46,
+      "text": "### 2.2 明确不纳入首期",
+      "hash": "478228c2c0cae5c4ef0c237b70554a0dec103852ab76a54bd6e306412f73a1d8"
+    },
+    {
+      "id": "product:L48",
+      "line": 48,
+      "text": "- 替代飞书的招聘申请、审批和职位发布流程。",
+      "hash": "1d6a08161c1c301c39821bb69aaae3523fa20337726ae86cf9798694a17b737c"
+    },
+    {
+      "id": "product:L49",
+      "line": 49,
+      "text": "- 绩效管理，已延后。",
+      "hash": "d1c783958d13594ca875f9fddd798eacc187967fd40f6fe918b1da1081efa79e"
+    },
+    {
+      "id": "product:L50",
+      "line": 50,
+      "text": "- 依赖飞书、Boss 直聘接口或外部消息服务实现自动同步、通知或自动化；首期允许人工录入。",
+      "hash": "9e497cdcd49bd4b5f549bfa76d84f0941306c85f2dec21983ef0a649a37949b5"
+    },
+    {
+      "id": "product:L51",
+      "line": 51,
+      "text": "- 未经确认的自动招满、自动停招、候选人自动合并或其他自动流程。",
+      "hash": "e97cf8663e2cc902f37397a19ef9ff5b61892403742b6c765f277026d485ed4f"
+    },
+    {
+      "id": "product:L53",
+      "line": 53,
+      "text": "## 3. 招聘管理模块 PRD",
+      "hash": "2baa0e9e2630b74de40054f226c48be5b0464770ca37796225d57d593c446ca9"
+    },
+    {
+      "id": "product:L55",
+      "line": 55,
+      "text": "### 3.1 已确认业务规则",
+      "hash": "70fa74f4e586722989d237fe46b264816b8cc421aeccd2a7eb52b0e175ac6831"
+    },
+    {
+      "id": "product:L57",
+      "line": 57,
+      "text": "| 主题 | 需求基线 | 依据 |",
+      "hash": "52ddcbf23c96e2106f4e378e0b266ad2ec07b2cbeb0de1fb0d796686faafeecd"
+    },
+    {
+      "id": "product:L58",
+      "line": 58,
+      "text": "|---|---|---|",
+      "hash": "c18ce6a3bdd292c83356833570495b8d8021e2483de3023bc28fd7e7bdbbcf4c"
+    },
+    {
+      "id": "product:L59",
+      "line": 59,
+      "text": "| 招聘边界 | HRM 从职位发布后的内部协作开始；飞书继续处理申请、审批和职位发布 | 原始 brief；人工确认的首期范围 |",
+      "hash": "85b7314c778ec28b9b03c288dd8269a58f4c53a26d1bfa1a79595a209c7e0449"
+    },
+    {
+      "id": "product:L60",
+      "line": 60,
+      "text": "| 招聘终点 | 招聘过程持续至候选人实际到岗或未到岗，包含录用沟通；不办理员工入职手续 | 第二轮人工确认 `endpoint_followup_boundary=through_actual_arrival`，取代首轮“最终决策”终点及旧建议 |",
+      "hash": "992cb25ba44dee5c19facb1c3bc4c0330a561b14f07b6d536ece630e22d749d6"
+    },
+    {
+      "id": "product:L61",
+      "line": 61,
+      "text": "| 名额统计 | 只有实际到岗才计为职位已使用名额；到岗前单列待入职人数 | 第二轮人工确认 `headcount_consumption=actual_arrival`；不得改用“接受录用即占用” |",
+      "hash": "a557efb48f8a1d784b1cd7e2f3aa5ea38ff0e151878aa7c2ba0cd56ae61aa3d7"
+    },
+    {
+      "id": "product:L62",
+      "line": 62,
+      "text": "| 职位职责 | 每职位一名主责 HR 和一名用人负责人；面试官按轮次指定 | 人工确认的角色规则 |",
+      "hash": "34585be2e4f81f30c6c3fd73b7a49d5ada3de02d4724fa81cb27b3a1a49f32bf"
+    },
+    {
+      "id": "product:L63",
+      "line": 63,
+      "text": "| 招聘动作 | HR 推进；负责人初筛并作最终招聘决定；面试官提交评价 | 人工确认的职责分工 |",
+      "hash": "0fd25f4ad8a71a3ef7b24b700e1b3b6da8a8d13902a4f2f011d52e3d170c1b1f"
+    },
+    {
+      "id": "product:L64",
+      "line": 64,
+      "text": "| HR 协作 | HR 可共享查看招聘资料；其他 HR 需要明确转交或授权后才能代办。共享查看不等于共同修改 | 第二轮人工确认 `hr_collaboration_authority=owner_with_handover` |",
+      "hash": "89c2d5734cc55cc09838b0ef852fd4ee1c676a951055f6372af0648dc0de872f"
+    },
+    {
+      "id": "product:L65",
+      "line": 65,
+      "text": "| 参与访问 | 负责人和面试官按参与范围访问招聘资料 | 人工确认的访问边界；细粒度字段范围待定 |",
+      "hash": "694d7a7c819d67ef10f46c951c97c0a1990ee4de591eaa94bb49ddaf9f138877"
+    },
+    {
+      "id": "product:L67",
+      "line": 67,
+      "text": "### 3.2 核心流程概述",
+      "hash": "793ca79e7363f1b99684ee9e0a74b154f077c81ebcd977817ce93376a3b38a78"
+    },
+    {
+      "id": "product:L69",
+      "line": 69,
+      "text": "下列步骤表达已确认职责及业务目标，不代表所有状态转换、前置条件及异常行为均已确定：",
+      "hash": "5b2517a905923196a5cf7bbae8ad9a84d7d8acbc90f6f74f132eadb9f7ae8068"
+    },
+    {
+      "id": "product:L71",
+      "line": 71,
+      "text": "1. 职位在飞书完成发布后，由内部流程承接招聘协作。",
+      "hash": "17801276516b5edf0db1b311620b424662556103f7cd841ef4f2637ca98a3b66"
+    },
+    {
+      "id": "product:L72",
+      "line": 72,
+      "text": "2. HR 录入候选人资料并推进招聘。",
+      "hash": "4831cafd993ecceb01c109d0f3e168fe3a9924bb411e5d92963f01416c9e3a8f"
+    },
+    {
+      "id": "product:L73",
+      "line": 73,
+      "text": "3. HR 筛选推荐，负责人进行初筛。",
+      "hash": "2cdd4ecb7b3b9f7f3499ffb7cf3ac658af6b652057c0f95d1d983bad1c3ddfa4"
+    },
+    {
+      "id": "product:L74",
+      "line": 74,
+      "text": "4. HR 记录对外邀约结果，并安排一轮或多轮面试。",
+      "hash": "93bb5c503329a2795ccce07cece0cad9a3a1b872389beb5400c00311bc98a35b"
+    },
+    {
+      "id": "product:L75",
+      "line": 75,
+      "text": "5. 面试官提交对应轮次评价。",
+      "hash": "b1eaf6da82021824ec08a36488f2d26477b39995fd489262c5e703391fa40292"
+    },
+    {
+      "id": "product:L76",
+      "line": 76,
+      "text": "6. 负责人作最终招聘决定；HR 继续记录录用沟通并跟进实际到岗或未到岗结果。",
+      "hash": "8da8632a7cce53059548cd4c9a0282d6439fb7dd77e27d2994f007fe39c9db94"
+    },
+    {
+      "id": "product:L77",
+      "line": 77,
+      "text": "7. 只有实际到岗才计入已使用名额；到岗前人数需单独体现为待入职人数。",
+      "hash": "aa9b4003eea00d9719ec0e83d41ff4c78893710e03376b7902512e235317ce8e"
+    },
+    {
+      "id": "product:L79",
+      "line": 79,
+      "text": "候选人与应聘记录如何关联、每个步骤如何进入或退出、跳过或回退规则、未到岗的终结处理均未确认，因此本流程不能直接作为完整状态机或无条件验收基线。",
+      "hash": "b97f076577114e3f096358e9e1a5eb4b748f4b7e0af9094f41262c7ba6142744"
+    },
+    {
+      "id": "product:L81",
+      "line": 81,
+      "text": "### 3.3 角色和权限边界",
+      "hash": "1321d274ba47aaf44cd4d7307f351d4c3ff165fb2cc7bcf776b7f991678d3a97"
+    },
+    {
+      "id": "product:L83",
+      "line": 83,
+      "text": "| 角色 | 已确认职责或权限 | 尚未确定 |",
+      "hash": "4e72eda37578730d806e1e40e4675c33a06cc7d13c3b5f786b61991f422515b8"
+    },
+    {
+      "id": "product:L84",
+      "line": 84,
+      "text": "|---|---|---|",
+      "hash": "c18ce6a3bdd292c83356833570495b8d8021e2483de3023bc28fd7e7bdbbcf4c"
+    },
+    {
+      "id": "product:L85",
+      "line": 85,
+      "text": "| 主责 HR | 负责该职位招聘推进；HR 共享查看范围内可查看资料 | 哪些写入需要何种授权；主责变更后待办如何处理 |",
+      "hash": "22c465fbb2c6831398cf27601eade375fc91bf59e5be28fd58117a82b24c9172"
+    },
+    {
+      "id": "product:L86",
+      "line": 86,
+      "text": "| 其他 HR | 可共享查看；须有明确转交或授权后才能代办 | 转交与临时代办的发起、批准、范围、期限、撤销及接管规则 |",
+      "hash": "40df8f114c0c986f99275dfe96061060f349f0e2dd7a2be497a90b7434a14b38"
+    },
+    {
+      "id": "product:L87",
+      "line": 87,
+      "text": "| 用人负责人 | 按参与范围访问；负责候选人初筛及最终招聘决定 | 参与关系配置、可见字段、决定条件及越权操作反馈 |",
+      "hash": "fadfdb2a63a321401dba4ca018e4a8993ae25158a87efb1eb2865492ac9e170f"
+    },
+    {
+      "id": "product:L88",
+      "line": 88,
+      "text": "| 面试官 | 按参与范围访问；提交指定轮次评价 | 跨轮次评价可见性、评价修改规则及资料下载权限 |",
+      "hash": "169a3c5ce94398734187cb7cacf9cad4642b5828863804a3f7c1008f2ed7fa12"
+    },
+    {
+      "id": "product:L89",
+      "line": 89,
+      "text": "| 管理员 | 系统包含此角色 | 管理员是否可查看敏感招聘资料及相关审计规则 |",
+      "hash": "4963ad5deef40730c6953a623145df2100a06113ba5fe06847e898ad151f68ad"
+    },
+    {
+      "id": "product:L91",
+      "line": 91,
+      "text": "权限要求应覆盖实际写入入口，不能只依赖页面隐藏来阻止越权。具体拒绝反馈、审计记录及各类敏感字段权限尚待业务确认。",
+      "hash": "44f6fc1fe3fdaede8a5003553aa7e6191208be4003b1166c5339b490d949e89a"
+    },
+    {
+      "id": "product:L93",
+      "line": 93,
+      "text": "## 4. 招聘待办工作台 PRD",
+      "hash": "6654cfbeb055e7ae20b6ab547a74c49623d42450b1b66772c9f43b398f66ff0d"
+    },
+    {
+      "id": "product:L95",
+      "line": 95,
+      "text": "工作台的已确认目标是帮助不同角色找到自己的招聘待办，重点覆盖以下三类问题：",
+      "hash": "9430fd56870b25785189ea9f05017409464654e334e1d0e3682b17a1529cd271"
+    },
+    {
+      "id": "product:L97",
+      "line": 97,
+      "text": "| 待办方向 | 输入目标 | 尚待确定的业务规则 |",
+      "hash": "c768fd593e30d8a21adb625411211de414a7f1fb49fd3df0c20b16470dab9f59"
+    },
+    {
+      "id": "product:L98",
+      "line": 98,
+      "text": "|---|---|---|",
+      "hash": "c18ce6a3bdd292c83356833570495b8d8021e2483de3023bc28fd7e7bdbbcf4c"
+    },
+    {
+      "id": "product:L99",
+      "line": 99,
+      "text": "| 评价未提交 | 找出需要提交面试评价的事项 | 何时生成、起算事件、责任人、逾期阈值、提交后如何消除 |",
+      "hash": "474880d0792d1b8dfd7b595eaf2d807febeb5d495459bb520935755e6f979935"
+    },
+    {
+      "id": "product:L100",
+      "line": 100,
+      "text": "| 面试逾期 | 找出超过约定时间仍未完成的面试事项 | 逾期定义、改期或取消后的处理、提醒对象 |",
+      "hash": "ca5cafa2bcf897f00ce9c44c36d04ebd292acd3d8e0d809b5fe3727d13f9190b"
+    },
+    {
+      "id": "product:L101",
+      "line": 101,
+      "text": "| 候选人长期未推进 | 找出长时间没有推进的招聘记录 | “推进”的定义、起算时间、阈值、重置规则及退出后处理 |",
+      "hash": "e8abc0e3ce50053bb3c63b9365e64b613392c7307d4db5c8b45e3d52d42be56b"
+    },
+    {
+      "id": "product:L103",
+      "line": 103,
+      "text": "系统必须在最终规则确认后，才能用确定的事件和边界验收这三类待办。当前不能据此推断具体提醒时间、自动催办方式、刷新时机、去重逻辑或逾期阈值。转交、授权、改期、候选人退出或职位关闭时，待办归属与清除方式也未确定。",
+      "hash": "3e61de68ae7c30e4143d96a811855d8ba2215feefcfcc981aaaf19633588286e"
+    },
+    {
+      "id": "product:L105",
+      "line": 105,
+      "text": "## 5. 验收配套",
+      "hash": "df25ff167da768490e412afc18d98eef630585b246b1c423bc590ec78b290661"
+    },
+    {
+      "id": "product:L107",
+      "line": 107,
+      "text": "下表保留闭环材料中的 A01–A12 与 T01–T12 编号。它们是验收目标及测试设计，不代表测试已运行或结果已通过。标为“待定”的预期不得交付为可执行验收标准。",
+      "hash": "3b7c47ba33b1aec8ae653c7b812a8083881a181d7d79b7d80aee4fe76caf5ce3"
+    },
+    {
+      "id": "product:L109",
+      "line": 109,
+      "text": "| 编号 | 验收目标 | 当前可确认的判定边界 |",
+      "hash": "dfaac1a7e63f0081f810aafcd3c25b6de1258b8e36bbe3b60640ed7767b87a5d"
+    },
+    {
+      "id": "product:L110",
+      "line": 110,
+      "text": "|---|---|---|",
+      "hash": "c18ce6a3bdd292c83356833570495b8d8021e2483de3023bc28fd7e7bdbbcf4c"
+    },
+    {
+      "id": "product:L111",
+      "line": 111,
+      "text": "| A01 / T01 | 人工录入及资料复用 | 验证资料可查询及 HR 共享查看；必填字段、文件限制、重复处理未定 |",
+      "hash": "95fb18a9172d17169f0ef52a45a70f64a8c7c9b386639accc74fff2f5134a254"
+    },
+    {
+      "id": "product:L112",
+      "line": 112,
+      "text": "| A02 / T02 | 招聘链路职责接力 | 必须符合已确认分工并可继续跟踪到实际到岗；初筛选项、轮次规则、评价齐备要求待定 |",
+      "hash": "4275b18952a5e051d2a339045db20275c93678307c07cbc5642161929ec327ff"
+    },
+    {
+      "id": "product:L113",
+      "line": 113,
+      "text": "| A03 / T03 | 到岗与名额计数 | 录用决定、薪资沟通或填写预计到岗日期本身不得使已使用人数增加；实际到岗计入已使用人数 |",
+      "hash": "ce7beff8a994024cb78ceb77e5e5a93266f5eb9eafd310d9d5d997e075674f82"
+    },
+    {
+      "id": "product:L114",
+      "line": 114,
+      "text": "| A04 / T04 | 待入职达到计划数时的边界 | 不得将待入职人数等同已使用人数；是否继续邀约、面试或录用待定 |",
+      "hash": "3856f3b8dd151a8b0cbfb10129d0d9d1e2124419c23e5f5799cbf225b7505d8c"
+    },
+    {
+      "id": "product:L115",
+      "line": 115,
+      "text": "| A05 / T05 | HR 共享查看与写入权限分离 | 未获转交或授权的其他 HR 不得因共享查看而获得代办权限；授权细节待定 |",
+      "hash": "bcce24b3d71bbad141aa92ff1961c1099dcac983e76bb52f2af8e84a48407813"
+    },
+    {
+      "id": "product:L116",
+      "line": 116,
+      "text": "| A06 / T06 | 转交、代办和撤销 | 需检查责任、操作权和待办归属是否一致；执行规则待定 |",
+      "hash": "32ceabb51c213e99276f01d77f0f06d8ea1c8ac10ad27de44d32d31eeb3fb61b"
+    },
+    {
+      "id": "product:L117",
+      "line": 117,
+      "text": "| A07 / T07 | 按参与范围访问 | 明确未参与的负责人或面试官不应获得相关招聘资料；细分范围和管理员权限待定 |",
+      "hash": "ea6a0c6a0d765971ade631ca158565474a022f6330f8ab16c5af3e21b537ab66"
+    },
+    {
+      "id": "product:L118",
+      "line": 118,
+      "text": "| A08 / T08 | 拒绝、撤回、缺席、取消及回退 | 必须先确定终结、恢复、评价留存及待办处理规则；当前无完整判定预期 |",
+      "hash": "01716fb10f69adf7376954c03b04679fa5a754ceefe6efcdccb47985b3cd94be"
+    },
+    {
+      "id": "product:L119",
+      "line": 119,
+      "text": "| A09 / T09 | 三类工作台事项 | 需逐项确认生成、责任人、去重、重置、消除和刷新规则后测试 |",
+      "hash": "609133b0fe1ae956e3f23ed58dc60cfeefe4e8a152912a20fbeaedc49b6f33b4"
+    },
+    {
+      "id": "product:L120",
+      "line": 120,
+      "text": "| A10 / T10 | 到岗重复提交或更正 | 有效到岗事实的计数口径已确认；重复提交防重、更正权限和历史记录要求待定 |",
+      "hash": "fb2ad08a1e2d5819ee83d218c2871e426bcd13a8f0962acb8c6ba9486cd292c1"
+    },
+    {
+      "id": "product:L121",
+      "line": 121,
+      "text": "| A11 / T11 | 保存失败、重试和并发修改 | 需明确失败后保存的数据、关联状态与待办结果、冲突处理及重试规则 |",
+      "hash": "2864abd317194c2026354fdf68ba5b3fa09a35b141db7efb370c063aa2f92a7a"
+    },
+    {
+      "id": "product:L122",
+      "line": 122,
+      "text": "| A12 / T12 | 职位暂停或关闭 | 需明确在途候选人、待入职、待办和后续登记的处理方式 |",
+      "hash": "85e73947d03a4fb04f9b5c57655ae8d135f0434b43b8defd593599eecdd6de7e"
+    },
+    {
+      "id": "product:L124",
+      "line": 124,
+      "text": "### 5.1 适用的可观察判定",
+      "hash": "87fe15b50ef8fae65e6b57aebaac011f2aea8637dcf4854b797420d9bf2229d3"
+    },
+    {
+      "id": "product:L126",
+      "line": 126,
+      "text": "- **名额口径：** 对同一职位的一条应聘记录，在最终招聘决定后但尚未实际到岗时，已使用人数不因该决定自动增加；登记实际到岗后，该记录计入已使用人数。待入职人数应与已使用人数分开。待入职的起算及离开条件仍待确认。",
+      "hash": "9f94f32f6d2b05d1d3c0a315ad1644bda780c4cfd85be42e849468e3d37da4a2"
+    },
+    {
+      "id": "product:L127",
+      "line": 127,
+      "text": "- **HR 权限边界：** 对没有明确转交或授权的 HR，查看共享资料不得被解释为获准代办。具体需受控的写入动作及拒绝后的系统行为，需在权限规则补齐后逐项验收。",
+      "hash": "bcbdc30db92b7f0932307d618ec0b1a1f76585e07eccd2d4394839682e08af8c"
+    },
+    {
+      "id": "product:L128",
+      "line": 128,
+      "text": "- **参与范围：** 对明确未参与某职位或候选人的负责人或面试官，不能仅靠隐藏列表通过验收；还需核实直接访问及资料入口不泄露业务资料。管理员和敏感字段例外规则待确认。",
+      "hash": "7f5147a394a64c5f2f662906ca50467fa532fd6943e61ec25989be9e3f6171db"
+    },
+    {
+      "id": "product:L129",
+      "line": 129,
+      "text": "- **完整链路：** 招聘跟进包含录用沟通，并以实际到岗或未到岗结果为范围边界；由于退出和恢复规则尚未定义，端到端链路目前不具备完整验收条件。",
+      "hash": "bd7791646b89c4cc14f4df541b19939c6a8d508ffe8420f9e5d384d1835bf5c0"
+    },
+    {
+      "id": "product:L131",
+      "line": 131,
+      "text": "未执行实际测试、故障注入、权限检查或试点。A/T 编号是闭环设计材料，不是通过记录。",
+      "hash": "08a72dbc49cee63d9268cf45d6f50725885710fdb9a8463b5397c1083e91b018"
+    },
+    {
+      "id": "product:L133",
+      "line": 133,
+      "text": "## 6. 未决项与决策记录",
+      "hash": "29c8810587e5b0ee4b71664978c89a8ea343fb763094785a739f0dbfa2b3b065"
+    },
+    {
+      "id": "product:L135",
+      "line": 135,
+      "text": "### 6.1 阻塞完整需求基线的业务问题",
+      "hash": "3d16d49ceea1cb2345054daff918b1b86ada88eba1607de409a5035d44ec7944"
+    },
+    {
+      "id": "product:L137",
+      "line": 137,
+      "text": "| 优先级 | 待确认选择 | 会影响的范围或验收 |",
+      "hash": "7ca3615668094e5d3792debcfeaf29b9c5327f02f1cc6667f00862e1e2ee406e"
+    },
+    {
+      "id": "product:L138",
+      "line": 138,
+      "text": "|---|---|---|",
+      "hash": "c18ce6a3bdd292c83356833570495b8d8021e2483de3023bc28fd7e7bdbbcf4c"
+    },
+    {
+      "id": "product:L139",
+      "line": 139,
+      "text": "| P0 | 候选人与应聘记录的关系；重复、转投、并行及再次应聘如何处理 | 资料归属、历史记录、状态和重复识别 |",
+      "hash": "29e10a83262de46fe20ecea4ba6b734518f8f4eb443f6712163bf2664e7445e6"
+    },
+    {
+      "id": "product:L140",
+      "line": 140,
+      "text": "| P0 | 招聘各节点的前置条件、进入退出条件；初筛结果如何表达 | 流程状态和 A02/T02 |",
+      "hash": "56e862ba282fa6fc11ca551ea125c64dd261d3a8be12e36501a6676fd06d1684"
+    },
+    {
+      "id": "product:L141",
+      "line": 141,
+      "text": "| P0 | 邀约重试、轮次增减或跳过规则；评价未齐时能否作决定 | 面试流程、负责人决策和 A02/T02 |",
+      "hash": "b46d6290927f822c2c4ff3d98eababfb7db03b321fcca8797f755c55677096b3"
+    },
+    {
+      "id": "product:L142",
+      "line": 142,
+      "text": "| P0 | 拒绝、撤回、缺席、面试取消、取消入职及未到岗如何终结或恢复 | 记录结果、名额、评价留存、待办及 A08/T08 |",
+      "hash": "4b632d981109fffd016173791ec1d76075cc98e37262e56dcabab1da8f491146"
+    },
+    {
+      "id": "product:L143",
+      "line": 143,
+      "text": "| P0 | 待入职人数从何时开始统计；达到职位计划人数后，邀约、面试及录用是否限制 | 招聘推进边界、人数展示和 A04/T04 |",
+      "hash": "5e545c9f3f065d5c21a72567f2d750a5a7a772d16e7fb588db4afe2ee3243be4"
+    },
+    {
+      "id": "product:L144",
+      "line": 144,
+      "text": "| P0 | 谁能登记、更正到岗；重复登记及错误更正如何处理 | 计数、防重及 A10/T10 |",
+      "hash": "9892f6c96d54b5b892987e1b66e96768f8726404f6c21dbd3bc0cadefc34159e"
+    },
+    {
+      "id": "product:L145",
+      "line": 145,
+      "text": "| P0 | 职位如何从飞书承接；来源标识、计划人数变更、暂停关闭及在途候选人处理 | 职位生命周期和 A12/T12 |",
+      "hash": "f564f81521da20a0def6d0542eec9fed7e47fd9cfbffafffddfec6bae66a2e26"
+    },
+    {
+      "id": "product:L146",
+      "line": 146,
+      "text": "| P0 | 转交、临时代办的发起、批准、动作范围、期限、撤销及接管规则 | HR 写入权限、责任与待办归属，A05–A06/T05–T06 |",
+      "hash": "924fd35f811793580bc9ee917855c969925725f072f5a21ccb59678b5ca48b36"
+    },
+    {
+      "id": "product:L147",
+      "line": 147,
+      "text": "| P0 | 三类待办的触发事件、起算、阈值、重置、去重、消除和刷新规则 | 工作台输出及 A09/T09 |",
+      "hash": "f2c8156e4d5896bd0b0073a2581db2e2a06a7bef598fa8c0fc52deb57bd0ac2e"
+    },
+    {
+      "id": "product:L148",
+      "line": 148,
+      "text": "| P0 | 联系方式、薪资、评价历史、简历下载、管理员访问、保存期限和删除治理 | 敏感资料可见范围与数据操作验收 |",
+      "hash": "2a9c50f0934829690c3f93af05c07dd2a73b5d6d82a11e083f7455d8db76e7d7"
+    },
+    {
+      "id": "product:L149",
+      "line": 149,
+      "text": "| P0 | 字段必填、格式、校验反馈、页面操作及写入失败、部分保存、重试和并发冲突规则 | 录入、修改、评价、统计一致性及 A11/T11 |",
+      "hash": "f7eb8b70c46dd5d6e1beca73ce915bfb1d8d9c92be86ba5140c18de27ca0a54f"
+    },
+    {
+      "id": "product:L150",
+      "line": 150,
+      "text": "| 试点门槛 | 最低试用结果及可检查的成功标准 | 试点开始条件及试点是否通过 |",
+      "hash": "de8d5e4704d38a11a1b8318310d7f0d608b6e3f622ec7d8ae3fbeee294b779ff"
+    },
+    {
+      "id": "product:L152",
+      "line": 152,
+      "text": "问题缺少答案时，不将任何推荐项视作用户批准；需要业务方补充确认。字段长度、格式、数据保存期限等没有已确认规格，本稿不添加假定值。",
+      "hash": "a62a2a91076465ca4f8d0a0404aa642f7f596300d6f33f3fd2de6db02c7060c1"
+    },
+    {
+      "id": "product:L154",
+      "line": 154,
+      "text": "### 6.2 已确认决策与历史建议区分",
+      "hash": "e7419de0696bccd855b07d01237cdeb46fdf4e96a66f9ffff95a57c2c7423b35"
+    },
+    {
+      "id": "product:L156",
+      "line": 156,
+      "text": "- 已确认：首期招聘协作及招聘待办工作台；绩效延后；申请、审批、职位发布保留在飞书；人工录入；招聘追踪至实际到岗或未到岗；只有实际到岗才计为已使用名额；HR 主责推进、共享查看与代办权限分离。",
+      "hash": "2cc3fc8dc8a65401731bb54ba96e8f612b4de4441ea567730afe72fd263e5ae9"
+    },
+    {
+      "id": "product:L157",
+      "line": 157,
+      "text": "- 被后续确认取代的旧口径：首轮“到最终决策”为招聘终点，以及旧推荐“接受录用即占用名额、实际到岗后完成”。不得将这些旧内容重新写为现行规则。",
+      "hash": "835133d51cec31d80f94dff6a4656166597e47e067e5ee5b1344d334fc9e288b"
+    },
+    {
+      "id": "product:L158",
+      "line": 158,
+      "text": "- 建议而非决定：对象模型、状态机、自动防重、临时代办实现、敏感资料分级、审计方式、失败保存策略及待办阈值。它们可作为进一步讨论方向，未获确认前不构成研发要求。",
+      "hash": "f43ff85bb770d64485f44fc1fb1483aded328135f8e55b0b8ad9d8fa1fca5462"
+    },
+    {
+      "id": "product:L160",
+      "line": 160,
+      "text": "## 7. 来源与依据",
+      "hash": "69398da69e5aa93613f25f7f8871b5b308abccf2cfe944090f1a58fa1476a859"
+    },
+    {
+      "id": "product:L162",
+      "line": 162,
+      "text": "本稿依据当前任务材料中的 brief（登记为 `material-3-7c52437a5026`，已读取全文）、确认记录（`material-1-859f448affaa`）及上游梳理和闭环材料（`material-2-1cb4b4fe5c4a`）。brief 的原始诉求包括公司内部 HRM、前端团队全栈实践、招聘资料分散、跨角色沟通成本、保留飞书前置流程、人工录入起步、前端高级开发试点及独立中文交付文档要求。人工确认项以确认记录中的两轮回答为准；上游梳理中的推荐和测试设计不视为新增用户确认。",
+      "hash": "3f4d77cfe1a30e150a4cf18ea22a7b66ab384f79a257315643d3f9541ab4f9b6"
+    },
+    {
+      "id": "product:L164",
+      "line": 164,
+      "text": "## 8. 交付状态",
+      "hash": "239afcb9a19da20cd7d0595780b7aaef65c164af006567e5e2430d2e36ccdd25"
+    },
+    {
+      "id": "product:L166",
+      "line": 166,
+      "text": "当前仍有阻止完整需求基线定稿的未决业务选择。已确认规则可供继续细化，但候选人对象关系、流程与异常处理、转交规则、待办口径、敏感数据治理和试点最低验收门槛未补齐前，不能将本稿标为完整链路验收就绪。",
+      "hash": "a7bac0dd847aade809b000ff7ba65baf7f772b7746e315603816305b42aa5dc2"
+    },
+    {
+      "id": "product:L168",
+      "line": 168,
+      "text": "本轮工作区目录查询未发现文件；当前可用工具不能写入文件，因此未能将本文保存为 Markdown 文件。本文为写作交付，未声称获人工审批、已执行测试或已完成工程评估。",
+      "hash": "a3371e974298e4aabef28e1ad438ea64d9973329cd651294b307226aeb73941b"
+    },
+    {
+      "id": "product:L170",
+      "line": 170,
+      "text": "**本轮使用的方法**",
+      "hash": "363c30b5c1709c55435af4deb400e42a154875991693e9185275093d246b99f6"
+    },
+    {
+      "id": "product:L171",
+      "line": 171,
+      "text": "- `product-pm-create-prd`：组织项目背景、用户、价值、首期方案、范围、未决问题和发布边界；依据请求扩展为详细交接稿。",
+      "hash": "0aa87c0fc15ccbd4410d6eec401cfdb46b31591cd843d42ade45de44e8f3ee45"
+    },
+    {
+      "id": "product:L172",
+      "line": 172,
+      "text": "- `product-requirements-handoff`：核对输入依据、已确认规则、边界、验收可检查性和业务阻塞。",
+      "hash": "9badf8355b2e43e290d98e7e057b63a465e656e2a4806c0dc0e6fe4ef1088b45"
+    },
+    {
+      "id": "product:L173",
+      "line": 173,
+      "text": "- `product-pm-test-scenarios`：沿用 A01–A12 / T01–T12 验收目标及测试场景编号；该闭环材料属上游内容，本轮未重新执行测试。",
+      "hash": "72ce1416d360f9183aa5a734cd7a36dd579c7f2af24dc69ff3d60f2d362f074f"
+    }
+  ],
+  "context": {
+    "productHash": "6520bd72c03d37e159530e12df42542dd87afcc2fc8acb5b546576d56ee8bbef",
+    "baselineHash": "7ba84bcc0b8078e38c1eae4ff6b1a0c8b3601af404dfaeb6621c150c3b726519",
+    "methodBundleHash": "b532d9e93f5be0fdafb840241d89dc49b034bbdac699b6e62e2368a0d2b3ab02",
+    "files": {
+      "AGENTS.md": "d0cbe492c2c497760050f4e326142ec28e121324337f4cc88abb081e4148c88f",
+      "README.md": "b3232285d42f7a0216c61e4aa8dfc4ecfa08531e9333d4a7b642ea5109d0921d",
+      "scripts/check_product_prototype.mjs": "6fb9002cf6ae17e1e6d18b35dda7a0af317ef7027f2540f24ac0e536d1456b97"
+    },
+    "rules": [
+      {
+        "text": "项目沟通、产品决策记录和项目说明使用中文；保护与当前任务无关的已有修改；Git 提交信息遵循 type(scope): message。",
+        "refs": [
+          "file:AGENTS.md"
+        ]
+      },
+      {
+        "text": "项目阶段门禁要求：产品发现结论确认前不进入技术方案和业务代码实现；MVP 范围确认前不建立正式数据库模型和接口契约。每项功能需明确目标角色、业务价值、成功指标和验收标准。",
+        "refs": [
+          "file:AGENTS.md"
+        ]
+      },
+      {
+        "text": "需求权威顺序为已确认产品决策、公共规范、模块范围说明及 PRD、用户故事补充说明。新业务范围、授权、状态规则和成功门槛需要业务确认，不能将建议写成已确认结论。",
+        "refs": [
+          "file:AGENTS.md"
+        ]
+      },
+      {
+        "text": "项目区分产品协作过程与正式需求交付：docs/product/ 保存权威需求维护及过程资料，docs/output/ 面向研发、测试等非产品角色。正式交付应能独立说明业务、操作、权限、异常和验收，不能要求读者依赖聊天或确认历史。",
+        "refs": [
+          "file:AGENTS.md",
+          "file:README.md"
+        ]
+      },
+      {
+        "text": "公共字段、表单、附件、错误处理、权限、审计和数据生命周期规则保持唯一权威来源；模块引用公共规范并定义自身例外。涉及敏感人事数据时，需要明确查看、修改、下载、导出、删除、恢复、审计和生命周期要求，具体业务政策仍须有确认依据。",
+        "refs": [
+          "file:AGENTS.md"
+        ]
+      },
+      {
+        "text": "当前产品正文是尚未形成完整需求基线的写作稿。已确认规则可作为细化依据，建议及未决项不构成批准行为；完整招聘链路、关键权限和试点最低验收门槛仍存在阻塞。",
+        "refs": [
+          "product:L4",
+          "product:L7",
+          "product:L166"
+        ]
+      },
+      {
+        "text": "飞书继续承担招聘申请、审批和职位发布；HRM 从职位发布后承接内部招聘协作，包含录用沟通并持续跟踪至实际到岗或确认未到岗，不办理员工入职手续。该终点已取代旧的“到最终决策”口径。",
+        "refs": [
+          "product:L15",
+          "product:L59",
+          "product:L60",
+          "product:L76",
+          "product:L157"
+        ]
+      },
+      {
+        "text": "首期范围为人工录入候选人资料与招聘过程、集中管理简历及招聘资料、按参与关系开展招聘协作和提供招聘待办工作台。绩效管理延后；首期不依赖飞书、Boss 直聘接口或外部消息服务实现自动同步和通知，不擅自加入自动招满、自动停招或候选人自动合并等流程。",
+        "refs": [
+          "product:L40",
+          "product:L41",
+          "product:L42",
+          "product:L43",
+          "product:L44",
+          "product:L46",
+          "product:L48",
+          "product:L49",
+          "product:L50",
+          "product:L51"
+        ]
+      },
+      {
+        "text": "只有实际到岗才计为职位已使用名额；到岗前单列待入职人数。录用决定、薪资沟通或填写预计到岗日期本身不得增加已使用人数，不得恢复使用“接受录用即占用名额”的旧口径。",
+        "refs": [
+          "product:L44",
+          "product:L61",
+          "product:L77",
+          "product:L113",
+          "product:L126",
+          "product:L157"
+        ]
+      },
+      {
+        "text": "每个职位配置一名主责 HR 和一名用人负责人，面试官按轮次指定。HR 负责招聘推进，用人负责人负责初筛及最终招聘决定，面试官提交指定轮次评价。",
+        "refs": [
+          "product:L62",
+          "product:L63",
+          "product:L64",
+          "product:L65"
+        ]
+      },
+      {
+        "text": "HR 可共享查看招聘资料，但共享查看不赋予共同修改或代办权限；其他 HR 必须获得明确转交或授权后才能代办。转交和授权的具体动作范围及生命周期尚待确认。",
+        "refs": [
+          "product:L64",
+          "product:L85",
+          "product:L86",
+          "product:L87",
+          "product:L127"
+        ]
+      },
+      {
+        "text": "用人负责人和面试官按参与范围访问招聘资料。权限控制必须覆盖实际写入、直接访问及资料入口，不能只隐藏页面或列表；敏感字段、下载及管理员访问的细则尚未确认。",
+        "refs": [
+          "product:L65",
+          "product:L88",
+          "product:L89",
+          "product:L91",
+          "product:L128"
+        ]
+      },
+      {
+        "text": "招聘待办工作台重点关注评价未提交、面试逾期和候选人长期未推进三类问题。当前只确认方向，不能据此推断提醒时间、逾期阈值、自动催办方式、刷新、去重或清除规则。",
+        "refs": [
+          "product:L95",
+          "product:L97",
+          "product:L98",
+          "product:L99",
+          "product:L100",
+          "product:L101",
+          "product:L103"
+        ]
+      },
+      {
+        "text": "A01–A12 和 T01–T12 是验收目标及测试设计，不能视为测试通过记录。产品材料明确未执行实际测试、故障注入、权限检查或试点；完整链路尚不具备完整验收条件。",
+        "refs": [
+          "product:L107",
+          "product:L109",
+          "product:L126",
+          "product:L127",
+          "product:L128",
+          "product:L129",
+          "product:L131"
+        ]
+      },
+      {
+        "text": "首批拟以技术部前端高级开发招聘试点，涉及 4 位 HR 和数百位候选人。2026 年 11 月 15 日是期望开始使用的日期，不是已评估的工程交付承诺；指标基线、目标值和最低试用通过门槛未确认。",
+        "refs": [
+          "product:L24",
+          "product:L34",
+          "product:L150"
+        ]
+      },
+      {
+        "text": "候选 README 声称招聘 MVP 产品定义已收口、文档复核完成，并将业务范围描述至录用决策；这些表述与当前产品正文的未完成基线状态及实际到岗跟踪边界存在冲突，不能据 README 判定当前产品已完整收口。",
+        "refs": [
+          "file:README.md",
+          "product:L4",
+          "product:L7",
+          "product:L60",
+          "product:L157",
+          "product:L166"
+        ]
+      },
+      {
+        "text": "候选原型检查脚本使用 Puppeteer、hash 路由、persona 切换和浏览器内 db 驱动演示检查；默认访问 http://127.0.0.1:8765，支持 HRM_PROTOTYPE_URL、HRM_PUPPETEER_MODULE 和 HRM_CHROME_PATH 配置。该源码只能证明检查逻辑存在，不能证明脚本已经运行或原型已经通过检查。",
+        "refs": [
+          "file:scripts/check_product_prototype.mjs"
+        ]
+      },
+      {
+        "text": "原型脚本包含管理员不能查看招聘资料、面试官无简历下载入口、终面评价齐全通过进入待决策、HR 外部确认后录用及内推渠道处理等断言。这些属于候选原型检查内容；涉及尚未确认的权限、评价条件或流程细则时，不能直接升级为现行产品规则。",
+        "refs": [
+          "file:scripts/check_product_prototype.mjs",
+          "product:L63",
+          "product:L88",
+          "product:L89",
+          "product:L91",
+          "product:L141",
+          "product:L148",
+          "product:L158"
+        ]
+      }
+    ],
+    "unknowns": [
+      "候选人与应聘记录的对象关系，以及重复、转投、并行和再次应聘的处理方式尚未确认，不能据此确定正式数据模型。",
+      "招聘各节点的前置条件、进入退出条件、初筛结果、邀约重试、轮次增减或跳过、评价未齐时能否决定，以及拒绝、撤回、缺席、取消和恢复规则尚未确认。",
+      "待入职人数的起算及离开条件、达到计划人数后是否限制邀约或录用、到岗登记与更正权限、防重和历史记录规则尚未确认。",
+      "职位从飞书承接的方式、来源标识、计划人数变更、暂停关闭及在途候选人的处理规则尚未确认。",
+      "HR 转交及临时代办的发起、批准、范围、期限、撤销、接管和待办归属规则尚未确认。",
+      "三类待办的生成事件、责任人、起算时间、阈值、重置、去重、清除、刷新，以及转交、改期、退出或关职后的处理规则尚未确认。",
+      "联系方式、薪资、评价历史等敏感字段的可见范围、简历下载、管理员访问、审计、保存期限和删除治理尚未确认。",
+      "字段必填、长度、格式、文件限制、校验反馈、写入失败、部分保存、重试和并发冲突规则尚未确认。",
+      "README 及原型检查脚本与当前产品正文的差异尚未完成同步核实；它们引用的其他需求、决策和交付文档未作为本次候选文件逐一读取，不能断言其内容与当前产品一致。",
+      "本次可读取候选文件未提供根 package.json、pnpm-lock.yaml、pnpm-workspace.yaml、各应用及数据库包的 package.json 和 scripts/smoke.mjs 正文，无法核实实际技术栈、依赖版本、构建入口、数据库配置及检查命令；不能据此断言真实仓库不存在这些文件。",
+      "未读取实际应用源码、数据库模型或完整工程参考快照，无法确认原型行为是否对应正式实现，也无法确认当前工程是否支持已批准业务规则。",
+      "project:check、project:build 和 project:smoke 仅有注册信息，本次未执行检查、构建、测试或原型脚本，没有可报告的工程通过结果。",
+      "试点最低可用结果、可检查成功标准、联合交接及实际试点安排尚未确认；当前没有充分证据判定可开发、可发布或完整链路验收就绪。"
+    ]
+  },
+  "plan": {
+    "summary": "已形成 HRM 招聘协作的条件式技术任务包：6 项任务按数据边界、权限、招聘服务、待办服务、招聘界面、工作台的依赖顺序排列，拟新增文件各有唯一负责人，引用按 requirements、contextFiles、registeredChecks 分离。当前有 11 类业务规则缺口及工程证据阻塞；任务列明解除条件，未冻结正式数据库模型或 API，未修改文件、执行脚本或运行检查，也未判断完整链路可开发、可验收或可发布。",
+    "coverage": [
+      {
+        "requirement": "product:L15、product:L40—product:L51、product:L59—product:L60、product:L76、product:L157",
+        "behavior": "从飞书发布后承接人工招聘协作，覆盖录用沟通至实际到岗或确认未到岗；不扩展员工入职手续、绩效、外部自动同步和自动停招。",
+        "verification": "T03、T05 承接实现与页面核对；相关 blocker 关闭后通过 project:check、project:build、project:smoke 验证实际接入。当前无执行结果。"
+      },
+      {
+        "requirement": "product:L41、product:L42、product:L111、product:L139、product:L149",
+        "behavior": "人工资料录入、集中查询和复用；对象关系、重复处理、字段与附件约束保持未决。",
+        "verification": "T01、T03、T05 对应 A01/T01；B01、B09、B10、B12 关闭后核验持久化、授权查询与输入反馈。"
+      },
+      {
+        "requirement": "product:L62—product:L65、product:L112、product:L129、product:L140—product:L142",
+        "behavior": "按主责 HR、用人负责人及轮次面试官分工推进；状态与轮次细则须补齐后实现。",
+        "verification": "T02、T03、T05 对应 A02/T02、A08/T08；覆盖合法推进及拒绝、取消、恢复等已确认后的分支。"
+      },
+      {
+        "requirement": "product:L61、product:L113、product:L114、product:L120、product:L126、product:L143—product:L145",
+        "behavior": "已使用人数只由实际到岗事实产生，待入职人数单列；达到计划人数时的限制、更正和防重待确认。",
+        "verification": "T01、T03、T05 对应 A03/T03、A04/T04、A10/T10、A12/T12；核验录用及预计到岗不改变已使用人数，以及补齐后的更正和职位关闭行为。"
+      },
+      {
+        "requirement": "product:L64、product:L65、product:L85—product:L91、product:L115—product:L117、product:L127、product:L128、product:L146、product:L148",
+        "behavior": "共享查看与代办权限分离；按参与范围保护数据，服务端覆盖直接访问、资料入口和实际写入。",
+        "verification": "T02、T03、T05 对应 A05/T05、A06/T06、A07/T07；分别核验未授权 HR、未参与负责人和面试官的访问与写入。管理员和敏感字段按补齐后的规则验收。"
+      },
+      {
+        "requirement": "product:L95、product:L97—product:L103、product:L119、product:L147",
+        "behavior": "工作台覆盖评价未提交、面试逾期和长期未推进三类事项；不推断阈值、责任人、去重与消除规则。",
+        "verification": "T04、T06 对应 A09/T09；B08 关闭后按三类事项分别验证生成、重置、去重、消除、刷新及转交联动。"
+      },
+      {
+        "requirement": "product:L121、product:L149",
+        "behavior": "失败保存、重试、并发及关联状态与待办的一致性按补齐后的规则实现，不自行指定部分保存或冲突策略。",
+        "verification": "T01、T03—T06 对应 A11/T11；结合真实存储执行失败、重复请求和并发场景，登记检查不足以覆盖时须明确报告缺口。"
+      },
+      {
+        "requirement": "product:L4、product:L7、product:L24、product:L107、product:L131、product:L150、product:L166",
+        "behavior": "保持写作稿及未完整验收状态；期望启用日期不转为工程承诺，试点门槛未确认前不判断可发布。",
+        "verification": "所有任务保留阻塞条件与执行证据；project:check、project:build、project:smoke 即使后续通过，也不单独代表业务规则完整或试点成功。"
+      }
+    ],
+    "contracts": "方案状态：这是带阻塞条件的开发交接方案，不是业务批准、写权限授予或完整链路就绪声明。基线对应 runId 5adf434b-5511-46a8-9ba7-9c7a8a728900、分支 codex/workflow/5adf434b-5511-46a8-9ba7-9c7a8a728900、登记 commit 955c815ce8a247624fbe2afa87196f1ddc529590；不声明已核实当前工作树与其一致。\n需求边界：飞书保留申请、审批和职位发布；HRM 承接发布后招聘协作，包含录用沟通，跟踪至实际到岗或确认未到岗，不办理员工入职手续。首期人工录入、集中资料、按参与关系协作及招聘待办；绩效延后，不引入外部自动同步、消息通知、自动停招或自动合并。\n数据与接口：只确定职位、招聘资料、应聘过程、参与关系、轮次评价、到岗事实和待办之间存在业务联系；实体拆分、标识、字段、枚举、表约束、HTTP 路由和响应结构须在相关 blocker 关闭且工程栈核实后确定。当前不冻结数据库 schema 或正式 API。数据库模块提供持久化边界，后端统一执行权限、状态变更和人数计算，前端消费经授权的数据与操作结果。\n业务不变量：职位有一名主责 HR 和一名用人负责人，面试官按轮次指定；HR 推进、负责人初筛及最终决定、面试官提交评价。HR 共享查看不推导出代办权。负责人和面试官按参与范围访问，约束覆盖查询、直接访问、资料入口与实际写入。管理员、敏感字段及下载例外保持未决。\n人数口径：仅实际到岗事实计入已使用人数；录用决定、薪资沟通和预计到岗日期不增加已使用人数；待入职人数单列。待入职起算、更正、防重及计划人数限制不补设默认规则。\n一致性边界：状态、人数、授权和待办存在联动，需在 B03—B10 关闭后明确原子性、重试、并发冲突与审计要求，再选择工程实现。不得以技术默认值替代业务决定。\n文件责任：tasks 按依赖拓扑排序，每个列出的文件只有一个任务负责。所有路径均为源码根内拟新增文件，不代表已存在或已获新增批准；现有 writablePaths 为空，不要求修改全部源码根。AGENTS.md、README.md、scripts/check_product_prototype.mjs 是 checkFiles，不分配修改任务。若实际框架要求其他入口、schema 或迁移文件，先补充证据并修订精确路径及唯一负责人。\n追踪与验证：requirementRefs、acceptanceRefs 仅引用登记 requirements 的 product:L 标识；contextRefs 仅引用登记 contextFiles 的 file:路径；verificationRefs 仅使用 project:check、project:build、project:smoke。A01—A12/T01—T12 为测试设计，不是通过记录。登记检查的实际命令、测试覆盖与执行环境尚待核实，当前未执行任何检查、构建、测试或原型脚本。README 的已收口和至录用决策表述、原型中的管理员权限与评价齐备断言均不能替代当前产品规则。",
+    "tasks": [
+      {
+        "id": "T01",
+        "role": "backend",
+        "paths": [
+          "packages/database/src/recruitment.ts"
+        ],
+        "dependsOn": [],
+        "requirementRefs": [
+          "product:L41",
+          "product:L42",
+          "product:L61",
+          "product:L139",
+          "product:L143",
+          "product:L144",
+          "product:L145",
+          "product:L148",
+          "product:L149"
+        ],
+        "acceptanceRefs": [
+          "product:L111",
+          "product:L113",
+          "product:L120",
+          "product:L121",
+          "product:L126"
+        ],
+        "contextRefs": [
+          "file:AGENTS.md",
+          "file:README.md"
+        ],
+        "constraints": [
+          "受 B01、B03—B06、B09、B10、B12 阻塞；先核实真实数据库和模块导出方式，再确定正式模型与存储实现。",
+          "本任务唯一负责所列拟新增文件；不创建未经核实的 Prisma schema、迁移或包配置，不修改 checkFiles。",
+          "明确招聘资料、应聘过程、职位、参与关系、轮次评价及到岗事实的持久化边界；实体拆分、唯一性、历史和删除策略只采用补齐后的规则。",
+          "人数查询保留实际到岗与待入职的独立口径，不从录用决定或预计到岗日期推导已使用人数。",
+          "一致性、失败保存、重试和并发策略待 B10 关闭后确定；不得自行加入候选人自动合并。"
+        ],
+        "verificationRefs": [
+          "project:check",
+          "project:build",
+          "project:smoke"
+        ]
+      },
+      {
+        "id": "T02",
+        "role": "backend",
+        "paths": [
+          "apps/api/src/recruitment/policy.ts"
+        ],
+        "dependsOn": [
+          "T01"
+        ],
+        "requirementRefs": [
+          "product:L62",
+          "product:L63",
+          "product:L64",
+          "product:L65",
+          "product:L85",
+          "product:L86",
+          "product:L87",
+          "product:L88",
+          "product:L89",
+          "product:L91",
+          "product:L146",
+          "product:L148"
+        ],
+        "acceptanceRefs": [
+          "product:L115",
+          "product:L116",
+          "product:L117",
+          "product:L127",
+          "product:L128"
+        ],
+        "contextRefs": [
+          "file:AGENTS.md",
+          "file:scripts/check_product_prototype.mjs"
+        ],
+        "constraints": [
+          "受 B07、B09、B12 阻塞；核实身份来源、服务端调用边界和细分动作后实现，不使用原型 persona 作为正式身份凭证。",
+          "本任务唯一负责所列拟新增权限模块；不修改其他任务文件或 checkFiles。",
+          "统一判断主体、业务对象、参与关系和操作资格；HR 共享查看不得自动获得写入或代办权。",
+          "用人负责人、面试官按参与范围访问；策略必须供查询、直接访问、资料入口和写入共同使用。",
+          "转交授权范围、期限、撤销、接管、管理员例外和敏感字段策略必须来自补齐规则，不默认管理员全可见或全禁止。"
+        ],
+        "verificationRefs": [
+          "project:check",
+          "project:build",
+          "project:smoke"
+        ]
+      },
+      {
+        "id": "T03",
+        "role": "backend",
+        "paths": [
+          "apps/api/src/recruitment/service.ts"
+        ],
+        "dependsOn": [
+          "T01",
+          "T02"
+        ],
+        "requirementRefs": [
+          "product:L15",
+          "product:L40",
+          "product:L41",
+          "product:L42",
+          "product:L43",
+          "product:L44",
+          "product:L46",
+          "product:L48",
+          "product:L49",
+          "product:L50",
+          "product:L51",
+          "product:L59",
+          "product:L60",
+          "product:L61",
+          "product:L62",
+          "product:L63",
+          "product:L64",
+          "product:L65",
+          "product:L76",
+          "product:L77",
+          "product:L140",
+          "product:L141",
+          "product:L142",
+          "product:L143",
+          "product:L144",
+          "product:L145",
+          "product:L149",
+          "product:L157"
+        ],
+        "acceptanceRefs": [
+          "product:L111",
+          "product:L112",
+          "product:L113",
+          "product:L114",
+          "product:L118",
+          "product:L120",
+          "product:L121",
+          "product:L122",
+          "product:L129"
+        ],
+        "contextRefs": [
+          "file:AGENTS.md",
+          "file:README.md",
+          "file:scripts/check_product_prototype.mjs"
+        ],
+        "constraints": [
+          "受 B01—B07、B09、B10、B12 阻塞；本任务只在相关规则补齐及工程栈核实后实施。",
+          "本任务唯一负责所列拟新增服务模块；正式路由、认证装配和既有入口修改须核实后修订路径清单，不能宣称仅凭服务文件已完成 API 接入。",
+          "所有读取、资料访问和写入调用 T02 的权限判断，通过 T01 持久化；不在路由或前端复制业务权限。",
+          "招聘跟进包含录用沟通并到实际到岗或确认未到岗结束，不办理员工入职手续。",
+          "只按实际到岗计算已使用人数，待入职单列；不得自动招满、停招或限制招聘推进。",
+          "初筛、轮次、评价齐备、退出恢复、职位关闭、到岗更正和失败重试均使用补齐后的状态与操作规则，不复制原型断言。"
+        ],
+        "verificationRefs": [
+          "project:check",
+          "project:build",
+          "project:smoke"
+        ]
+      },
+      {
+        "id": "T04",
+        "role": "backend",
+        "paths": [
+          "apps/api/src/recruitment/todos.ts"
+        ],
+        "dependsOn": [
+          "T01",
+          "T02",
+          "T03"
+        ],
+        "requirementRefs": [
+          "product:L95",
+          "product:L97",
+          "product:L98",
+          "product:L99",
+          "product:L100",
+          "product:L101",
+          "product:L103",
+          "product:L142",
+          "product:L145",
+          "product:L146",
+          "product:L147",
+          "product:L149"
+        ],
+        "acceptanceRefs": [
+          "product:L116",
+          "product:L119",
+          "product:L121",
+          "product:L122"
+        ],
+        "contextRefs": [
+          "file:AGENTS.md",
+          "file:scripts/check_product_prototype.mjs"
+        ],
+        "constraints": [
+          "受 B03、B06—B10、B12 阻塞；尤其须先补齐三类待办的完整规则，不能设置默认天数或提醒周期。",
+          "本任务唯一负责所列拟新增待办服务文件；是否使用查询计算、持久化投影或调度器须根据确认后的刷新要求和真实工程确定。",
+          "分别实现评价未提交、面试逾期、长期未推进的责任人、生成、重置、去重与消除规则。",
+          "待办按 T02 的访问与操作资格返回，转交撤销、改期、退出恢复和职位关闭按补齐后的规则与 T03 联动。",
+          "首期不依赖飞书、Boss 或外部消息自动通知；不得将待办方向扩展为自动催办业务。"
+        ],
+        "verificationRefs": [
+          "project:check",
+          "project:build",
+          "project:smoke"
+        ]
+      },
+      {
+        "id": "T05",
+        "role": "frontend",
+        "paths": [
+          "apps/web/app/recruitment/RecruitmentWorkspace.tsx"
+        ],
+        "dependsOn": [
+          "T02",
+          "T03"
+        ],
+        "requirementRefs": [
+          "product:L15",
+          "product:L41",
+          "product:L42",
+          "product:L59",
+          "product:L60",
+          "product:L61",
+          "product:L62",
+          "product:L63",
+          "product:L64",
+          "product:L65",
+          "product:L76",
+          "product:L77",
+          "product:L85",
+          "product:L88",
+          "product:L89",
+          "product:L91",
+          "product:L149"
+        ],
+        "acceptanceRefs": [
+          "product:L111",
+          "product:L112",
+          "product:L113",
+          "product:L114",
+          "product:L115",
+          "product:L117",
+          "product:L118",
+          "product:L120",
+          "product:L121",
+          "product:L122",
+          "product:L126",
+          "product:L127",
+          "product:L128",
+          "product:L129"
+        ],
+        "contextRefs": [
+          "file:AGENTS.md",
+          "file:README.md",
+          "file:scripts/check_product_prototype.mjs"
+        ],
+        "constraints": [
+          "受 B01—B07、B09、B10、B12 阻塞；先核实 Web 框架、页面结构、接口装配和字段操作定义。",
+          "本任务唯一负责所列拟新增界面模块；文件不是已核实的路由入口，实际挂载需要其他文件时先修订路径责任清单。",
+          "按确认后的页面边界组织职位、资料、应聘过程、评价、录用沟通和到岗跟踪；列表与详情、输入字段与操作资格分别表达。",
+          "已使用人数与待入职人数分开展示；录用决定、薪资沟通和预计到岗日期不直接改变已使用人数。",
+          "展示服务端授权后的资料和操作结果；隐藏按钮或列表不能替代后端权限，直接访问和附件入口必须与 T02、T03 一致。",
+          "必填、格式、文件限制、失败保留输入、重试和并发反馈使用补齐后的规则，不自行设置业务阈值或保存策略。"
+        ],
+        "verificationRefs": [
+          "project:check",
+          "project:build",
+          "project:smoke"
+        ]
+      },
+      {
+        "id": "T06",
+        "role": "frontend",
+        "paths": [
+          "apps/web/app/recruitment/RecruitmentTodoWorkspace.tsx"
+        ],
+        "dependsOn": [
+          "T04",
+          "T05"
+        ],
+        "requirementRefs": [
+          "product:L4",
+          "product:L7",
+          "product:L24",
+          "product:L95",
+          "product:L97",
+          "product:L98",
+          "product:L99",
+          "product:L100",
+          "product:L101",
+          "product:L103",
+          "product:L107",
+          "product:L146",
+          "product:L147",
+          "product:L149",
+          "product:L150",
+          "product:L166"
+        ],
+        "acceptanceRefs": [
+          "product:L116",
+          "product:L119",
+          "product:L121",
+          "product:L128",
+          "product:L131",
+          "product:L150"
+        ],
+        "contextRefs": [
+          "file:AGENTS.md",
+          "file:README.md",
+          "file:scripts/check_product_prototype.mjs"
+        ],
+        "constraints": [
+          "受 B07—B12 阻塞；试点成功标准未明确前不将页面完成或登记检查通过标为试点通过。",
+          "本任务唯一负责所列拟新增工作台模块；真实路由和导航入口须核实后再确定接入文件。",
+          "消费 T04 的授权结果，呈现三类待办及其确认后的责任、时间和处理入口，不在浏览器重复计算阈值或判定权限。",
+          "处理入口复用 T05 的招聘操作，并按确认后的刷新和失败反馈规则更新列表，不使用演示内存数据作为正式实现。",
+          "project:check、project:build、project:smoke 的实际命令和覆盖核实后执行并保留结果；未覆盖的权限、失败、并发和端到端场景须明确报告，不以原型脚本或 A/T 编号替代通过证据。",
+          "4 位 HR、数百候选人及期望启用日期仅作为试点背景，不据此编造性能门槛或交付承诺。"
+        ],
+        "verificationRefs": [
+          "project:check",
+          "project:build",
+          "project:smoke"
+        ]
+      }
+    ],
+    "blockers": [
+      "B01｜product:L139：候选人与应聘记录的关系，以及重复、转投、并行和再次应聘规则未确认，阻塞正式数据模型、资料归属和历史记录设计。",
+      "B02｜product:L140、product:L141：状态进入退出条件、初筛结果、邀约重试、轮次增减或跳过、评价齐备条件未确认，阻塞流程命令及 A02/T02。",
+      "B03｜product:L142：拒绝、撤回、缺席、取消、未到岗及恢复规则未确认，阻塞异常闭环、历史留存、人数与待办联动及 A08/T08。",
+      "B04｜product:L143：待入职人数起算和离开条件、达到计划人数后的推进限制未确认，阻塞人数计算与 A04/T04。",
+      "B05｜product:L144：到岗登记与更正权限、重复登记处理和历史记录要求未确认，阻塞到岗写入与 A10/T10。",
+      "B06｜product:L145：职位承接方式、来源标识、计划人数变更、暂停关闭及在途记录处理未确认，阻塞职位生命周期与 A12/T12。",
+      "B07｜product:L146：转交、临时代办的发起、批准、范围、期限、撤销、接管及待办归属未确认，阻塞授权生命周期与 A06/T06。",
+      "B08｜product:L147：三类待办的触发事件、责任人、起算、阈值、重置、去重、消除和刷新规则未确认，阻塞待办计算及 A09/T09。",
+      "B09｜product:L148：敏感字段可见性、简历下载、管理员访问、审计、保存期限和删除治理未确认，阻塞资料访问与权限完整验收。",
+      "B10｜product:L149：字段必填、长度、格式、文件限制、页面操作、失败保存、重试及并发处理未确认，阻塞输入输出契约、交互及 A11/T11。",
+      "B11｜product:L150：试点最低可用结果和可检查成功标准未确认，阻塞试点验收与发布就绪判断。",
+      "B12｜工程证据不足：project.preparationIssues 列出的包清单、锁文件、工作区配置和 scripts/smoke.mjs 未提供可读正文；本次对 apps/api/src/main.ts、apps/web/app/page.tsx、packages/database/prisma/schema.prisma 的候选读取也未命中。不能据此判断真实仓库缺失这些文件，但无法核实框架、依赖、认证、数据库、装配入口和检查命令。任务路径为 writableRoots 内的拟新增模块，接入现有工程前须核实完整源码；若需要修改其他入口，必须先修订文件责任清单。",
+      "工程上下文缺口：缺少可读取的工程文件：package.json",
+      "工程上下文缺口：缺少可读取的工程文件：pnpm-lock.yaml",
+      "工程上下文缺口：缺少可读取的工程文件：pnpm-workspace.yaml",
+      "工程上下文缺口：缺少可读取的工程文件：apps/web/package.json",
+      "工程上下文缺口：缺少可读取的工程文件：apps/api/package.json",
+      "工程上下文缺口：缺少可读取的工程文件：packages/database/package.json",
+      "工程上下文缺口：缺少可读取的工程文件：scripts/smoke.mjs"
+    ],
+    "risks": [
+      "README 已核读的已收口及至录用决策描述与当前产品正文冲突，容易让研发提前冻结接口或漏实现到岗跟踪；该文件属于 checkFiles，本方案不安排修改。",
+      "原型检查脚本中的管理员访问、下载权限和评价齐备断言包含未确认业务选择，直接复用会造成权限或流程偏差。",
+      "工程快照不足，拟新增模块的命名、扩展名和接入方式仍可能随真实框架调整；当前不能估算迁移成本或承诺端到端装配完成。",
+      "身份来源、附件存储和数据库能力未核实，权限与资料访问的方案尚不能证明已覆盖真实服务端边界。",
+      "数百候选人、4 位 HR 的试点规模提供了使用背景，但没有查询时延、并发量或性能门槛，不能虚构性能验收指标。",
+      "2026 年 11 月 15 日为期望开始使用日期；业务阻塞和工程证据不足使该日期无法成为本方案的交付承诺。"
+    ]
+  },
+  "planHash": "06c95857841531982d9895df8b3fa75a119fd179eee83270e48dbfdb4621f07c",
+  "reviews": [],
+  "readiness": null,
+  "codeReviews": [],
+  "work": [
+    {
+      "role": "context",
+      "round": 0,
+      "text": "{\"rules\":[{\"text\":\"项目沟通、产品决策记录和项目说明使用中文；保护与当前任务无关的已有修改；Git 提交信息遵循 type(scope): message。\",\"refs\":[\"file:AGENTS.md\"]},{\"text\":\"项目阶段门禁要求：产品发现结论确认前不进入技术方案和业务代码实现；MVP 范围确认前不建立正式数据库模型和接口契约。每项功能需明确目标角色、业务价值、成功指标和验收标准。\",\"refs\":[\"file:AGENTS.md\"]},{\"text\":\"需求权威顺序为已确认产品决策、公共规范、模块范围说明及 PRD、用户故事补充说明。新业务范围、授权、状态规则和成功门槛需要业务确认，不能将建议写成已确认结论。\",\"refs\":[\"file:AGENTS.md\"]},{\"text\":\"项目区分产品协作过程与正式需求交付：docs/product/ 保存权威需求维护及过程资料，docs/output/ 面向研发、测试等非产品角色。正式交付应能独立说明业务、操作、权限、异常和验收，不能要求读者依赖聊天或确认历史。\",\"refs\":[\"file:AGENTS.md\",\"file:README.md\"]},{\"text\":\"公共字段、表单、附件、错误处理、权限、审计和数据生命周期规则保持唯一权威来源；模块引用公共规范并定义自身例外。涉及敏感人事数据时，需要明确查看、修改、下载、导出、删除、恢复、审计和生命周期要求，具体业务政策仍须有确认依据。\",\"refs\":[\"file:AGENTS.md\"]},{\"text\":\"当前产品正文是尚未形成完整需求基线的写作稿。已确认规则可作为细化依据，建议及未决项不构成批准行为；完整招聘链路、关键权限和试点最低验收门槛仍存在阻塞。\",\"refs\":[\"product:L4\",\"product:L7\",\"product:L166\"]},{\"text\":\"飞书继续承担招聘申请、审批和职位发布；HRM 从职位发布后承接内部招聘协作，包含录用沟通并持续跟踪至实际到岗或确认未到岗，不办理员工入职手续。该终点已取代旧的“到最终决策”口径。\",\"refs\":[\"product:L15\",\"product:L59\",\"product:L60\",\"product:L76\",\"product:L157\"]},{\"text\":\"首期范围为人工录入候选人资料与招聘过程、集中管理简历及招聘资料、按参与关系开展招聘协作和提供招聘待办工作台。绩效管理延后；首期不依赖飞书、Boss 直聘接口或外部消息服务实现自动同步和通知，不擅自加入自动招满、自动停招或候选人自动合并等流程。\",\"refs\":[\"product:L40\",\"product:L41\",\"product:L42\",\"product:L43\",\"product:L44\",\"product:L46\",\"product:L48\",\"product:L49\",\"product:L50\",\"product:L51\"]},{\"text\":\"只有实际到岗才计为职位已使用名额；到岗前单列待入职人数。录用决定、薪资沟通或填写预计到岗日期本身不得增加已使用人数，不得恢复使用“接受录用即占用名额”的旧口径。\",\"refs\":[\"product:L44\",\"product:L61\",\"product:L77\",\"product:L113\",\"product:L126\",\"product:L157\"]},{\"text\":\"每个职位配置一名主责 HR 和一名用人负责人，面试官按轮次指定。HR 负责招聘推进，用人负责人负责初筛及最终招聘决定，面试官提交指定轮次评价。\",\"refs\":[\"product:L62\",\"product:L63\",\"product:L64\",\"product:L65\"]},{\"text\":\"HR 可共享查看招聘资料，但共享查看不赋予共同修改或代办权限；其他 HR 必须获得明确转交或授权后才能代办。转交和授权的具体动作范围及生命周期尚待确认。\",\"refs\":[\"product:L64\",\"product:L85\",\"product:L86\",\"product:L87\",\"product:L127\"]},{\"text\":\"用人负责人和面试官按参与范围访问招聘资料。权限控制必须覆盖实际写入、直接访问及资料入口，不能只隐藏页面或列表；敏感字段、下载及管理员访问的细则尚未确认。\",\"refs\":[\"product:L65\",\"product:L88\",\"product:L89\",\"product:L91\",\"product:L128\"]},{\"text\":\"招聘待办工作台重点关注评价未提交、面试逾期和候选人长期未推进三类问题。当前只确认方向，不能据此推断提醒时间、逾期阈值、自动催办方式、刷新、去重或清除规则。\",\"refs\":[\"product:L95\",\"product:L97\",\"product:L98\",\"product:L99\",\"product:L100\",\"product:L101\",\"product:L103\"]},{\"text\":\"A01–A12 和 T01–T12 是验收目标及测试设计，不能视为测试通过记录。产品材料明确未执行实际测试、故障注入、权限检查或试点；完整链路尚不具备完整验收条件。\",\"refs\":[\"product:L107\",\"product:L109\",\"product:L126\",\"product:L127\",\"product:L128\",\"product:L129\",\"product:L131\"]},{\"text\":\"首批拟以技术部前端高级开发招聘试点，涉及 4 位 HR 和数百位候选人。2026 年 11 月 15 日是期望开始使用的日期，不是已评估的工程交付承诺；指标基线、目标值和最低试用通过门槛未确认。\",\"refs\":[\"product:L24\",\"product:L34\",\"product:L150\"]},{\"text\":\"候选 README 声称招聘 MVP 产品定义已收口、文档复核完成，并将业务范围描述至录用决策；这些表述与当前产品正文的未完成基线状态及实际到岗跟踪边界存在冲突，不能据 README 判定当前产品已完整收口。\",\"refs\":[\"file:README.md\",\"product:L4\",\"product:L7\",\"product:L60\",\"product:L157\",\"product:L166\"]},{\"text\":\"候选原型检查脚本使用 Puppeteer、hash 路由、persona 切换和浏览器内 db 驱动演示检查；默认访问 http://127.0.0.1:8765，支持 HRM_PROTOTYPE_URL、HRM_PUPPETEER_MODULE 和 HRM_CHROME_PATH 配置。该源码只能证明检查逻辑存在，不能证明脚本已经运行或原型已经通过检查。\",\"refs\":[\"file:scripts/check_product_prototype.mjs\"]},{\"text\":\"原型脚本包含管理员不能查看招聘资料、面试官无简历下载入口、终面评价齐全通过进入待决策、HR 外部确认后录用及内推渠道处理等断言。这些属于候选原型检查内容；涉及尚未确认的权限、评价条件或流程细则时，不能直接升级为现行产品规则。\",\"refs\":[\"file:scripts/check_product_prototype.mjs\",\"product:L63\",\"product:L88\",\"product:L89\",\"product:L91\",\"product:L141\",\"product:L148\",\"product:L158\"]}],\"unknowns\":[\"候选人与应聘记录的对象关系，以及重复、转投、并行和再次应聘的处理方式尚未确认，不能据此确定正式数据模型。\",\"招聘各节点的前置条件、进入退出条件、初筛结果、邀约重试、轮次增减或跳过、评价未齐时能否决定，以及拒绝、撤回、缺席、取消和恢复规则尚未确认。\",\"待入职人数的起算及离开条件、达到计划人数后是否限制邀约或录用、到岗登记与更正权限、防重和历史记录规则尚未确认。\",\"职位从飞书承接的方式、来源标识、计划人数变更、暂停关闭及在途候选人的处理规则尚未确认。\",\"HR 转交及临时代办的发起、批准、范围、期限、撤销、接管和待办归属规则尚未确认。\",\"三类待办的生成事件、责任人、起算时间、阈值、重置、去重、清除、刷新，以及转交、改期、退出或关职后的处理规则尚未确认。\",\"联系方式、薪资、评价历史等敏感字段的可见范围、简历下载、管理员访问、审计、保存期限和删除治理尚未确认。\",\"字段必填、长度、格式、文件限制、校验反馈、写入失败、部分保存、重试和并发冲突规则尚未确认。\",\"README 及原型检查脚本与当前产品正文的差异尚未完成同步核实；它们引用的其他需求、决策和交付文档未作为本次候选文件逐一读取，不能断言其内容与当前产品一致。\",\"本次可读取候选文件未提供根 package.json、pnpm-lock.yaml、pnpm-workspace.yaml、各应用及数据库包的 package.json 和 scripts/smoke.mjs 正文，无法核实实际技术栈、依赖版本、构建入口、数据库配置及检查命令；不能据此断言真实仓库不存在这些文件。\",\"未读取实际应用源码、数据库模型或完整工程参考快照，无法确认原型行为是否对应正式实现，也无法确认当前工程是否支持已批准业务规则。\",\"project:check、project:build 和 project:smoke 仅有注册信息，本次未执行检查、构建、测试或原型脚本，没有可报告的工程通过结果。\",\"试点最低可用结果、可检查成功标准、联合交接及实际试点安排尚未确认；当前没有充分证据判定可开发、可发布或完整链路验收就绪。\"]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile",
+        "readFile",
+        "readFile",
+        "locate",
+        "read",
+        "read",
+        "read",
+        "read",
+        "locate",
+        "read",
+        "read",
+        "readFile",
+        "readFile",
+        "readFile"
+      ],
+      "steps": 11,
+      "modelId": "gpt-6-astra",
+      "inputTokens": 191900,
+      "outputTokens": 3143
+    },
+    {
+      "role": "architect",
+      "round": 0,
+      "text": "{\"summary\":\"已形成 HRM 招聘协作的条件式技术任务包：6 项任务按数据边界、权限、招聘服务、待办服务、招聘界面、工作台的依赖顺序排列，拟新增文件各有唯一负责人，引用按 requirements、contextFiles、registeredChecks 分离。当前有 11 类业务规则缺口及工程证据阻塞；任务列明解除条件，未冻结正式数据库模型或 API，未修改文件、执行脚本或运行检查，也未判断完整链路可开发、可验收或可发布。\",\"coverage\":[{\"requirement\":\"product:L15、product:L40—product:L51、product:L59—product:L60、product:L76、product:L157\",\"behavior\":\"从飞书发布后承接人工招聘协作，覆盖录用沟通至实际到岗或确认未到岗；不扩展员工入职手续、绩效、外部自动同步和自动停招。\",\"verification\":\"T03、T05 承接实现与页面核对；相关 blocker 关闭后通过 project:check、project:build、project:smoke 验证实际接入。当前无执行结果。\"},{\"requirement\":\"product:L41、product:L42、product:L111、product:L139、product:L149\",\"behavior\":\"人工资料录入、集中查询和复用；对象关系、重复处理、字段与附件约束保持未决。\",\"verification\":\"T01、T03、T05 对应 A01/T01；B01、B09、B10、B12 关闭后核验持久化、授权查询与输入反馈。\"},{\"requirement\":\"product:L62—product:L65、product:L112、product:L129、product:L140—product:L142\",\"behavior\":\"按主责 HR、用人负责人及轮次面试官分工推进；状态与轮次细则须补齐后实现。\",\"verification\":\"T02、T03、T05 对应 A02/T02、A08/T08；覆盖合法推进及拒绝、取消、恢复等已确认后的分支。\"},{\"requirement\":\"product:L61、product:L113、product:L114、product:L120、product:L126、product:L143—product:L145\",\"behavior\":\"已使用人数只由实际到岗事实产生，待入职人数单列；达到计划人数时的限制、更正和防重待确认。\",\"verification\":\"T01、T03、T05 对应 A03/T03、A04/T04、A10/T10、A12/T12；核验录用及预计到岗不改变已使用人数，以及补齐后的更正和职位关闭行为。\"},{\"requirement\":\"product:L64、product:L65、product:L85—product:L91、product:L115—product:L117、product:L127、product:L128、product:L146、product:L148\",\"behavior\":\"共享查看与代办权限分离；按参与范围保护数据，服务端覆盖直接访问、资料入口和实际写入。\",\"verification\":\"T02、T03、T05 对应 A05/T05、A06/T06、A07/T07；分别核验未授权 HR、未参与负责人和面试官的访问与写入。管理员和敏感字段按补齐后的规则验收。\"},{\"requirement\":\"product:L95、product:L97—product:L103、product:L119、product:L147\",\"behavior\":\"工作台覆盖评价未提交、面试逾期和长期未推进三类事项；不推断阈值、责任人、去重与消除规则。\",\"verification\":\"T04、T06 对应 A09/T09；B08 关闭后按三类事项分别验证生成、重置、去重、消除、刷新及转交联动。\"},{\"requirement\":\"product:L121、product:L149\",\"behavior\":\"失败保存、重试、并发及关联状态与待办的一致性按补齐后的规则实现，不自行指定部分保存或冲突策略。\",\"verification\":\"T01、T03—T06 对应 A11/T11；结合真实存储执行失败、重复请求和并发场景，登记检查不足以覆盖时须明确报告缺口。\"},{\"requirement\":\"product:L4、product:L7、product:L24、product:L107、product:L131、product:L150、product:L166\",\"behavior\":\"保持写作稿及未完整验收状态；期望启用日期不转为工程承诺，试点门槛未确认前不判断可发布。\",\"verification\":\"所有任务保留阻塞条件与执行证据；project:check、project:build、project:smoke 即使后续通过，也不单独代表业务规则完整或试点成功。\"}],\"contracts\":\"方案状态：这是带阻塞条件的开发交接方案，不是业务批准、写权限授予或完整链路就绪声明。基线对应 runId 5adf434b-5511-46a8-9ba7-9c7a8a728900、分支 codex/workflow/5adf434b-5511-46a8-9ba7-9c7a8a728900、登记 commit 955c815ce8a247624fbe2afa87196f1ddc529590；不声明已核实当前工作树与其一致。\\n需求边界：飞书保留申请、审批和职位发布；HRM 承接发布后招聘协作，包含录用沟通，跟踪至实际到岗或确认未到岗，不办理员工入职手续。首期人工录入、集中资料、按参与关系协作及招聘待办；绩效延后，不引入外部自动同步、消息通知、自动停招或自动合并。\\n数据与接口：只确定职位、招聘资料、应聘过程、参与关系、轮次评价、到岗事实和待办之间存在业务联系；实体拆分、标识、字段、枚举、表约束、HTTP 路由和响应结构须在相关 blocker 关闭且工程栈核实后确定。当前不冻结数据库 schema 或正式 API。数据库模块提供持久化边界，后端统一执行权限、状态变更和人数计算，前端消费经授权的数据与操作结果。\\n业务不变量：职位有一名主责 HR 和一名用人负责人，面试官按轮次指定；HR 推进、负责人初筛及最终决定、面试官提交评价。HR 共享查看不推导出代办权。负责人和面试官按参与范围访问，约束覆盖查询、直接访问、资料入口与实际写入。管理员、敏感字段及下载例外保持未决。\\n人数口径：仅实际到岗事实计入已使用人数；录用决定、薪资沟通和预计到岗日期不增加已使用人数；待入职人数单列。待入职起算、更正、防重及计划人数限制不补设默认规则。\\n一致性边界：状态、人数、授权和待办存在联动，需在 B03—B10 关闭后明确原子性、重试、并发冲突与审计要求，再选择工程实现。不得以技术默认值替代业务决定。\\n文件责任：tasks 按依赖拓扑排序，每个列出的文件只有一个任务负责。所有路径均为源码根内拟新增文件，不代表已存在或已获新增批准；现有 writablePaths 为空，不要求修改全部源码根。AGENTS.md、README.md、scripts/check_product_prototype.mjs 是 checkFiles，不分配修改任务。若实际框架要求其他入口、schema 或迁移文件，先补充证据并修订精确路径及唯一负责人。\\n追踪与验证：requirementRefs、acceptanceRefs 仅引用登记 requirements 的 product:L 标识；contextRefs 仅引用登记 contextFiles 的 file:路径；verificationRefs 仅使用 project:check、project:build、project:smoke。A01—A12/T01—T12 为测试设计，不是通过记录。登记检查的实际命令、测试覆盖与执行环境尚待核实，当前未执行任何检查、构建、测试或原型脚本。README 的已收口和至录用决策表述、原型中的管理员权限与评价齐备断言均不能替代当前产品规则。\",\"tasks\":[{\"id\":\"T01\",\"role\":\"backend\",\"paths\":[\"packages/database/src/recruitment.ts\"],\"dependsOn\":[],\"requirementRefs\":[\"product:L41\",\"product:L42\",\"product:L61\",\"product:L139\",\"product:L143\",\"product:L144\",\"product:L145\",\"product:L148\",\"product:L149\"],\"acceptanceRefs\":[\"product:L111\",\"product:L113\",\"product:L120\",\"product:L121\",\"product:L126\"],\"contextRefs\":[\"file:AGENTS.md\",\"file:README.md\"],\"constraints\":[\"受 B01、B03—B06、B09、B10、B12 阻塞；先核实真实数据库和模块导出方式，再确定正式模型与存储实现。\",\"本任务唯一负责所列拟新增文件；不创建未经核实的 Prisma schema、迁移或包配置，不修改 checkFiles。\",\"明确招聘资料、应聘过程、职位、参与关系、轮次评价及到岗事实的持久化边界；实体拆分、唯一性、历史和删除策略只采用补齐后的规则。\",\"人数查询保留实际到岗与待入职的独立口径，不从录用决定或预计到岗日期推导已使用人数。\",\"一致性、失败保存、重试和并发策略待 B10 关闭后确定；不得自行加入候选人自动合并。\"],\"verificationRefs\":[\"project:check\",\"project:build\",\"project:smoke\"]},{\"id\":\"T02\",\"role\":\"backend\",\"paths\":[\"apps/api/src/recruitment/policy.ts\"],\"dependsOn\":[\"T01\"],\"requirementRefs\":[\"product:L62\",\"product:L63\",\"product:L64\",\"product:L65\",\"product:L85\",\"product:L86\",\"product:L87\",\"product:L88\",\"product:L89\",\"product:L91\",\"product:L146\",\"product:L148\"],\"acceptanceRefs\":[\"product:L115\",\"product:L116\",\"product:L117\",\"product:L127\",\"product:L128\"],\"contextRefs\":[\"file:AGENTS.md\",\"file:scripts/check_product_prototype.mjs\"],\"constraints\":[\"受 B07、B09、B12 阻塞；核实身份来源、服务端调用边界和细分动作后实现，不使用原型 persona 作为正式身份凭证。\",\"本任务唯一负责所列拟新增权限模块；不修改其他任务文件或 checkFiles。\",\"统一判断主体、业务对象、参与关系和操作资格；HR 共享查看不得自动获得写入或代办权。\",\"用人负责人、面试官按参与范围访问；策略必须供查询、直接访问、资料入口和写入共同使用。\",\"转交授权范围、期限、撤销、接管、管理员例外和敏感字段策略必须来自补齐规则，不默认管理员全可见或全禁止。\"],\"verificationRefs\":[\"project:check\",\"project:build\",\"project:smoke\"]},{\"id\":\"T03\",\"role\":\"backend\",\"paths\":[\"apps/api/src/recruitment/service.ts\"],\"dependsOn\":[\"T01\",\"T02\"],\"requirementRefs\":[\"product:L15\",\"product:L40\",\"product:L41\",\"product:L42\",\"product:L43\",\"product:L44\",\"product:L46\",\"product:L48\",\"product:L49\",\"product:L50\",\"product:L51\",\"product:L59\",\"product:L60\",\"product:L61\",\"product:L62\",\"product:L63\",\"product:L64\",\"product:L65\",\"product:L76\",\"product:L77\",\"product:L140\",\"product:L141\",\"product:L142\",\"product:L143\",\"product:L144\",\"product:L145\",\"product:L149\",\"product:L157\"],\"acceptanceRefs\":[\"product:L111\",\"product:L112\",\"product:L113\",\"product:L114\",\"product:L118\",\"product:L120\",\"product:L121\",\"product:L122\",\"product:L129\"],\"contextRefs\":[\"file:AGENTS.md\",\"file:README.md\",\"file:scripts/check_product_prototype.mjs\"],\"constraints\":[\"受 B01—B07、B09、B10、B12 阻塞；本任务只在相关规则补齐及工程栈核实后实施。\",\"本任务唯一负责所列拟新增服务模块；正式路由、认证装配和既有入口修改须核实后修订路径清单，不能宣称仅凭服务文件已完成 API 接入。\",\"所有读取、资料访问和写入调用 T02 的权限判断，通过 T01 持久化；不在路由或前端复制业务权限。\",\"招聘跟进包含录用沟通并到实际到岗或确认未到岗结束，不办理员工入职手续。\",\"只按实际到岗计算已使用人数，待入职单列；不得自动招满、停招或限制招聘推进。\",\"初筛、轮次、评价齐备、退出恢复、职位关闭、到岗更正和失败重试均使用补齐后的状态与操作规则，不复制原型断言。\"],\"verificationRefs\":[\"project:check\",\"project:build\",\"project:smoke\"]},{\"id\":\"T04\",\"role\":\"backend\",\"paths\":[\"apps/api/src/recruitment/todos.ts\"],\"dependsOn\":[\"T01\",\"T02\",\"T03\"],\"requirementRefs\":[\"product:L95\",\"product:L97\",\"product:L98\",\"product:L99\",\"product:L100\",\"product:L101\",\"product:L103\",\"product:L142\",\"product:L145\",\"product:L146\",\"product:L147\",\"product:L149\"],\"acceptanceRefs\":[\"product:L116\",\"product:L119\",\"product:L121\",\"product:L122\"],\"contextRefs\":[\"file:AGENTS.md\",\"file:scripts/check_product_prototype.mjs\"],\"constraints\":[\"受 B03、B06—B10、B12 阻塞；尤其须先补齐三类待办的完整规则，不能设置默认天数或提醒周期。\",\"本任务唯一负责所列拟新增待办服务文件；是否使用查询计算、持久化投影或调度器须根据确认后的刷新要求和真实工程确定。\",\"分别实现评价未提交、面试逾期、长期未推进的责任人、生成、重置、去重与消除规则。\",\"待办按 T02 的访问与操作资格返回，转交撤销、改期、退出恢复和职位关闭按补齐后的规则与 T03 联动。\",\"首期不依赖飞书、Boss 或外部消息自动通知；不得将待办方向扩展为自动催办业务。\"],\"verificationRefs\":[\"project:check\",\"project:build\",\"project:smoke\"]},{\"id\":\"T05\",\"role\":\"frontend\",\"paths\":[\"apps/web/app/recruitment/RecruitmentWorkspace.tsx\"],\"dependsOn\":[\"T02\",\"T03\"],\"requirementRefs\":[\"product:L15\",\"product:L41\",\"product:L42\",\"product:L59\",\"product:L60\",\"product:L61\",\"product:L62\",\"product:L63\",\"product:L64\",\"product:L65\",\"product:L76\",\"product:L77\",\"product:L85\",\"product:L88\",\"product:L89\",\"product:L91\",\"product:L149\"],\"acceptanceRefs\":[\"product:L111\",\"product:L112\",\"product:L113\",\"product:L114\",\"product:L115\",\"product:L117\",\"product:L118\",\"product:L120\",\"product:L121\",\"product:L122\",\"product:L126\",\"product:L127\",\"product:L128\",\"product:L129\"],\"contextRefs\":[\"file:AGENTS.md\",\"file:README.md\",\"file:scripts/check_product_prototype.mjs\"],\"constraints\":[\"受 B01—B07、B09、B10、B12 阻塞；先核实 Web 框架、页面结构、接口装配和字段操作定义。\",\"本任务唯一负责所列拟新增界面模块；文件不是已核实的路由入口，实际挂载需要其他文件时先修订路径责任清单。\",\"按确认后的页面边界组织职位、资料、应聘过程、评价、录用沟通和到岗跟踪；列表与详情、输入字段与操作资格分别表达。\",\"已使用人数与待入职人数分开展示；录用决定、薪资沟通和预计到岗日期不直接改变已使用人数。\",\"展示服务端授权后的资料和操作结果；隐藏按钮或列表不能替代后端权限，直接访问和附件入口必须与 T02、T03 一致。\",\"必填、格式、文件限制、失败保留输入、重试和并发反馈使用补齐后的规则，不自行设置业务阈值或保存策略。\"],\"verificationRefs\":[\"project:check\",\"project:build\",\"project:smoke\"]},{\"id\":\"T06\",\"role\":\"frontend\",\"paths\":[\"apps/web/app/recruitment/RecruitmentTodoWorkspace.tsx\"],\"dependsOn\":[\"T04\",\"T05\"],\"requirementRefs\":[\"product:L4\",\"product:L7\",\"product:L24\",\"product:L95\",\"product:L97\",\"product:L98\",\"product:L99\",\"product:L100\",\"product:L101\",\"product:L103\",\"product:L107\",\"product:L146\",\"product:L147\",\"product:L149\",\"product:L150\",\"product:L166\"],\"acceptanceRefs\":[\"product:L116\",\"product:L119\",\"product:L121\",\"product:L128\",\"product:L131\",\"product:L150\"],\"contextRefs\":[\"file:AGENTS.md\",\"file:README.md\",\"file:scripts/check_product_prototype.mjs\"],\"constraints\":[\"受 B07—B12 阻塞；试点成功标准未明确前不将页面完成或登记检查通过标为试点通过。\",\"本任务唯一负责所列拟新增工作台模块；真实路由和导航入口须核实后再确定接入文件。\",\"消费 T04 的授权结果，呈现三类待办及其确认后的责任、时间和处理入口，不在浏览器重复计算阈值或判定权限。\",\"处理入口复用 T05 的招聘操作，并按确认后的刷新和失败反馈规则更新列表，不使用演示内存数据作为正式实现。\",\"project:check、project:build、project:smoke 的实际命令和覆盖核实后执行并保留结果；未覆盖的权限、失败、并发和端到端场景须明确报告，不以原型脚本或 A/T 编号替代通过证据。\",\"4 位 HR、数百候选人及期望启用日期仅作为试点背景，不据此编造性能门槛或交付承诺。\"],\"verificationRefs\":[\"project:check\",\"project:build\",\"project:smoke\"]}],\"blockers\":[\"B01｜product:L139：候选人与应聘记录的关系，以及重复、转投、并行和再次应聘规则未确认，阻塞正式数据模型、资料归属和历史记录设计。\",\"B02｜product:L140、product:L141：状态进入退出条件、初筛结果、邀约重试、轮次增减或跳过、评价齐备条件未确认，阻塞流程命令及 A02/T02。\",\"B03｜product:L142：拒绝、撤回、缺席、取消、未到岗及恢复规则未确认，阻塞异常闭环、历史留存、人数与待办联动及 A08/T08。\",\"B04｜product:L143：待入职人数起算和离开条件、达到计划人数后的推进限制未确认，阻塞人数计算与 A04/T04。\",\"B05｜product:L144：到岗登记与更正权限、重复登记处理和历史记录要求未确认，阻塞到岗写入与 A10/T10。\",\"B06｜product:L145：职位承接方式、来源标识、计划人数变更、暂停关闭及在途记录处理未确认，阻塞职位生命周期与 A12/T12。\",\"B07｜product:L146：转交、临时代办的发起、批准、范围、期限、撤销、接管及待办归属未确认，阻塞授权生命周期与 A06/T06。\",\"B08｜product:L147：三类待办的触发事件、责任人、起算、阈值、重置、去重、消除和刷新规则未确认，阻塞待办计算及 A09/T09。\",\"B09｜product:L148：敏感字段可见性、简历下载、管理员访问、审计、保存期限和删除治理未确认，阻塞资料访问与权限完整验收。\",\"B10｜product:L149：字段必填、长度、格式、文件限制、页面操作、失败保存、重试及并发处理未确认，阻塞输入输出契约、交互及 A11/T11。\",\"B11｜product:L150：试点最低可用结果和可检查成功标准未确认，阻塞试点验收与发布就绪判断。\",\"B12｜工程证据不足：project.preparationIssues 列出的包清单、锁文件、工作区配置和 scripts/smoke.mjs 未提供可读正文；本次对 apps/api/src/main.ts、apps/web/app/page.tsx、packages/database/prisma/schema.prisma 的候选读取也未命中。不能据此判断真实仓库缺失这些文件，但无法核实框架、依赖、认证、数据库、装配入口和检查命令。任务路径为 writableRoots 内的拟新增模块，接入现有工程前须核实完整源码；若需要修改其他入口，必须先修订文件责任清单。\"],\"risks\":[\"README 已核读的已收口及至录用决策描述与当前产品正文冲突，容易让研发提前冻结接口或漏实现到岗跟踪；该文件属于 checkFiles，本方案不安排修改。\",\"原型检查脚本中的管理员访问、下载权限和评价齐备断言包含未确认业务选择，直接复用会造成权限或流程偏差。\",\"工程快照不足，拟新增模块的命名、扩展名和接入方式仍可能随真实框架调整；当前不能估算迁移成本或承诺端到端装配完成。\",\"身份来源、附件存储和数据库能力未核实，权限与资料访问的方案尚不能证明已覆盖真实服务端边界。\",\"数百候选人、4 位 HR 的试点规模提供了使用背景，但没有查询时延、并发量或性能门槛，不能虚构性能验收指标。\",\"2026 年 11 月 15 日为期望开始使用日期；业务阻塞和工程证据不足使该日期无法成为本方案的交付承诺。\"]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "locate",
+        "locate",
+        "locate",
+        "read",
+        "read",
+        "read",
+        "read",
+        "read",
+        "read",
+        "locate",
+        "locate",
+        "locate",
+        "locate",
+        "read",
+        "read",
+        "read",
+        "read",
+        "read",
+        "read",
+        "read",
+        "locate",
+        "locate",
+        "read",
+        "locate",
+        "read"
+      ],
+      "steps": 10,
+      "modelId": "gpt-6-astra",
+      "inputTokens": 179841,
+      "outputTokens": 7042
+    }
+  ],
+  "checks": [],
+  "checkpointHash": "7ba84bcc0b8078e38c1eae4ff6b1a0c8b3601af404dfaeb6621c150c3b726519",
+  "delivery": null,
+  "round": 0,
+  "outcome": "manual-attention"
+}
