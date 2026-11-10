@@ -1,6 +1,6 @@
 # HRM
 
-HRM业务应用仓库，使用pnpm monorepo。Mastra产研编排继续由ai-platform负责，本仓库统一保存业务代码、产品、测试和发布交付资源。当前是工程骨架，招聘功能待产品稿在Workflow中确认后开发。
+HRM业务应用仓库，使用pnpm monorepo。Mastra产研编排继续由ai-platform负责，本仓库统一保存业务代码、产品、测试和发布交付资源。当前已落地技术部前端招聘协作首期闭环，业务基线见[招聘协作PRD](./product/HRM招聘协作_PRD_V1.0.md)。
 
 ## 目录
 

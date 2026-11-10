@@ -1,35 +1,60 @@
- 'use client';
+'use client';
 
-import {useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 
-/** 展示环境边界并通过同源代理检查真实API与数据库就绪状态。 */
+type Role = 'hr' | 'manager' | 'interviewer' | 'admin';
+type Candidate = {id: string; name: string; phone: string; source: string; summary: string; status: string; updatedAt: string; interviews: Array<{id: string; round: number; title: string; scheduledAt: string; interviewerName: string; status: string}>};
+type Overview = {role: Role; currentUser: {name: string}; position: {name: string; department: string; ownerName: string}; candidates: Candidate[]; todos: Array<{candidateId: string; candidateName: string; label: string; status: string}>; activities: Array<{id: string; action: string; detail: string; operatorName: string; createdAt: string}>};
+
+const roleNames: Record<Role, string> = {hr: 'HR', manager: '用人负责人', interviewer: '面试官', admin: '管理员'};
+
+/** 招聘协作首期工作台：通过同源 API 验证职位、候选人、面试和待办闭环。 */
 export default function Home() {
-  const [status, setStatus] = useState('尚未检查');
-  const [checking, setChecking] = useState(false);
+  const [role, setRole] = useState<Role>('hr');
+  const [overview, setOverview] = useState<Overview | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [notice, setNotice] = useState('');
+  const [modal, setModal] = useState<'candidate' | null>(null);
 
-  /** 只有API返回预期固定结构时才报告就绪，失败允许用户重试。 */
-  async function checkReadiness(): Promise<void> {
-    if (checking) return;
-    setChecking(true);
-    try {
-      const response = await fetch('/api/health/ready', {cache: 'no-store', signal: AbortSignal.timeout(10000)});
-      if (!response.ok) throw new Error('not-ready');
-      const data: unknown = await response.json();
-      if (typeof data !== 'object' || data === null || !('status' in data) || data.status !== 'ok' || !('database' in data) || data.database !== 'ok') throw new Error('invalid-health');
-      setStatus('API 与数据库已就绪');
-    } catch {
-      setStatus('服务尚未就绪，请检查容器日志后重试');
-    } finally { setChecking(false); }
+  /** 按角色重新读取服务端事实，确保待办和权限都来自同一读模型。 */
+  async function loadOverview(nextRole: Role = role): Promise<void> {
+    setBusy(true);
+    try { const response = await fetch(`/api/recruitment/overview?role=${nextRole}`, {cache: 'no-store'}); if (!response.ok) throw new Error('overview-failed'); setOverview(await response.json() as Overview); } catch { setNotice('招聘数据暂时不可用，请检查 API 与数据库后重试。'); } finally { setBusy(false); }
   }
 
-  return <main>
-    <p className="eyebrow">HRM · 开发环境</p>
-    <h1>业务从这里开始</h1>
-    <p>Next.js、NestJS 与 PostgreSQL 已纳入同一个 pnpm workspace。招聘业务功能将在产品需求确认后开发。</p>
-    <section aria-labelledby="readiness-title" aria-busy={checking}>
-      <h2 id="readiness-title">环境就绪检查</h2>
-      <p role="status" aria-live="polite">{status}</p>
-      <button disabled={checking} onClick={checkReadiness}>{checking ? '检查中…' : '检查 API 与数据库'}</button>
-    </section>
-  </main>;
+  /** 初始化工作台并在角色切换后刷新服务端事实。 */
+  useEffect(() => { void loadOverview(); }, []);
+
+  /** 切换模拟角色，重新计算可见候选人、待办和联系方式脱敏范围。 */
+  function changeRole(nextRole: Role): void { setRole(nextRole); setSelectedId(null); void loadOverview(nextRole); }
+
+  /** 以统一 POST 入口提交业务动作，并在成功后刷新读模型。 */
+  async function submitAction(path: string, body: Record<string, unknown>): Promise<void> { setBusy(true); try { const response = await fetch(`/api/recruitment/${path}`, {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify({...body, role})}); if (!response.ok) { const data = await response.json().catch(() => null) as {message?: string} | null; throw new Error(data?.message ?? '操作失败'); } setModal(null); setNotice('操作已完成'); await loadOverview(role); } catch (error) { setNotice(error instanceof Error ? error.message : '操作失败'); } finally { setBusy(false); } }
+
+  const selected = overview?.candidates.find((candidate) => candidate.id === selectedId) ?? null;
+  const columns = useMemo(() => ({待筛选: overview?.candidates.filter((candidate) => candidate.status === '待筛选') ?? [], 进行中: overview?.candidates.filter((candidate) => !['待筛选', '待决策', '已录用', '已淘汰'].includes(candidate.status)) ?? [], 待决策: overview?.candidates.filter((candidate) => candidate.status === '待决策') ?? [], 已结束: overview?.candidates.filter((candidate) => ['已录用', '已淘汰'].includes(candidate.status)) ?? []}), [overview]);
+
+  return <main className="app-shell"><aside className="sidebar"><div className="brand"><span className="brand-mark">PF</span><span><strong>PeopleFlow HRM</strong><small>招聘协作试点</small></span></div><nav><button className="nav-active">⌂ 工作台</button><button onClick={() => setNotice('招聘管理已在当前工作台展开')}>▦ 招聘管理</button><button onClick={() => setNotice('绩效管理将在招聘闭环稳定后进入下一轮')}>◫ 绩效管理 <em>规划中</em></button><button onClick={() => setNotice('管理员配置能力将在正式账号接入后启用')}>⚙ 系统设置</button></nav><div className="sidebar-foot">技术部 · 前端招聘试点<br/>合成数据 / 模拟角色</div></aside><section className="workspace"><header className="topbar"><div><p className="eyebrow">招聘协作 / {overview?.position.department ?? '技术部'}</p><h1>你好，{overview?.currentUser.name ?? '招聘伙伴'}</h1><p>把今天真正需要推进的候选人集中在这里。</p></div><div className="role-switch"><label>模拟角色<select value={role} onChange={(event) => changeRole(event.target.value as Role)}>{(Object.keys(roleNames) as Role[]).map((item) => <option value={item} key={item}>{roleNames[item]}</option>)}</select></label><button className="ghost" onClick={() => void loadOverview()}>刷新</button></div></header>{notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')}>×</button></div>}<section className="stats"><Stat label="我的待办" value={overview?.todos.length ?? 0} hint="当前角色需要处理"/><Stat label="候选人总数" value={overview?.candidates.length ?? 0} hint="当前职位可见范围"/><Stat label="待评价面试" value={overview?.candidates.reduce((sum, candidate) => sum + candidate.interviews.filter((item) => item.status === '待评价').length, 0) ?? 0} hint="面试官需提交评价"/><Stat label="已完成决策" value={overview?.candidates.filter((candidate) => ['已录用', '已淘汰'].includes(candidate.status)).length ?? 0} hint="本轮招聘结果"/></section><section className="two-column"><div className="panel"><div className="panel-title"><div><h2>我的待办</h2><p>按优先级处理招聘阻塞项</p></div>{role === 'hr' && <button className="primary" onClick={() => setModal('candidate')}>＋录入候选人</button>}</div>{overview?.todos.length ? <div className="todo-list">{overview.todos.map((todo) => <button className="todo" key={`${todo.candidateId}-${todo.label}`} onClick={() => setSelectedId(todo.candidateId)}><span className="avatar">{todo.candidateName.slice(0, 1)}</span><span><strong>{todo.candidateName}</strong><small>{todo.label} · {todo.status}</small></span><span className="arrow">→</span></button>)}</div> : <Empty text="当前没有待办，招聘链路运行正常。"/>}</div><div className="panel"><div className="panel-title"><div><h2>{overview?.position.name ?? '前端工程师'}</h2><p>{overview?.position.department ?? '技术部'} · 已发布 · 用人负责人：{overview?.position.ownerName ?? '—'}</p></div><span className="pill green">{overview?.candidates.length ?? 0} 位候选人</span></div><div className="board">{Object.entries(columns).map(([label, items]) => <div className="column" key={label}><h3>{label}</h3>{items.length ? items.map((candidate) => <button className="candidate" key={candidate.id} onClick={() => setSelectedId(candidate.id)}><strong>{candidate.name}</strong><span className={`pill ${statusTone(candidate.status)}`}>{candidate.status}</span><small>{candidate.source} · {candidate.interviews.length} 轮面试</small></button>) : <Empty text="暂无"/>}</div>)}</div></div></section><section className="panel activity-panel"><div className="panel-title"><div><h2>最近活动</h2><p>关键状态变化均保留审计时间线</p></div><span className="pill">{overview?.activities.length ?? 0} 条记录</span></div><div className="activity-list">{overview?.activities.slice(0, 6).map((activity) => <div className="activity" key={activity.id}><span className="activity-dot"/><div><strong>{activity.action}</strong><small>{activity.detail} · {activity.operatorName} · {formatDate(activity.createdAt)}</small></div></div>)}</div></section></section>{modal === 'candidate' && <CandidateModal busy={busy} onClose={() => setModal(null)} onSubmit={(body) => void submitAction('candidates', body)}/>} {selected && <CandidateDrawer candidate={selected} role={role} busy={busy} onClose={() => setSelectedId(null)} onAction={(path, body) => void submitAction(path, body)}/>}</main>;
 }
+
+/** 展示单个工作台统计卡片。 */
+function Stat({label, value, hint}: {label: string; value: number; hint: string}) { return <div className="stat"><span>{label}</span><strong>{value}</strong><small>{hint}</small></div>; }
+/** 展示没有数据时的统一空状态。 */
+function Empty({text}: {text: string}) { return <div className="empty">{text}</div>; }
+/** 根据招聘状态返回可读的颜色语义。 */
+function statusTone(status: string): string { if (status === '已录用') return 'green'; if (status === '已淘汰') return 'red'; if (status === '待筛选') return 'orange'; return 'blue'; }
+/** 格式化服务端时间，避免页面直接展示 ISO 字符串。 */
+function formatDate(value: string): string { return new Intl.DateTimeFormat('zh-CN', {month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}).format(new Date(value)); }
+
+/** 候选人录入弹窗，负责字段约束并把数据交给上层 API 提交器。 */
+function CandidateModal({busy, onClose, onSubmit}: {busy: boolean; onClose: () => void; onSubmit: (body: Record<string, unknown>) => void}) { const [form, setForm] = useState({name: '', phone: '', source: 'Boss直聘', summary: ''}); return <div className="modal-backdrop"><form className="modal" onSubmit={(event) => { event.preventDefault(); onSubmit(form); }}><div className="modal-head"><div><h2>录入候选人</h2><p>职位：前端工程师</p></div><button type="button" className="icon-button" onClick={onClose}>×</button></div><label>姓名<input required minLength={2} maxLength={30} value={form.name} onChange={(event) => setForm({...form, name: event.target.value})}/></label><label>手机号<input required pattern="1[3-9][0-9]{9}" value={form.phone} onChange={(event) => setForm({...form, phone: event.target.value})} placeholder="13800138000"/></label><label>来源<select value={form.source} onChange={(event) => setForm({...form, source: event.target.value})}><option>Boss直聘</option><option>内推</option><option>官网</option><option>其他</option></select></label><label>简历摘要<textarea required minLength={10} maxLength={2000} value={form.summary} onChange={(event) => setForm({...form, summary: event.target.value})}/></label><div className="modal-actions"><button type="button" className="ghost" onClick={onClose}>取消</button><button className="primary" disabled={busy}>{busy ? '保存中…' : '保存候选人'}</button></div></form></div>; }
+
+/** 候选人抽屉，按角色展示脱敏字段和当前角色允许的下一步动作。 */
+function CandidateDrawer({candidate, role, busy, onClose, onAction}: {candidate: Candidate; role: Role; busy: boolean; onClose: () => void; onAction: (path: string, body: Record<string, unknown>) => void}) { const [note, setNote] = useState(''); const [result, setResult] = useState('推荐'); const [scheduledAt, setScheduledAt] = useState(''); const interview = candidate.interviews.find((item) => item.status === '待评价'); return <aside className="drawer"><div className="drawer-head"><div><p className="eyebrow">候选人详情</p><h2>{candidate.name} <span className={`pill ${statusTone(candidate.status)}`}>{candidate.status}</span></h2><p>{candidate.source} · {candidate.phone}</p></div><button className="icon-button" onClick={onClose}>×</button></div><div className="detail-card"><span>简历摘要</span><p>{candidate.summary}</p></div><div className="detail-card"><span>面试记录</span>{candidate.interviews.length ? candidate.interviews.map((item) => <div className="interview" key={item.id}><strong>{item.title}</strong><small>{item.interviewerName} · {formatDate(item.scheduledAt)} · {item.status}</small></div>) : <p className="muted">尚未安排面试</p>}</div>{role === 'hr' && candidate.status === '待筛选' && <ActionForm title="HR 筛选" result={result} setResult={setResult} note={note} setNote={setNote} options={['推荐', '不推荐']} busy={busy} onSubmit={() => onAction(`candidates/${candidate.id}/screen`, {result, note})}/>} {role === 'manager' && candidate.status === 'HR推荐' && <ActionForm title="负责人初筛" result={result} setResult={setResult} note={note} setNote={setNote} options={['通过', '不通过']} busy={busy} onSubmit={() => onAction(`candidates/${candidate.id}/manager-screen`, {result, note})}/>} {role === 'hr' && candidate.status === '负责人初筛' && <ActionForm title="安排面试" result={result} setResult={setResult} note={note} setNote={setNote} options={['接受', '拒绝']} busy={busy} onSubmit={() => onAction(`candidates/${candidate.id}/interviews`, {scheduledAt, interviewerId: 'interviewer', note})} date value={scheduledAt} setDate={setScheduledAt}/>} {role === 'interviewer' && interview && <EvaluationForm interviewId={interview.id} busy={busy} onSubmit={onAction}/>} {role === 'hr' && candidate.status === '待决策' && <ActionForm title="最终决策" result={result} setResult={setResult} note={note} setNote={setNote} options={['录用', '淘汰', '继续面试']} busy={busy} onSubmit={() => onAction(`candidates/${candidate.id}/decision`, {result, note})}/>} {!((role === 'hr' && ['待筛选', '负责人初筛', '待决策'].includes(candidate.status)) || (role === 'manager' && candidate.status === 'HR推荐') || (role === 'interviewer' && interview)) && <p className="muted">当前角色暂无可执行操作。</p>}</aside>; }
+
+/** 统一渲染筛选、邀约和最终决策表单。 */
+function ActionForm({title, result, setResult, note, setNote, options, busy, onSubmit, date, value, setDate}: {title: string; result: string; setResult: (value: string) => void; note: string; setNote: (value: string) => void; options: string[]; busy: boolean; onSubmit: () => void; date?: boolean; value?: string; setDate?: (value: string) => void}) { return <div className="action-form"><h3>{title}</h3><label>结果<select value={result} onChange={(event) => setResult(event.target.value)}>{options.map((item) => <option key={item}>{item}</option>)}</select></label>{date && <label>面试时间<input type="datetime-local" required value={value} onChange={(event) => setDate?.(event.target.value)}/></label>}<label>备注<textarea required minLength={2} value={note} onChange={(event) => setNote(event.target.value)} placeholder="填写本次操作依据"/></label><button className="primary" disabled={busy} onClick={onSubmit}>{busy ? '提交中…' : '提交操作'}</button></div>; }
+
+/** 渲染面试官的结构化评价表单，并将评价提交到指定面试任务。 */
+function EvaluationForm({interviewId, busy, onSubmit}: {interviewId: string; busy: boolean; onSubmit: (path: string, body: Record<string, unknown>) => void}) { const [result, setResult] = useState('通过'); const [score, setScore] = useState('5'); const [strength, setStrength] = useState(''); const [risk, setRisk] = useState(''); return <div className="action-form"><h3>提交面试评价</h3><label>结论<select value={result} onChange={(event) => setResult(event.target.value)}><option>通过</option><option>不通过</option><option>待定</option></select></label><label>评分<select value={score} onChange={(event) => setScore(event.target.value)}>{[5, 4, 3, 2, 1].map((item) => <option key={item}>{item}</option>)}</select></label><label>优点<textarea required minLength={2} value={strength} onChange={(event) => setStrength(event.target.value)}/></label><label>风险与建议<textarea required minLength={2} value={risk} onChange={(event) => setRisk(event.target.value)}/></label><button className="primary" disabled={busy} onClick={() => onSubmit(`interviews/${interviewId}/evaluation`, {result, score: Number(score), strength, risk})}>{busy ? '提交中…' : '提交评价'}</button></div>; }

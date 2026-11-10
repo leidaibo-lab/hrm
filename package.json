@@ -17,6 +17,7 @@
     "check": "pnpm db:generate && pnpm --filter @hrm/database build && pnpm -r check",
     "build": "pnpm db:generate && pnpm -r build",
     "smoke": "node scripts/smoke.mjs",
+    "smoke:recruitment": "node scripts/smoke-recruitment.mjs",
     "docker:up": "docker --context desktop-linux compose up --build -d --wait",
     "docker:down": "docker --context desktop-linux compose down",
     "docker:logs": "docker --context desktop-linux compose logs -f"

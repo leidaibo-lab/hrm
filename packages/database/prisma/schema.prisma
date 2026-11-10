@@ -7,3 +7,95 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id             String       @id @default(uuid())
+  name           String
+  role           String
+  createdAt      DateTime     @default(now())
+  ownedPositions Position[]   @relation("PositionOwner")
+  interviews     Interview[]
+  activities     Activity[]
+}
+
+model Position {
+  id             String      @id @default(uuid())
+  code           String      @unique
+  name           String
+  department     String
+  status         String      @default("已发布")
+  ownerId        String
+  owner          User        @relation("PositionOwner", fields: [ownerId], references: [id])
+  candidates     Candidate[]
+  createdAt      DateTime    @default(now())
+}
+
+model Candidate {
+  id             String       @id @default(uuid())
+  positionId     String
+  position       Position     @relation(fields: [positionId], references: [id])
+  name           String
+  phone          String
+  source         String
+  summary        String
+  status         String       @default("待筛选")
+  ownerId        String
+  updatedAt      DateTime     @updatedAt
+  createdAt      DateTime     @default(now())
+  screenings     Screening[]
+  interviews     Interview[]
+  activities     Activity[]
+  @@unique([positionId, phone])
+  @@index([positionId, status])
+}
+
+model Screening {
+  id             String   @id @default(uuid())
+  candidateId    String
+  candidate      Candidate @relation(fields: [candidateId], references: [id])
+  operator       String
+  type           String
+  result         String
+  note           String
+  createdAt      DateTime @default(now())
+}
+
+model Interview {
+  id             String      @id @default(uuid())
+  candidateId    String
+  candidate      Candidate   @relation(fields: [candidateId], references: [id])
+  round          Int
+  title          String
+  scheduledAt    DateTime
+  interviewerId  String
+  interviewer    User        @relation(fields: [interviewerId], references: [id])
+  status         String      @default("待评价")
+  evaluation     Evaluation?
+  createdAt      DateTime    @default(now())
+}
+
+model Evaluation {
+  id             String    @id @default(uuid())
+  interviewId    String    @unique
+  interview      Interview @relation(fields: [interviewId], references: [id])
+  result         String
+  score          Int
+  strength       String
+  risk           String
+  operator       String
+  createdAt      DateTime  @default(now())
+}
+
+model Activity {
+  id             String     @id @default(uuid())
+  candidateId    String
+  candidate      Candidate  @relation(fields: [candidateId], references: [id])
+  operatorId     String
+  operator       User       @relation(fields: [operatorId], references: [id])
+  action         String
+  detail         String
+  fromStatus     String?
+  toStatus       String?
+  createdAt      DateTime   @default(now())
+  @@index([candidateId, createdAt])
+}

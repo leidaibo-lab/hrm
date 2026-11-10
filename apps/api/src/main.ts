@@ -3,9 +3,10 @@ import {Module} from '@nestjs/common';
 import {NestFactory} from '@nestjs/core';
 import {DatabaseService} from './database.service.js';
 import {HealthController} from './health.controller.js';
+import {RecruitmentController} from './recruitment.controller.js';
 
 /** 装配独立业务API；Mastra编排继续由ai-platform负责。 */
-@Module({controllers: [HealthController], providers: [DatabaseService]})
+@Module({controllers: [HealthController, RecruitmentController], providers: [DatabaseService]})
 class ApplicationModule {}
 
 /** 启动API并注册关闭钩子，端口必须是合法TCP端口。 */
