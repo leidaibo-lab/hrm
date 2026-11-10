@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "run-archive.v1",
+  "authority": "mastra-store-projection",
+  "projectId": "hrm",
+  "iterationId": "hrm-workflow-test-20261110-new",
+  "runId": "8dbebcc7-ad7b-45ac-97a3-7677a1f3b946",
+  "workflowId": "productDevelopmentWorkflow",
+  "workflowDefinitionId": "product-development",
+  "workflowVersion": "product-development.archive.v1",
+  "mode": "live",
+  "scope": "run",
+  "stage": "guided-requirements",
+  "status": "suspended",
+  "observedAt": "2026-11-10T08:41:07.312Z",
+  "reason": "human-or-recovery-gate",
+  "code": {
+    "revision": "042b7d5628c894ad34f42f18ca846c7edd95df5d",
+    "dirty": true
+  },
+  "artifacts": [],
+  "artifactPaths": [
+    "product/runs/8dbebcc7-ad7b-45ac-97a3-7677a1f3b946/initialize-product-development/79a4ab2e02a5735b258582eb7e573d78c296c67a3ebb9bf9d220264610b03036/manifest.json"
+  ],
+  "recovery": {
+    "source": "Mastra Store",
+    "portable": false,
+    "condition": "wait-for-human-or-sync"
+  }
+}
