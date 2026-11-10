@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "live-intake-20261107",
+    "runId": "e41a6c5f-7cd0-4f10-a129-59d4ab54ae42",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-07T15:34:22.907Z",
+  "briefHash": "7c52437a5026457fa2eb64bab49e8290ebcb7c4a0ca7358cbb01347226530dee"
+}

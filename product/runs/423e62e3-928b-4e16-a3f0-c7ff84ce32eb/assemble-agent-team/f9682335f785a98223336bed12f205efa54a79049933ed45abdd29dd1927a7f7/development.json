@@ -1,0 +1,151 @@
+{
+  "mode": "fixture",
+  "productHash": "f84d7871f3c5342631f9cebee1f636696aac824a70cff0bd3af632dab6337689",
+  "requirements": [
+    {
+      "id": "product:L1",
+      "line": 1,
+      "text": "# 产品交接样例（fixture）",
+      "hash": "b3deff04a3d71d024491bd7d3c43fb5446d6fd2f01199c3dbab9e95b7ff699c5"
+    },
+    {
+      "id": "product:L2",
+      "line": 2,
+      "text": "需求：工单标题去首尾空格后为 1–80 字符。",
+      "hash": "c9babc868965ed2559596175535602b57908c3b07f6dcb95fa67825011cda3cd"
+    },
+    {
+      "id": "product:L3",
+      "line": 3,
+      "text": "验收：空白拒绝，长度边界通过，超长拒绝。",
+      "hash": "4895c6ab269c61ee4e9450e2a45b47454a7c0ac6c8529409ccd1ab7fcdbe73f7"
+    },
+    {
+      "id": "product:L4",
+      "line": 4,
+      "text": "此为固定样例，真实需求须使用 live 模式并人工确认。",
+      "hash": "924e17d8f605dd036ea14b9d56fba96c8e1b7b9075659daae84e8a5969bb8fce"
+    }
+  ],
+  "context": {
+    "productHash": "f84d7871f3c5342631f9cebee1f636696aac824a70cff0bd3af632dab6337689",
+    "baselineHash": "1b59a02c44f148bbfcd552f3a9ddcb32770efa5112e4af84e946bfbca9303e13",
+    "methodBundleHash": "b532d9e93f5be0fdafb840241d89dc49b034bbdac699b6e62e2368a0d2b3ab02",
+    "files": {
+      "smoke.test.mjs": "40ab93e462df854bd077dc4d316845f8f2761027dc2e4ef344ecdea6a0a462ef",
+      "src/solution.mjs": "72ff77f67b59959cbe7a4ac11517c4c9f62f89b04f53b91c60ccf4a099ecb2c9"
+    },
+    "rules": [
+      {
+        "text": "fixture使用manifest文件边界；未做真实规则推理",
+        "refs": [
+          "file:src/solution.mjs"
+        ]
+      }
+    ],
+    "unknowns": []
+  },
+  "plan": {
+    "summary": "fixture有序任务包",
+    "coverage": [
+      {
+        "requirement": "# 产品交接样例（fixture）\n需求：工单标题去首尾空格后为 1–80 字符。\n验收：空白拒绝，长度边界通过，超长拒绝。\n此为固定样例，真实需求须使用 live 模式并人工确认。",
+        "behavior": "按文件实现",
+        "verification": "已登记检查"
+      }
+    ],
+    "contracts": "只写批准路径，不修改检查文件",
+    "tasks": [
+      {
+        "id": "fixture-task-1",
+        "role": "backend",
+        "paths": [
+          "src/solution.mjs"
+        ],
+        "dependsOn": [],
+        "requirementRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4"
+        ],
+        "acceptanceRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4"
+        ],
+        "contextRefs": [
+          "file:src/solution.mjs"
+        ],
+        "constraints": [
+          "不扩大路径与命令权限"
+        ],
+        "verificationRefs": [
+          "syntax:src/solution.mjs",
+          "test:smoke.test.mjs"
+        ]
+      }
+    ],
+    "blockers": [],
+    "risks": [
+      "fixture未做真实架构推理"
+    ]
+  },
+  "planHash": "4b63b283f96b7b34c1107f33b053997580a1aaf03b4e614fbf8606e77a6e7837",
+  "team": {
+    "planHash": "4b63b283f96b7b34c1107f33b053997580a1aaf03b4e614fbf8606e77a6e7837",
+    "maxParallel": 3,
+    "maxDelegations": 3,
+    "delegationDepth": 1,
+    "members": [
+      {
+        "id": "member-3d9be1db92b8fe67",
+        "role": "backend",
+        "taskId": "fixture-task-1",
+        "paths": [
+          "src/solution.mjs"
+        ]
+      }
+    ]
+  },
+  "delegations": [],
+  "reviews": [],
+  "readiness": null,
+  "codeReviews": [],
+  "work": [
+    {
+      "role": "context",
+      "round": 0,
+      "text": "{\"rules\":[{\"text\":\"fixture使用manifest文件边界；未做真实规则推理\",\"refs\":[\"file:src/solution.mjs\"]}],\"unknowns\":[]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80
+    },
+    {
+      "role": "architect",
+      "round": 0,
+      "text": "{\"summary\":\"fixture有序任务包\",\"coverage\":[{\"requirement\":\"# 产品交接样例（fixture）\\n需求：工单标题去首尾空格后为 1–80 字符。\\n验收：空白拒绝，长度边界通过，超长拒绝。\\n此为固定样例，真实需求须使用 live 模式并人工确认。\",\"behavior\":\"按文件实现\",\"verification\":\"已登记检查\"}],\"contracts\":\"只写批准路径，不修改检查文件\",\"blockers\":[],\"risks\":[\"fixture未做真实架构推理\"],\"tasks\":[{\"id\":\"fixture-task-1\",\"role\":\"backend\",\"paths\":[\"src/solution.mjs\"],\"dependsOn\":[],\"requirementRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"acceptanceRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"contextRefs\":[\"file:src/solution.mjs\"],\"constraints\":[\"不扩大路径与命令权限\"],\"verificationRefs\":[\"syntax:src/solution.mjs\",\"test:smoke.test.mjs\"]}]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80
+    }
+  ],
+  "checks": [],
+  "checkpointHash": "1b59a02c44f148bbfcd552f3a9ddcb32770efa5112e4af84e946bfbca9303e13",
+  "delivery": null,
+  "round": 0,
+  "outcome": "in-progress"
+}

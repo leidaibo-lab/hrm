@@ -1,0 +1,39 @@
+{
+  "authority": "export-time-only",
+  "note": "不是生成时实际读取证据",
+  "manifest": {
+    "schemaVersion": 1,
+    "project": "hrm",
+    "repository": "https://github.com/leidaibo-lab/hrm",
+    "sources": [
+      {
+        "id": "recruitment-brief-v1",
+        "kind": "user-input",
+        "path": "brief.md",
+        "sha256": "c00b0a9bebb3ef2117372e5fcc3e917e439926a776b8daef3de2af8c0d3ee3bf",
+        "origin": {
+          "repository": "ai-platform",
+          "commit": "60f8c1a7acfca25fd13fb9122152b8c06821b782",
+          "path": "practices/mastra/projects/pm-hrm-recruitment/sources/brief.md"
+        },
+        "authority": "user-confirmed-scope",
+        "note": "原始诉求；后续规则以当前用户确认和批准产品版本为准。"
+      },
+      {
+        "id": "pm-hrm-reference",
+        "kind": "reference-only",
+        "repository": "pm-hrm",
+        "commit": "cd9cc7fa929dd659695c80e3fb9f1b882cd581b2",
+        "paths": [
+          "docs/output/招聘管理PRD.md",
+          "docs/output/招聘管理验收附件.md",
+          "docs/output/公共规范/"
+        ],
+        "loaded": false,
+        "authority": "reference-only",
+        "note": "登记为可选参考，尚未复制到可读资料区；完整产品范围不自动纳入本期。",
+        "localCheckoutHint": "../pm-hrm"
+      }
+    ]
+  }
+}

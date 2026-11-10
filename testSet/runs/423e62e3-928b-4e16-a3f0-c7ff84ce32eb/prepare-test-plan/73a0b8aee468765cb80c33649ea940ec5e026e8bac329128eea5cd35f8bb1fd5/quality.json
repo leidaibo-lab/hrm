@@ -1,0 +1,15 @@
+{
+  "status": "pending",
+  "plan": {
+    "content": "# 测试计划样例（fixture，未执行）\n需求映射：标题长度→空串、空白、1、80、81 字符；去空格→前后空格。\n尚缺：Unicode 计数口径、接口集成、实际运行报告。\n测试人员确认的是计划覆盖，不能视为测试通过。",
+    "sourceHash": "31273370dc57d30177b58a70bae22f7d56cacba765d705d09a2aac05b7aa898d",
+    "hash": "30c3d0489dfa05289b4bde9b417d3bbda7b2d8880f6fc7966a4aff1911380cd9",
+    "browserMethodHash": "8a65cb01ebe6bb6ea49ff07bc31ed99596b1a1e8dfbc49781192b76ebfc96fef"
+  },
+  "approval": null,
+  "checks": [],
+  "results": [],
+  "sourceHash": null,
+  "reportHash": null,
+  "review": null
+}

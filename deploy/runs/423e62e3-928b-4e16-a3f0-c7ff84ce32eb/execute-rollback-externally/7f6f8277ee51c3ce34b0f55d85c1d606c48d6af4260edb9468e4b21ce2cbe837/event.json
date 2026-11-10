@@ -1,0 +1,4 @@
+{
+  "stage": "execute-rollback-externally",
+  "event": "completed"
+}

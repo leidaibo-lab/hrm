@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "unassigned",
+    "runId": "44620cf0-8615-4b8e-89ef-76da039ffb50",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-07T15:30:12.250Z",
+  "briefHash": "7c52437a5026457fa2eb64bab49e8290ebcb7c4a0ca7358cbb01347226530dee"
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 2,
+  "repository": "https://github.com/leidaibo-lab/hrm",
+  "runId": "e41a6c5f-7cd0-4f10-a129-59d4ab54ae42",
+  "stage": "review-revised-product",
+  "mode": "live",
+  "event": "completed",
+  "projectionHash": "da8ce9872815fda93eb5d05822b982be8a8c4b61ddcb2a8194fceb9a563495cc",
+  "authority": "workflow-export",
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "live-intake-20261107",
+    "runId": "e41a6c5f-7cd0-4f10-a129-59d4ab54ae42",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-08T12:25:08.154Z",
+  "files": {
+    "clarification-history.json": "971f604191bbc747f165a119e380ec270ae5267b8cc41b55f867d01d5433c80c",
+    "engineering-references.json": "d083bded477896994cacfbb7aa3c7dcf4fcc62ffcbfcc450832762622b4ee721",
+    "product.md": "c69c6cc91aab3a24170a7cb570b945e7229d639c7732ebb848371915f4739b34",
+    "product-version.json": "20092f74394d7d1ad4cdbdc1e5eab8aa0e82fb465fd5b51f5497a76c7456bbda",
+    "clarification-plan.json": "e763af71546cbe411598025157b9c6ba7b26b84a665cda7663bc4aba2fb171a2",
+    "clarification-answers.json": "a222b4f387ded885cf9ff3c2cd4d568298eb139c25d7756b185d2ef6a4be0f6f",
+    "product-revision-draft.md": "c69c6cc91aab3a24170a7cb570b945e7229d639c7732ebb848371915f4739b34",
+    "product-revision-version.json": "c9982df923a5dcad3524ed54729e32e437f711a17046beb29192083febb504fb",
+    "product-revision-review.json": "dbc4052e7c63ef3084f2f4deb6b2fa99aab050c3d24dee33e16f3d8782bfc52e",
+    "event.json": "90a0fd70d521944cc3397573cc24a2e6de193676ddd5ff67e4ed3e06d7606efb",
+    "sources-observed-at-export.json": "be93c85c2bbd6df1e9b414975cced1cf2457715635dfb1247788a69c3ebb6097"
+  }
+}

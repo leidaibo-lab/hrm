@@ -1,0 +1,21 @@
+{
+  "note": "已由宿主只读核对Git状态及3份工程文档；代码版本52b3136bc341，观察时间2026-11-08T11:59:41.309Z。",
+  "references": {
+    "docs/decisions/2026-11-06-pnpm-monorepo.md": {
+      "hash": "6d500b3b7ab0cb423811c9902d417752b11b148502790000e5cf594433a945f1",
+      "bytes": 2192
+    },
+    "docs/decisions/2026-11-07-repository-delivery-assets.md": {
+      "hash": "43260ed9664ae03759a24f267be6272b0e87b6675ce49d190270e954fe310b4a",
+      "bytes": 1107
+    },
+    "docs/delivery-assets.md": {
+      "hash": "a82972983d3cd531ce4fa93d31ad90f65a395a50d5ece14f79d3d33ec8ce91bb",
+      "bytes": 4451
+    },
+    "engineering/repository-observation.json": {
+      "hash": "e3becfc7cfacc19ad715b63c3968e892afdcfe4a3454e84a534bbddbfa9e20ea",
+      "bytes": 383
+    }
+  }
+}

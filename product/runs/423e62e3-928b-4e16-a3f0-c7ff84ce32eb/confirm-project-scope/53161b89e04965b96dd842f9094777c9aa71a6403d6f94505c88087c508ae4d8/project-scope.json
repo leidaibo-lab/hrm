@@ -1,0 +1,28 @@
+{
+  "source": {
+    "kind": "approved-product",
+    "runId": "423e62e3-928b-4e16-a3f0-c7ff84ce32eb",
+    "hash": "f84d7871f3c5342631f9cebee1f636696aac824a70cff0bd3af632dab6337689",
+    "content": "# 产品交接样例（fixture）\n需求：工单标题去首尾空格后为 1–80 字符。\n验收：空白拒绝，长度边界通过，超长拒绝。\n此为固定样例，真实需求须使用 live 模式并人工确认。",
+    "evidence": "fixture",
+    "workflowId": "product-development"
+  },
+  "scopeApproval": {
+    "reviewer": "codex-ui-verifier",
+    "comment": "确认隔离 fixture 项目，仅验证独立开发流程。",
+    "productHash": "f84d7871f3c5342631f9cebee1f636696aac824a70cff0bd3af632dab6337689"
+  },
+  "project": {
+    "id": "ui-independent-dev",
+    "roles": [
+      "backend"
+    ],
+    "writablePaths": [
+      "src/solution.mjs"
+    ],
+    "checkFiles": [
+      "smoke.test.mjs"
+    ]
+  },
+  "maxReworks": 1
+}

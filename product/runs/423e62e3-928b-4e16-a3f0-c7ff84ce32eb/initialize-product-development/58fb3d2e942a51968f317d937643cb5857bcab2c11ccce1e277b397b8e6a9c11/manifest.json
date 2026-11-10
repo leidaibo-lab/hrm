@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "repository": "https://github.com/leidaibo-lab/hrm.git",
+  "runId": "423e62e3-928b-4e16-a3f0-c7ff84ce32eb",
+  "stage": "initialize-product-development",
+  "mode": "fixture",
+  "event": "completed",
+  "projectionHash": "58fb3d2e942a51968f317d937643cb5857bcab2c11ccce1e277b397b8e6a9c11",
+  "authority": "workflow-export",
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "independent-dev-ui-20261109",
+    "runId": "423e62e3-928b-4e16-a3f0-c7ff84ce32eb",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-09T14:19:40.663Z",
+  "files": {
+    "brief.md": "64b10583f35cbf82daea250ee74acc6322787c8175a1a399965a730039fdce9d",
+    "reviews.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outcome.json": "de1b6223af14e8f5b3e1ac9cc5641154ea71b9a09908f6a15b381c6326680405",
+    "intake.json": "670cfc7f8aef41ca392b238d3e83cdbaa2ecc13f7a32d0d1af1dcab3bb1078f5",
+    "event.json": "40f246cf4018ad2025b5d38d1a2582bb2ecbd3a68594cc0cb87d1f87a7f65acf",
+    "sources-observed-at-export.json": "be93c85c2bbd6df1e9b414975cced1cf2457715635dfb1247788a69c3ebb6097"
+  }
+}

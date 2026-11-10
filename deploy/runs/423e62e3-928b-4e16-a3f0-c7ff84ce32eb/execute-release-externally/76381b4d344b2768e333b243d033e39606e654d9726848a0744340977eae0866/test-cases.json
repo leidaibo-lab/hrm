@@ -1,0 +1,46 @@
+[
+  {
+    "id": "case-1",
+    "requirementRefs": [
+      "product:L1"
+    ],
+    "expected": "需求版本可追溯",
+    "method": "registered-check",
+    "checkRefs": [
+      "syntax:src/solution.mjs"
+    ]
+  },
+  {
+    "id": "case-2",
+    "requirementRefs": [
+      "product:L2"
+    ],
+    "expected": "标题长度规则对应实现",
+    "method": "registered-check",
+    "checkRefs": [
+      "test:smoke.test.mjs"
+    ]
+  },
+  {
+    "id": "case-3",
+    "requirementRefs": [
+      "product:L3"
+    ],
+    "expected": "边界行为由 smoke 检查",
+    "method": "registered-check",
+    "checkRefs": [
+      "test:smoke.test.mjs"
+    ]
+  },
+  {
+    "id": "case-4",
+    "requirementRefs": [
+      "product:L4"
+    ],
+    "expected": "fixture 模式限制被保留",
+    "method": "registered-check",
+    "checkRefs": [
+      "syntax:src/solution.mjs"
+    ]
+  }
+]

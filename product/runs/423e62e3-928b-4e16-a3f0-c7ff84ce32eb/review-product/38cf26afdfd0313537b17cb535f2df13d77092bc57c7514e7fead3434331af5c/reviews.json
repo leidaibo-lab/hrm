@@ -1,0 +1,9 @@
+[
+  {
+    "role": "product",
+    "artifactHash": "f84d7871f3c5342631f9cebee1f636696aac824a70cff0bd3af632dab6337689",
+    "decision": "approve",
+    "reviewer": "codex-ui-verifier",
+    "comment": "确认固定样例产品稿，继续验证独立开发流程。"
+  }
+]

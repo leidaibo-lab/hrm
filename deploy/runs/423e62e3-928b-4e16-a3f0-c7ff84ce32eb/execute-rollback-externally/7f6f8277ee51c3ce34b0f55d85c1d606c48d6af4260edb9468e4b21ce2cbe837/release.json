@@ -1,0 +1,53 @@
+{
+  "plan": {
+    "content": "# 部署方案样例（fixture，未执行）\n前提：明确代码提交、构建制品、环境与权限。\n步骤：CI 检查→预发部署→健康探测→人工授权后发布。\n回滚：保留上一制品，探测失败立即切回并复验。\n当前无制品、无部署执行，运维确认只针对方案。",
+    "sourceHash": "31273370dc57d30177b58a70bae22f7d56cacba765d705d09a2aac05b7aa898d",
+    "hash": "e207fe1af4b3f1789cb42e0894539cade45dd8bfc282e90f502b4cbb670539a3"
+  },
+  "qualityHash": "3d55563e886ca89d23176c7feb68ea34757a1359ac48332082550d435ffedbf4",
+  "approval": {
+    "reviewer": "codex-ui-verifier",
+    "comment": "fixture 仅验证发布回执链，不代表真实部署。",
+    "hash": "5131eb49fc80fad665e292676af34b090b5f6b1e7a3d5abb9ebbfd143a90154d",
+    "decision": "approve",
+    "scope": {
+      "environment": "fixture",
+      "artifactDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "artifactRef": "fixture://artifact/independent-dev",
+      "rollbackArtifactRef": "fixture://artifact/rollback",
+      "healthChecks": [
+        {
+          "id": "service-ready",
+          "expected": "fixture 发布回执可读取"
+        }
+      ]
+    }
+  },
+  "hash": "fa24fd9cd2b0b4ab75602089ae0702ce3212468ad55be3e1a57359aea7fa70b4",
+  "receipt": {
+    "releaseHash": "fa24fd9cd2b0b4ab75602089ae0702ce3212468ad55be3e1a57359aea7fa70b4",
+    "sourceHash": "31273370dc57d30177b58a70bae22f7d56cacba765d705d09a2aac05b7aa898d",
+    "artifactDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "environment": "fixture",
+    "status": "succeeded",
+    "jobRef": "fixture-job-independent-dev",
+    "operator": "codex-ui-verifier",
+    "finishedAt": "2026-11-09T15:00:00Z",
+    "notes": "固定样例回执，仅验证流程状态绑定。"
+  },
+  "health": {
+    "releaseHash": "fa24fd9cd2b0b4ab75602089ae0702ce3212468ad55be3e1a57359aea7fa70b4",
+    "deploymentReceiptHash": "c7396c42e39aaf33b1042925bd624775192171bfaee00e488ad1f171b2f8e308",
+    "operator": "codex-ui-verifier",
+    "checks": [
+      {
+        "id": "service-ready",
+        "status": "passed",
+        "evidence": "fixture 发布回执可读取",
+        "observedAt": "2026-11-09T15:01:00Z"
+      }
+    ]
+  },
+  "rollback": null,
+  "authority": "local-human-report"
+}

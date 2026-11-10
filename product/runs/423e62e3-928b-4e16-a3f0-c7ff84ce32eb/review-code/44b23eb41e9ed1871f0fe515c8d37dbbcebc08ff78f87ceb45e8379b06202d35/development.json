@@ -1,0 +1,292 @@
+{
+  "mode": "fixture",
+  "productHash": "f84d7871f3c5342631f9cebee1f636696aac824a70cff0bd3af632dab6337689",
+  "requirements": [
+    {
+      "id": "product:L1",
+      "line": 1,
+      "text": "# 产品交接样例（fixture）",
+      "hash": "b3deff04a3d71d024491bd7d3c43fb5446d6fd2f01199c3dbab9e95b7ff699c5"
+    },
+    {
+      "id": "product:L2",
+      "line": 2,
+      "text": "需求：工单标题去首尾空格后为 1–80 字符。",
+      "hash": "c9babc868965ed2559596175535602b57908c3b07f6dcb95fa67825011cda3cd"
+    },
+    {
+      "id": "product:L3",
+      "line": 3,
+      "text": "验收：空白拒绝，长度边界通过，超长拒绝。",
+      "hash": "4895c6ab269c61ee4e9450e2a45b47454a7c0ac6c8529409ccd1ab7fcdbe73f7"
+    },
+    {
+      "id": "product:L4",
+      "line": 4,
+      "text": "此为固定样例，真实需求须使用 live 模式并人工确认。",
+      "hash": "924e17d8f605dd036ea14b9d56fba96c8e1b7b9075659daae84e8a5969bb8fce"
+    }
+  ],
+  "context": {
+    "productHash": "f84d7871f3c5342631f9cebee1f636696aac824a70cff0bd3af632dab6337689",
+    "baselineHash": "1b59a02c44f148bbfcd552f3a9ddcb32770efa5112e4af84e946bfbca9303e13",
+    "methodBundleHash": "b532d9e93f5be0fdafb840241d89dc49b034bbdac699b6e62e2368a0d2b3ab02",
+    "files": {
+      "smoke.test.mjs": "40ab93e462df854bd077dc4d316845f8f2761027dc2e4ef344ecdea6a0a462ef",
+      "src/solution.mjs": "72ff77f67b59959cbe7a4ac11517c4c9f62f89b04f53b91c60ccf4a099ecb2c9"
+    },
+    "rules": [
+      {
+        "text": "fixture使用manifest文件边界；未做真实规则推理",
+        "refs": [
+          "file:src/solution.mjs"
+        ]
+      }
+    ],
+    "unknowns": []
+  },
+  "plan": {
+    "summary": "fixture有序任务包",
+    "coverage": [
+      {
+        "requirement": "# 产品交接样例（fixture）\n需求：工单标题去首尾空格后为 1–80 字符。\n验收：空白拒绝，长度边界通过，超长拒绝。\n此为固定样例，真实需求须使用 live 模式并人工确认。",
+        "behavior": "按文件实现",
+        "verification": "已登记检查"
+      }
+    ],
+    "contracts": "只写批准路径，不修改检查文件",
+    "tasks": [
+      {
+        "id": "fixture-task-1",
+        "role": "backend",
+        "paths": [
+          "src/solution.mjs"
+        ],
+        "dependsOn": [],
+        "requirementRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4"
+        ],
+        "acceptanceRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4"
+        ],
+        "contextRefs": [
+          "file:src/solution.mjs"
+        ],
+        "constraints": [
+          "不扩大路径与命令权限"
+        ],
+        "verificationRefs": [
+          "syntax:src/solution.mjs",
+          "test:smoke.test.mjs"
+        ]
+      }
+    ],
+    "blockers": [],
+    "risks": [
+      "fixture未做真实架构推理"
+    ]
+  },
+  "planHash": "4b63b283f96b7b34c1107f33b053997580a1aaf03b4e614fbf8606e77a6e7837",
+  "team": {
+    "planHash": "4b63b283f96b7b34c1107f33b053997580a1aaf03b4e614fbf8606e77a6e7837",
+    "maxParallel": 3,
+    "maxDelegations": 3,
+    "delegationDepth": 1,
+    "members": [
+      {
+        "id": "member-3d9be1db92b8fe67",
+        "role": "backend",
+        "taskId": "fixture-task-1",
+        "paths": [
+          "src/solution.mjs"
+        ]
+      }
+    ]
+  },
+  "delegations": [
+    {
+      "taskId": "fixture-task-1",
+      "parentId": "member-3d9be1db92b8fe67",
+      "memberId": "member-3d9be1db92b8fe67-delegate-1",
+      "role": "backend",
+      "goal": "按批准任务实现当前文件并保留接口",
+      "paths": [
+        "src/solution.mjs"
+      ],
+      "outputHash": "3af6a3f38db5b2af749e4de35b2d67517de4ece6daa0458e3b18bb13b7fa2900",
+      "sourceHash": "31273370dc57d30177b58a70bae22f7d56cacba765d705d09a2aac05b7aa898d"
+    }
+  ],
+  "reviews": [
+    {
+      "hash": "d3673260b9df91ebe9036c22820e080507777ce39323e03bc590acb51cd4019e",
+      "decision": "approve",
+      "reviewer": "codex-ui-verifier",
+      "comment": "确认 fixture 方案、团队与受限自主开发预算。",
+      "resolutions": [],
+      "authority": "local-human-label"
+    }
+  ],
+  "readiness": {
+    "assessment": {
+      "verdict": "PASS",
+      "findings": [],
+      "coverageRefs": [
+        "product:L1",
+        "product:L2",
+        "product:L3",
+        "product:L4",
+        "task:fixture-task-1"
+      ],
+      "unchecked": [
+        "fixture不评价业务质量"
+      ],
+      "resolutions": []
+    },
+    "sourceHash": "1b59a02c44f148bbfcd552f3a9ddcb32770efa5112e4af84e946bfbca9303e13",
+    "planHash": "4b63b283f96b7b34c1107f33b053997580a1aaf03b4e614fbf8606e77a6e7837",
+    "checksHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "hash": "64f912ca90a31b4d5eb2bafad2381e5eb6b47b0816fcfcee54c1dcdacbbf54d1"
+  },
+  "codeReviews": [
+    {
+      "assessment": {
+        "verdict": "PASS",
+        "findings": [],
+        "coverageRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4",
+          "task:fixture-task-1"
+        ],
+        "unchecked": [
+          "fixture不评价业务质量"
+        ],
+        "resolutions": []
+      },
+      "sourceHash": "31273370dc57d30177b58a70bae22f7d56cacba765d705d09a2aac05b7aa898d",
+      "planHash": "4b63b283f96b7b34c1107f33b053997580a1aaf03b4e614fbf8606e77a6e7837",
+      "checksHash": "6a4880370ff28606a6d7d60da474fdfcc39e04c8124f23453237b9abb932b872",
+      "hash": "e5a1e731c8a7cc7a5086ff0e53f5a57f84ec65ddd65e1ee8f39c753070dc3d53"
+    }
+  ],
+  "work": [
+    {
+      "role": "context",
+      "round": 0,
+      "text": "{\"rules\":[{\"text\":\"fixture使用manifest文件边界；未做真实规则推理\",\"refs\":[\"file:src/solution.mjs\"]}],\"unknowns\":[]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80
+    },
+    {
+      "role": "architect",
+      "round": 0,
+      "text": "{\"summary\":\"fixture有序任务包\",\"coverage\":[{\"requirement\":\"# 产品交接样例（fixture）\\n需求：工单标题去首尾空格后为 1–80 字符。\\n验收：空白拒绝，长度边界通过，超长拒绝。\\n此为固定样例，真实需求须使用 live 模式并人工确认。\",\"behavior\":\"按文件实现\",\"verification\":\"已登记检查\"}],\"contracts\":\"只写批准路径，不修改检查文件\",\"blockers\":[],\"risks\":[\"fixture未做真实架构推理\"],\"tasks\":[{\"id\":\"fixture-task-1\",\"role\":\"backend\",\"paths\":[\"src/solution.mjs\"],\"dependsOn\":[],\"requirementRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"acceptanceRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"contextRefs\":[\"file:src/solution.mjs\"],\"constraints\":[\"不扩大路径与命令权限\"],\"verificationRefs\":[\"syntax:src/solution.mjs\",\"test:smoke.test.mjs\"]}]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80
+    },
+    {
+      "role": "readiness",
+      "round": 0,
+      "text": "{\"verdict\":\"PASS\",\"findings\":[],\"coverageRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\",\"task:fixture-task-1\"],\"unchecked\":[\"fixture不评价业务质量\"],\"resolutions\":[]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80
+    },
+    {
+      "role": "backend",
+      "round": 0,
+      "text": "fixture已实际读取并修改批准路径。",
+      "tools": [
+        "delegateTask"
+      ],
+      "steps": 2,
+      "modelId": "mock-model-id",
+      "inputTokens": 24,
+      "outputTokens": 40
+    },
+    {
+      "role": "self-check",
+      "round": 0,
+      "text": "{\"summary\":\"fixture读取真实检查\",\"route\":\"backend\"}",
+      "tools": [
+        "runChecks"
+      ],
+      "steps": 2,
+      "modelId": "mock-model-id",
+      "inputTokens": 24,
+      "outputTokens": 40
+    },
+    {
+      "role": "reviewer",
+      "round": 0,
+      "text": "{\"verdict\":\"PASS\",\"findings\":[],\"coverageRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\",\"task:fixture-task-1\"],\"unchecked\":[\"fixture不评价业务质量\"],\"resolutions\":[]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80
+    }
+  ],
+  "checks": [
+    {
+      "id": "syntax:src/solution.mjs",
+      "command": "node --max-old-space-size=128 --check src/solution.mjs",
+      "exitCode": 0,
+      "processExitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "durationMs": 28,
+      "timedOut": false,
+      "stdoutTruncated": false,
+      "stderrTruncated": false
+    },
+    {
+      "id": "test:smoke.test.mjs",
+      "command": "node --max-old-space-size=128 --test --test-reporter=tap --test-timeout=25000 smoke.test.mjs",
+      "exitCode": 0,
+      "processExitCode": 0,
+      "stdout": "TAP version 13\n# Subtest: fixture value\nok 1 - fixture value\n  ---\n  duration_ms: 0.386292\n  type: 'test'\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 1\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 36.144875\n",
+      "stderr": "",
+      "durationMs": 69,
+      "timedOut": false,
+      "stdoutTruncated": false,
+      "stderrTruncated": false
+    }
+  ],
+  "checkpointHash": "31273370dc57d30177b58a70bae22f7d56cacba765d705d09a2aac05b7aa898d",
+  "delivery": null,
+  "round": 0,
+  "outcome": "in-progress"
+}
