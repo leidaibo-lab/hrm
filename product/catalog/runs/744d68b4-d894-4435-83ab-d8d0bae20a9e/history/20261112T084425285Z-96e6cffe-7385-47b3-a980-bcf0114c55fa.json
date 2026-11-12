@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "run-archive.v1",
+  "authority": "mastra-store-projection",
+  "projectId": "hrm",
+  "iterationId": "hrm-recruitment-enterprise-v1",
+  "runId": "744d68b4-d894-4435-83ab-d8d0bae20a9e",
+  "workflowId": "productDevelopmentWorkflow",
+  "workflowDefinitionId": "product-development-resources-v1",
+  "workflowVersion": "product-development.archive.v1",
+  "mode": "live",
+  "scope": "run",
+  "stage": "freeze-role-resources",
+  "status": "failed",
+  "observedAt": "2026-11-12T08:44:25.285Z",
+  "reason": "step-failed",
+  "code": {
+    "revision": "cf4f09af074dbaf0eb52d04b77d1154ad39a0e2c",
+    "dirty": true
+  },
+  "artifacts": [],
+  "artifactPaths": [],
+  "recovery": {
+    "source": "Mastra Store",
+    "portable": false,
+    "condition": "inspect-native-failure"
+  }
+}
