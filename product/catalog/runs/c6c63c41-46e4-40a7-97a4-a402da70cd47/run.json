@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "hrm-recruitment-enterprise-v1",
+    "runId": "c6c63c41-46e4-40a7-97a4-a402da70cd47",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-12T08:35:40.364Z",
+  "briefHash": "b52cdc91a5da780e71fdeb61d3740f01ba9f5be9889444414f8b08a01a7a0934"
+}
