@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "repository": "https://github.com/leidaibo-lab/hrm.git",
+  "runId": "08c05533-45c5-4423-9d23-6868c32692b0",
+  "stage": "product-coordinator",
+  "mode": "live",
+  "event": "completed",
+  "projectionHash": "813a3bcca92a6d16d1e756c906d910f7050247287df85304fbb0cb2cec5801d3",
+  "authority": "workflow-export",
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "hrm-recruitment-enterprise-v1",
+    "runId": "08c05533-45c5-4423-9d23-6868c32692b0",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-12T10:51:11.825Z",
+  "files": {
+    "brief.md": "b52cdc91a5da780e71fdeb61d3740f01ba9f5be9889444414f8b08a01a7a0934",
+    "reviews.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outcome.json": "f372cf6fde249267308d0c0dda841445db72ec9f720428776375c2212c6a0ceb",
+    "intake.json": "21e2404da65445147ab7f820ee0c6c5793f158bfa22c398178de50459a77940e",
+    "role-coordinator.md": "72e6c6a3e5f54830b77941ed2af916da1d43bf16e183f9315719b3e8d70c4729",
+    "event.json": "e42c55b4fabf9152f7d57c808552e4d120e0062a74d8ed78774963f716a9929c"
+  }
+}
