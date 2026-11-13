@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "run-archive.v1",
+  "authority": "mastra-store-projection",
+  "projectId": "hrm",
+  "iterationId": "hrm-recruitment-enterprise-v1",
+  "runId": "08c05533-45c5-4423-9d23-6868c32692b0",
+  "workflowId": "productDevelopmentWorkflow",
+  "workflowDefinitionId": "product-development-resources-v1",
+  "workflowVersion": "product-development.archive.v1",
+  "mode": "live",
+  "scope": "run",
+  "stage": "draft-product",
+  "status": "failed",
+  "observedAt": "2026-11-13T04:39:53.911Z",
+  "reason": "step-failed",
+  "code": {
+    "revision": "12272e5b25c4f57780c7fa898967ad34925d950f",
+    "dirty": true
+  },
+  "artifacts": [],
+  "artifactPaths": [
+    "product/runs/08c05533-45c5-4423-9d23-6868c32692b0/initialize-product-development/0f2ea2d79e57aaf166bd35c0ce6ab9dd6b01f649a03d2739a3609b1fbf7b853f/manifest.json",
+    "product/runs/08c05533-45c5-4423-9d23-6868c32692b0/product-clarification/d67c134cb032732f8a0e8919ac5ac87f1a4514260dc82fa00379ba5e602915cd/manifest.json",
+    "product/runs/08c05533-45c5-4423-9d23-6868c32692b0/product-coordinator/813a3bcca92a6d16d1e756c906d910f7050247287df85304fbb0cb2cec5801d3/manifest.json"
+  ],
+  "recovery": {
+    "source": "Mastra Store",
+    "portable": false,
+    "condition": "inspect-native-failure"
+  }
+}
