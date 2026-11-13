@@ -1,0 +1,50 @@
+[
+  {
+    "id": "hrm-case-1",
+    "requirementRefs": [
+      "product:L1"
+    ],
+    "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+    "method": "registered-check",
+    "checkRefs": [
+      "syntax:src/recruitment-slice.mjs",
+      "test:smoke.mjs"
+    ]
+  },
+  {
+    "id": "hrm-case-2",
+    "requirementRefs": [
+      "product:L2"
+    ],
+    "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+    "method": "registered-check",
+    "checkRefs": [
+      "syntax:src/recruitment-slice.mjs",
+      "test:smoke.mjs"
+    ]
+  },
+  {
+    "id": "hrm-case-3",
+    "requirementRefs": [
+      "product:L3"
+    ],
+    "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+    "method": "registered-check",
+    "checkRefs": [
+      "syntax:src/recruitment-slice.mjs",
+      "test:smoke.mjs"
+    ]
+  },
+  {
+    "id": "hrm-case-4",
+    "requirementRefs": [
+      "product:L4"
+    ],
+    "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+    "method": "registered-check",
+    "checkRefs": [
+      "syntax:src/recruitment-slice.mjs",
+      "test:smoke.mjs"
+    ]
+  }
+]

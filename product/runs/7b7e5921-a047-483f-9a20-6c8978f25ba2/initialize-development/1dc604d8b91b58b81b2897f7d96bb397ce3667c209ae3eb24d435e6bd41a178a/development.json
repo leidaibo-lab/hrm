@@ -1,0 +1,42 @@
+{
+  "mode": "fixture",
+  "productHash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+  "requirements": [
+    {
+      "id": "product:L1",
+      "line": 1,
+      "text": "# 产品交接样例（fixture）",
+      "hash": "b3deff04a3d71d024491bd7d3c43fb5446d6fd2f01199c3dbab9e95b7ff699c5"
+    },
+    {
+      "id": "product:L2",
+      "line": 2,
+      "text": "需求：工单标题去首尾空格后为 1–80 字符。",
+      "hash": "c9babc868965ed2559596175535602b57908c3b07f6dcb95fa67825011cda3cd"
+    },
+    {
+      "id": "product:L3",
+      "line": 3,
+      "text": "验收：空白拒绝，长度边界通过，超长拒绝。",
+      "hash": "4895c6ab269c61ee4e9450e2a45b47454a7c0ac6c8529409ccd1ab7fcdbe73f7"
+    },
+    {
+      "id": "product:L4",
+      "line": 4,
+      "text": "此为固定样例，真实需求须使用 live 模式并人工确认。",
+      "hash": "924e17d8f605dd036ea14b9d56fba96c8e1b7b9075659daae84e8a5969bb8fce"
+    }
+  ],
+  "context": null,
+  "plan": null,
+  "planHash": null,
+  "reviews": [],
+  "readiness": null,
+  "codeReviews": [],
+  "work": [],
+  "checks": [],
+  "checkpointHash": "d4a5082d7c1203ada71c6d4208960415492fb5174181247fb93539f3d569d4e8",
+  "delivery": null,
+  "round": 0,
+  "outcome": "in-progress"
+}

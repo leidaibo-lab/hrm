@@ -1,0 +1,46 @@
+{
+  "plan": {
+    "content": "# 部署方案样例（fixture，未执行）\n前提：明确代码提交、构建制品、环境与权限。\n步骤：CI 检查→预发部署→健康探测→人工授权后发布。\n回滚：保留上一制品，探测失败立即切回并复验。\n当前无制品、无部署执行，运维确认只针对方案。",
+    "sourceHash": "dd6fe98925c75e313de78ac71947ff2f503511d20c16b36c75662e7ec43d7702",
+    "hash": "a08580e6d8135802a204d11af81df3df9cbe7c0e7ee020b37120ce33e5e0bf01",
+    "invocation": {
+      "version": "invocation-evidence.v1",
+      "invocationId": "fd4b48d23776f353fc5e0e36f0f546d8034613ca287b068a81335def712c9978",
+      "roleId": "operations",
+      "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+      "inputHash": "1a98503fee50337bd03272d19283c65882a11e77faacbc75af2f211d487b3214",
+      "outputContract": "release-plan.output.v1",
+      "outputHash": "299bf86be7fab889223be19fe92ff0d8ef8e016d0e15d432483efc616ae7ca34",
+      "toolEvidenceRefs": [],
+      "toolReceipts": [],
+      "usage": {
+        "inputTokens": 10,
+        "outputTokens": 20,
+        "steps": 1,
+        "modelId": "mock-model-id"
+      }
+    },
+    "artifact": {
+      "version": "artifact.v1",
+      "id": "release-plan:299bf86be7fab889223be19fe92ff0d8ef8e016d0e15d432483efc616ae7ca34",
+      "kind": "release-plan",
+      "schemaVersion": "release-plan.output.v1",
+      "content": "# 部署方案样例（fixture，未执行）\n前提：明确代码提交、构建制品、环境与权限。\n步骤：CI 检查→预发部署→健康探测→人工授权后发布。\n回滚：保留上一制品，探测失败立即切回并复验。\n当前无制品、无部署执行，运维确认只针对方案。",
+      "hash": "fc26a015be0b256efb69524d269d5febd9ec638fd015ccf8e66f6a66c65a4e69",
+      "evidenceRefs": [
+        {
+          "id": "fd4b48d23776f353fc5e0e36f0f546d8034613ca287b068a81335def712c9978",
+          "kind": "invocation",
+          "hash": "98eb934968000760510390ce6107d85d5012653b6736ddb6bd3e8c0cfb331331"
+        }
+      ]
+    }
+  },
+  "qualityHash": "1c8b1b495e7702171d25ec95274a41089b884fd0fb40a24862269343a4125337",
+  "approval": null,
+  "hash": null,
+  "receipt": null,
+  "health": null,
+  "rollback": null,
+  "authority": "local-human-report"
+}

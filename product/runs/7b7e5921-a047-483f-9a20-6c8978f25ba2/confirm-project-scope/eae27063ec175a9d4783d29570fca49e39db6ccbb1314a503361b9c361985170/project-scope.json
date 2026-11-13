@@ -1,0 +1,58 @@
+{
+  "source": {
+    "kind": "approved-product",
+    "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+    "hash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+    "content": "# 产品交接样例（fixture）\n需求：工单标题去首尾空格后为 1–80 字符。\n验收：空白拒绝，长度边界通过，超长拒绝。\n此为固定样例，真实需求须使用 live 模式并人工确认。",
+    "evidence": "fixture",
+    "workflowId": "product-development"
+  },
+  "scopeApproval": {
+    "reviewer": "local-product-owner",
+    "comment": "本轮全新 HRM fixture Run；按当前暂停材料核对后继续，真实业务质量与线上发布另行验收。",
+    "productHash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+    "approval": {
+      "version": "approval.v1",
+      "id": "approval:ba8e55d664cf1efd30ef0774",
+      "gate": "project-scope",
+      "decision": "approve",
+      "actor": "local-product-owner",
+      "artifactHash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+      "comment": "本轮全新 HRM fixture Run；按当前暂停材料核对后继续，真实业务质量与线上发布另行验收。",
+      "hash": "ba8e55d664cf1efd30ef0774cdbb5c5f20c502196822daace3b22891f64b3cee"
+    },
+    "capabilityGrant": {
+      "version": "capability-grant.v1",
+      "id": "grant:fc2370b383fcbbd4327ad26a",
+      "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+      "sourceArtifactHash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+      "approvalHash": "ba8e55d664cf1efd30ef0774cdbb5c5f20c502196822daace3b22891f64b3cee",
+      "roles": [
+        "backend"
+      ],
+      "writablePaths": [
+        "src/recruitment-slice.mjs"
+      ],
+      "registeredChecks": [
+        "syntax:src/recruitment-slice.mjs",
+        "test:smoke.mjs"
+      ],
+      "maxCalls": 72,
+      "maxReworks": 1,
+      "hash": "fc2370b383fcbbd4327ad26a0f180c1786dbd9b6b83e014fcfb929d88b012e24"
+    }
+  },
+  "project": {
+    "id": "hrm-recruitment-slice",
+    "roles": [
+      "backend"
+    ],
+    "writablePaths": [
+      "src/recruitment-slice.mjs"
+    ],
+    "checkFiles": [
+      "smoke.mjs"
+    ]
+  },
+  "maxReworks": 1
+}

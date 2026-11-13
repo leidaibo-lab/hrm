@@ -1,0 +1,790 @@
+{
+  "mode": "fixture",
+  "productHash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+  "requirements": [
+    {
+      "id": "product:L1",
+      "line": 1,
+      "text": "# 产品交接样例（fixture）",
+      "hash": "b3deff04a3d71d024491bd7d3c43fb5446d6fd2f01199c3dbab9e95b7ff699c5"
+    },
+    {
+      "id": "product:L2",
+      "line": 2,
+      "text": "需求：工单标题去首尾空格后为 1–80 字符。",
+      "hash": "c9babc868965ed2559596175535602b57908c3b07f6dcb95fa67825011cda3cd"
+    },
+    {
+      "id": "product:L3",
+      "line": 3,
+      "text": "验收：空白拒绝，长度边界通过，超长拒绝。",
+      "hash": "4895c6ab269c61ee4e9450e2a45b47454a7c0ac6c8529409ccd1ab7fcdbe73f7"
+    },
+    {
+      "id": "product:L4",
+      "line": 4,
+      "text": "此为固定样例，真实需求须使用 live 模式并人工确认。",
+      "hash": "924e17d8f605dd036ea14b9d56fba96c8e1b7b9075659daae84e8a5969bb8fce"
+    }
+  ],
+  "context": {
+    "productHash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+    "baselineHash": "d4a5082d7c1203ada71c6d4208960415492fb5174181247fb93539f3d569d4e8",
+    "methodBundleHash": "b532d9e93f5be0fdafb840241d89dc49b034bbdac699b6e62e2368a0d2b3ab02",
+    "files": {
+      "smoke.mjs": "f991f3c96caf3139765212f6442776f630d1bf13c63e67b6dfedf15ecc287011",
+      "src/recruitment-slice.mjs": "56edeb107c03d90fe17746d68cdd40c21570b22446c132ae7f68d66307d9d5e5"
+    },
+    "rules": [
+      {
+        "text": "fixture使用manifest文件边界；未做真实规则推理",
+        "refs": [
+          "file:src/recruitment-slice.mjs"
+        ]
+      }
+    ],
+    "unknowns": []
+  },
+  "plan": {
+    "summary": "fixture有序任务包",
+    "coverage": [
+      {
+        "requirement": "# 产品交接样例（fixture）\n需求：工单标题去首尾空格后为 1–80 字符。\n验收：空白拒绝，长度边界通过，超长拒绝。\n此为固定样例，真实需求须使用 live 模式并人工确认。",
+        "behavior": "按文件实现",
+        "verification": "已登记检查"
+      }
+    ],
+    "contracts": "只写批准路径，不修改检查文件",
+    "tasks": [
+      {
+        "id": "fixture-task-1",
+        "role": "backend",
+        "paths": [
+          "src/recruitment-slice.mjs"
+        ],
+        "dependsOn": [],
+        "requirementRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4"
+        ],
+        "acceptanceRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4"
+        ],
+        "contextRefs": [
+          "file:src/recruitment-slice.mjs"
+        ],
+        "constraints": [
+          "不扩大路径与命令权限"
+        ],
+        "verificationRefs": [
+          "syntax:src/recruitment-slice.mjs",
+          "test:smoke.mjs"
+        ]
+      }
+    ],
+    "blockers": [],
+    "risks": [
+      "fixture未做真实架构推理"
+    ]
+  },
+  "planHash": "d53f6eb55521a18343ace718a02a4a384d8e9b4fcf5c340cff6149cd277fa05d",
+  "team": {
+    "planHash": "d53f6eb55521a18343ace718a02a4a384d8e9b4fcf5c340cff6149cd277fa05d",
+    "maxParallel": 3,
+    "maxDelegations": 3,
+    "delegationDepth": 1,
+    "members": [
+      {
+        "id": "member-94f17490d672dd58",
+        "role": "backend",
+        "taskId": "fixture-task-1",
+        "paths": [
+          "src/recruitment-slice.mjs"
+        ]
+      }
+    ]
+  },
+  "delegations": [
+    {
+      "taskId": "fixture-task-1",
+      "parentId": "member-94f17490d672dd58",
+      "memberId": "member-94f17490d672dd58-delegate-1",
+      "role": "backend",
+      "goal": "按批准任务实现当前文件并保留接口",
+      "paths": [
+        "src/recruitment-slice.mjs"
+      ],
+      "outputHash": "7cfeeb0d61c95f63b948cd9072aebf78ff670ffedb13c6c897f95de7f6a60f43",
+      "sourceHash": "dd6fe98925c75e313de78ac71947ff2f503511d20c16b36c75662e7ec43d7702"
+    }
+  ],
+  "reviews": [
+    {
+      "hash": "7c686b4bdf7d0499a3a31b149dbdb65e1abc0c1ff287bbfdb58ec99e248f0344",
+      "decision": "approve",
+      "reviewer": "local-product-owner",
+      "comment": "本轮全新 HRM fixture Run；按当前暂停材料核对后继续，真实业务质量与线上发布另行验收。",
+      "resolutions": [],
+      "authority": "local-human-label"
+    }
+  ],
+  "readiness": {
+    "assessment": {
+      "verdict": "PASS",
+      "findings": [],
+      "coverageRefs": [
+        "product:L1",
+        "product:L2",
+        "product:L3",
+        "product:L4",
+        "task:fixture-task-1"
+      ],
+      "unchecked": [
+        "fixture不评价业务质量"
+      ],
+      "resolutions": []
+    },
+    "sourceHash": "d4a5082d7c1203ada71c6d4208960415492fb5174181247fb93539f3d569d4e8",
+    "planHash": "d53f6eb55521a18343ace718a02a4a384d8e9b4fcf5c340cff6149cd277fa05d",
+    "checksHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "hash": "74db4d573a6ebd23edf9e8b9a98443558d73e619bb09ad8f9d7cc84f4e3a256b"
+  },
+  "codeReviews": [
+    {
+      "assessment": {
+        "verdict": "PASS",
+        "findings": [],
+        "coverageRefs": [
+          "product:L1",
+          "product:L2",
+          "product:L3",
+          "product:L4",
+          "task:fixture-task-1"
+        ],
+        "unchecked": [
+          "fixture不评价业务质量"
+        ],
+        "resolutions": []
+      },
+      "sourceHash": "dd6fe98925c75e313de78ac71947ff2f503511d20c16b36c75662e7ec43d7702",
+      "planHash": "d53f6eb55521a18343ace718a02a4a384d8e9b4fcf5c340cff6149cd277fa05d",
+      "checksHash": "dd0f4b6ed9403b25f50089fc73e638a4830aca477c1d83254832c4c425acdd8b",
+      "hash": "b5cfc793e988d36275f88c99c2016280771940fe97b04df8cbbc89b30d2c75df"
+    }
+  ],
+  "work": [
+    {
+      "role": "context",
+      "round": 0,
+      "text": "{\"rules\":[{\"text\":\"fixture使用manifest文件边界；未做真实规则推理\",\"refs\":[\"file:src/recruitment-slice.mjs\"]}],\"unknowns\":[]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80,
+      "invocation": {
+        "version": "invocation-evidence.v1",
+        "invocationId": "3eaed57448358d8fcb3d89b511ff07baf4a6115384216810b102892dedd1931d",
+        "roleId": "context",
+        "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+        "inputHash": "9c958a7b33dcb93aa718c841c31f74f54867a3e7dce5c7b2d2eb8b03e58e94b6",
+        "outputContract": "context.output.v1",
+        "outputHash": "a5afc69f8bb861bed48a251580b64953a28de00487b27599e7b50e6d5614bce1",
+        "toolEvidenceRefs": [
+          "readFile",
+          "skill",
+          "skill_read"
+        ],
+        "toolReceipts": [
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:72cf84e555ed4baea4df99bf",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "3eaed57448358d8fcb3d89b511ff07baf4a6115384216810b102892dedd1931d",
+            "toolId": "readFile",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:72cf84e555ed4baea4df99bf",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "9c958a7b33dcb93aa718c841c31f74f54867a3e7dce5c7b2d2eb8b03e58e94b6",
+              "payloadHash": "6f10de5a0caf9f2b797691db42f54d544ed86ab79c60c59560ddaea72a201133",
+              "refs": [],
+              "hash": "72cf84e555ed4baea4df99bf50389b4c08afe586de32d2804c361336245c2d56"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:367b8d80c30578a96dcadd9a",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "3eaed57448358d8fcb3d89b511ff07baf4a6115384216810b102892dedd1931d",
+            "toolId": "skill",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:367b8d80c30578a96dcadd9a",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "9c958a7b33dcb93aa718c841c31f74f54867a3e7dce5c7b2d2eb8b03e58e94b6",
+              "payloadHash": "1e0013cd05b7cf5b84a650c4d1674732cfa27cbd5b80de2a3922dadad2d6ad07",
+              "refs": [],
+              "hash": "367b8d80c30578a96dcadd9a2db5bb9e9c56d18bddef0404bce26eeaf1c3c839"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:54ca734ab3b0a7aa3dfade79",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "3eaed57448358d8fcb3d89b511ff07baf4a6115384216810b102892dedd1931d",
+            "toolId": "skill_read",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:54ca734ab3b0a7aa3dfade79",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "9c958a7b33dcb93aa718c841c31f74f54867a3e7dce5c7b2d2eb8b03e58e94b6",
+              "payloadHash": "de94c59bbe310c98257ca45fc9761387c82ef39605383ba2cdf3f5605e334005",
+              "refs": [],
+              "hash": "54ca734ab3b0a7aa3dfade795f9a518fdc2a55ced3ea7d7aedfe88d9df37488e"
+            }
+          }
+        ],
+        "usage": {
+          "inputTokens": 48,
+          "outputTokens": 80,
+          "steps": 4,
+          "modelId": "mock-model-id"
+        }
+      },
+      "artifact": {
+        "version": "artifact.v1",
+        "id": "context:a5afc69f8bb861bed48a251580b64953a28de00487b27599e7b50e6d5614bce1",
+        "kind": "context",
+        "schemaVersion": "context.output.v1",
+        "content": "{\"rules\":[{\"text\":\"fixture使用manifest文件边界；未做真实规则推理\",\"refs\":[\"file:src/recruitment-slice.mjs\"]}],\"unknowns\":[]}",
+        "hash": "de0717b9fb32dfc2dbb03d264ab99fbfe14269cb45b8490793994c537069edfb",
+        "evidenceRefs": [
+          {
+            "id": "3eaed57448358d8fcb3d89b511ff07baf4a6115384216810b102892dedd1931d",
+            "kind": "invocation",
+            "hash": "07868260c086b66b3b6803a9ff45d21caacaf45bcc9da2cafb31fa2a69305a75"
+          }
+        ]
+      }
+    },
+    {
+      "role": "architect",
+      "round": 0,
+      "text": "{\"summary\":\"fixture有序任务包\",\"coverage\":[{\"requirement\":\"# 产品交接样例（fixture）\\n需求：工单标题去首尾空格后为 1–80 字符。\\n验收：空白拒绝，长度边界通过，超长拒绝。\\n此为固定样例，真实需求须使用 live 模式并人工确认。\",\"behavior\":\"按文件实现\",\"verification\":\"已登记检查\"}],\"contracts\":\"只写批准路径，不修改检查文件\",\"blockers\":[],\"risks\":[\"fixture未做真实架构推理\"],\"tasks\":[{\"id\":\"fixture-task-1\",\"role\":\"backend\",\"paths\":[\"src/recruitment-slice.mjs\"],\"dependsOn\":[],\"requirementRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"acceptanceRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"contextRefs\":[\"file:src/recruitment-slice.mjs\"],\"constraints\":[\"不扩大路径与命令权限\"],\"verificationRefs\":[\"syntax:src/recruitment-slice.mjs\",\"test:smoke.mjs\"]}]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80,
+      "invocation": {
+        "version": "invocation-evidence.v1",
+        "invocationId": "aa153f7e0d2d847fe32b528e44152845fbb142c9ed71d69b747f32556bb48135",
+        "roleId": "architect",
+        "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+        "inputHash": "fb769d6a44054eff9520cd0f131f7d2f220fd061637d3fbb90d5add4a660f19e",
+        "outputContract": "plan.output.v1",
+        "outputHash": "b6efbe7bd88ce64509769a600231d375d3cbd537da3d5e71a91e54251b6a076d",
+        "toolEvidenceRefs": [
+          "readFile",
+          "skill",
+          "skill_read"
+        ],
+        "toolReceipts": [
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:e77606726e0785e1d85fb479",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "aa153f7e0d2d847fe32b528e44152845fbb142c9ed71d69b747f32556bb48135",
+            "toolId": "readFile",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:e77606726e0785e1d85fb479",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "fb769d6a44054eff9520cd0f131f7d2f220fd061637d3fbb90d5add4a660f19e",
+              "payloadHash": "0358bcd869463907ba6564bec53b6d36bd76e481205c8b8eed9892f4f0d8fa11",
+              "refs": [],
+              "hash": "e77606726e0785e1d85fb479aaee1b7757974362d9178b05f4af8e4bdec77999"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:94407bdc17457f32c903aced",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "aa153f7e0d2d847fe32b528e44152845fbb142c9ed71d69b747f32556bb48135",
+            "toolId": "skill",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:94407bdc17457f32c903aced",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "fb769d6a44054eff9520cd0f131f7d2f220fd061637d3fbb90d5add4a660f19e",
+              "payloadHash": "2bbf4bf2d95b81ac5f69ae6e8ea50a89b244a2684d3686851d08856086ff96d1",
+              "refs": [],
+              "hash": "94407bdc17457f32c903acedb6def7bc9e7ecf435cfec9c4c8088361ce7402ef"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:fcac3e17840b173c4cf5adbd",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "aa153f7e0d2d847fe32b528e44152845fbb142c9ed71d69b747f32556bb48135",
+            "toolId": "skill_read",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:fcac3e17840b173c4cf5adbd",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "fb769d6a44054eff9520cd0f131f7d2f220fd061637d3fbb90d5add4a660f19e",
+              "payloadHash": "7260ae4b5bb0dda9d386117cebfcbcc8ce55aca99e79edd79d6f5dad66fe65e3",
+              "refs": [],
+              "hash": "fcac3e17840b173c4cf5adbda33446a8be3cd470f94ba73e0f21257847215cf4"
+            }
+          }
+        ],
+        "usage": {
+          "inputTokens": 48,
+          "outputTokens": 80,
+          "steps": 4,
+          "modelId": "mock-model-id"
+        }
+      },
+      "artifact": {
+        "version": "artifact.v1",
+        "id": "architect:b6efbe7bd88ce64509769a600231d375d3cbd537da3d5e71a91e54251b6a076d",
+        "kind": "task-plan",
+        "schemaVersion": "plan.output.v1",
+        "content": "{\"summary\":\"fixture有序任务包\",\"coverage\":[{\"requirement\":\"# 产品交接样例（fixture）\\n需求：工单标题去首尾空格后为 1–80 字符。\\n验收：空白拒绝，长度边界通过，超长拒绝。\\n此为固定样例，真实需求须使用 live 模式并人工确认。\",\"behavior\":\"按文件实现\",\"verification\":\"已登记检查\"}],\"contracts\":\"只写批准路径，不修改检查文件\",\"blockers\":[],\"risks\":[\"fixture未做真实架构推理\"],\"tasks\":[{\"id\":\"fixture-task-1\",\"role\":\"backend\",\"paths\":[\"src/recruitment-slice.mjs\"],\"dependsOn\":[],\"requirementRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"acceptanceRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\"],\"contextRefs\":[\"file:src/recruitment-slice.mjs\"],\"constraints\":[\"不扩大路径与命令权限\"],\"verificationRefs\":[\"syntax:src/recruitment-slice.mjs\",\"test:smoke.mjs\"]}]}",
+        "hash": "8e44f41d3c369e45c5b8788fff30dd3872bbd539741f2822cfd9a6590df99632",
+        "evidenceRefs": [
+          {
+            "id": "aa153f7e0d2d847fe32b528e44152845fbb142c9ed71d69b747f32556bb48135",
+            "kind": "invocation",
+            "hash": "004800b97b95287ceaf5da9b6a924a4811e031977c633276ca4cd0898f1f5a3c"
+          }
+        ]
+      }
+    },
+    {
+      "role": "readiness",
+      "round": 0,
+      "text": "{\"verdict\":\"PASS\",\"findings\":[],\"coverageRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\",\"task:fixture-task-1\"],\"unchecked\":[\"fixture不评价业务质量\"],\"resolutions\":[]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80,
+      "invocation": {
+        "version": "invocation-evidence.v1",
+        "invocationId": "b83237eb8d2bdf282440b395451d4397397dff3871679c8a5d100cbad9165729",
+        "roleId": "readiness",
+        "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+        "inputHash": "901fcc7999f6c2a0aeb09ef1c59ba6519ef0113ee7f96377129ea867075c62fe",
+        "outputContract": "assessment.output.v1",
+        "outputHash": "c50135310eadb9f6d068a39d4ef49cfce562fe468822f4afbc1cdb554d64ac72",
+        "toolEvidenceRefs": [
+          "readFile",
+          "skill",
+          "skill_read"
+        ],
+        "toolReceipts": [
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:3d630066179a579b05d04f1e",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "b83237eb8d2bdf282440b395451d4397397dff3871679c8a5d100cbad9165729",
+            "toolId": "readFile",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:3d630066179a579b05d04f1e",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "901fcc7999f6c2a0aeb09ef1c59ba6519ef0113ee7f96377129ea867075c62fe",
+              "payloadHash": "e07f6a9f781dcf5f0fb1af246a86b9071191d44e9f8dc27d39076f317f7adda4",
+              "refs": [],
+              "hash": "3d630066179a579b05d04f1e96491299ee0842dd800e72d62d419bc9a9ee2114"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:672782222f3664f7c5a8eb64",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "b83237eb8d2bdf282440b395451d4397397dff3871679c8a5d100cbad9165729",
+            "toolId": "skill",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:672782222f3664f7c5a8eb64",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "901fcc7999f6c2a0aeb09ef1c59ba6519ef0113ee7f96377129ea867075c62fe",
+              "payloadHash": "6d54cc97cc3ab97ccf6cd87715390ee57f03b4acd34758d6dc94880b8a6294b6",
+              "refs": [],
+              "hash": "672782222f3664f7c5a8eb645cd6569d49d060427b1d4c9ad848c5f71ee7da03"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:b9c2fad81a0bd617029a62c7",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "b83237eb8d2bdf282440b395451d4397397dff3871679c8a5d100cbad9165729",
+            "toolId": "skill_read",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:b9c2fad81a0bd617029a62c7",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "901fcc7999f6c2a0aeb09ef1c59ba6519ef0113ee7f96377129ea867075c62fe",
+              "payloadHash": "f8d8305597fc791488692e650ce99ea15171c52cafeb0a254e2f7d8e7aeccc63",
+              "refs": [],
+              "hash": "b9c2fad81a0bd617029a62c772da02d0323c9a6743e6622456b2a600efff8ab9"
+            }
+          }
+        ],
+        "usage": {
+          "inputTokens": 48,
+          "outputTokens": 80,
+          "steps": 4,
+          "modelId": "mock-model-id"
+        }
+      },
+      "artifact": {
+        "version": "artifact.v1",
+        "id": "readiness:c50135310eadb9f6d068a39d4ef49cfce562fe468822f4afbc1cdb554d64ac72",
+        "kind": "assessment",
+        "schemaVersion": "assessment.output.v1",
+        "content": "{\"verdict\":\"PASS\",\"findings\":[],\"coverageRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\",\"task:fixture-task-1\"],\"unchecked\":[\"fixture不评价业务质量\"],\"resolutions\":[]}",
+        "hash": "54f30ef2ed232af569a5f2d306e4099a2eabf4b61c2197aead78f915ab7d11af",
+        "evidenceRefs": [
+          {
+            "id": "b83237eb8d2bdf282440b395451d4397397dff3871679c8a5d100cbad9165729",
+            "kind": "invocation",
+            "hash": "c77a110125f42f98ed1196af465a4e6912a67cd2cd034bc9bfd374c52ad5aeb5"
+          }
+        ]
+      }
+    },
+    {
+      "role": "backend",
+      "round": 0,
+      "text": "fixture已实际读取并修改批准路径。",
+      "tools": [
+        "delegateTask"
+      ],
+      "steps": 2,
+      "modelId": "mock-model-id",
+      "inputTokens": 24,
+      "outputTokens": 40,
+      "invocation": {
+        "version": "invocation-evidence.v1",
+        "invocationId": "eb3ee8c3af84d3178bed0b24138435d1cb01365393827b3322d671b749484cf9",
+        "roleId": "implementation-owner",
+        "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+        "inputHash": "0837601ecd83d002b01663a343aaa50fdff4d1d667f7ca62f14c424c9d5b2c55",
+        "outputContract": "implementation-summary.output.v1",
+        "outputHash": "acaecd8f33106e4e19ef987bb02de10a87ca354165a4ee46e73f63e92b674857",
+        "toolEvidenceRefs": [
+          "delegateTask"
+        ],
+        "toolReceipts": [
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:a037dab24e768529f4e60d87",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "eb3ee8c3af84d3178bed0b24138435d1cb01365393827b3322d671b749484cf9",
+            "toolId": "delegateTask",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:a037dab24e768529f4e60d87",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "0837601ecd83d002b01663a343aaa50fdff4d1d667f7ca62f14c424c9d5b2c55",
+              "payloadHash": "c9b08791fb84f8457f71ba8e8bed3db52bfe194bacb274ed8bd7372fa1c9e2d9",
+              "refs": [],
+              "hash": "a037dab24e768529f4e60d878a230d07676ac512fb59bad0d873a3de3125ee52"
+            }
+          }
+        ],
+        "usage": {
+          "inputTokens": 24,
+          "outputTokens": 40,
+          "steps": 2,
+          "modelId": "mock-model-id"
+        }
+      },
+      "artifact": {
+        "version": "artifact.v1",
+        "id": "backend:acaecd8f33106e4e19ef987bb02de10a87ca354165a4ee46e73f63e92b674857",
+        "kind": "implementation-summary",
+        "schemaVersion": "implementation-summary.output.v1",
+        "content": "fixture已实际读取并修改批准路径。",
+        "hash": "cbb57e2e94c4ad6f061a4f2e3f7141d7670a388fac51276586ccfaea9b300ddf",
+        "evidenceRefs": [
+          {
+            "id": "eb3ee8c3af84d3178bed0b24138435d1cb01365393827b3322d671b749484cf9",
+            "kind": "invocation",
+            "hash": "2318343548a7fbd8d030cf398430462b8d153b01ee84ac72eb71156b1e1865f1"
+          }
+        ]
+      }
+    },
+    {
+      "role": "self-check",
+      "round": 0,
+      "text": "{\"summary\":\"fixture读取真实检查\",\"route\":\"backend\"}",
+      "tools": [
+        "runChecks"
+      ],
+      "steps": 2,
+      "modelId": "mock-model-id",
+      "inputTokens": 24,
+      "outputTokens": 40,
+      "invocation": {
+        "version": "invocation-evidence.v1",
+        "invocationId": "6b0465f321dddbb527783ca0de98ae9120c2d7596308b0a804c3eadf9cdffcab",
+        "roleId": "self-check",
+        "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+        "inputHash": "36a59a83cd04365bee84075defc6bf68a5019d04c6ec2e700aa5c6e6571ee015",
+        "outputContract": "self-check-summary.output.v1",
+        "outputHash": "484959d33e4483b5f21d88ce3784d8df75bd4bb0e3238f36585c463048ace2e8",
+        "toolEvidenceRefs": [
+          "runChecks"
+        ],
+        "toolReceipts": [
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:8b70183d917c057d83d3f17c",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "6b0465f321dddbb527783ca0de98ae9120c2d7596308b0a804c3eadf9cdffcab",
+            "toolId": "runChecks",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:8b70183d917c057d83d3f17c",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "36a59a83cd04365bee84075defc6bf68a5019d04c6ec2e700aa5c6e6571ee015",
+              "payloadHash": "196dc8d9007f6acc3837a03907aa57135eec594cb09a36a433972aa7b9c4e774",
+              "refs": [],
+              "hash": "8b70183d917c057d83d3f17c5ee245ce97ba50b220be547e9437a0fb7d2b5981"
+            }
+          }
+        ],
+        "usage": {
+          "inputTokens": 24,
+          "outputTokens": 40,
+          "steps": 2,
+          "modelId": "mock-model-id"
+        }
+      },
+      "artifact": {
+        "version": "artifact.v1",
+        "id": "self-check:484959d33e4483b5f21d88ce3784d8df75bd4bb0e3238f36585c463048ace2e8",
+        "kind": "self-check-summary",
+        "schemaVersion": "self-check-summary.output.v1",
+        "content": "{\"summary\":\"fixture读取真实检查\",\"route\":\"backend\"}",
+        "hash": "e6c9959cf7060eaf8d7d1c7fad9954878d91b29e157ea7b99aa0e6037b931e8a",
+        "evidenceRefs": [
+          {
+            "id": "6b0465f321dddbb527783ca0de98ae9120c2d7596308b0a804c3eadf9cdffcab",
+            "kind": "invocation",
+            "hash": "fa9c5b8e457b784e619f39a5ee5f0fc6a650e530f556e5aa814acb5be1138f0f"
+          }
+        ]
+      }
+    },
+    {
+      "role": "reviewer",
+      "round": 0,
+      "text": "{\"verdict\":\"PASS\",\"findings\":[],\"coverageRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\",\"task:fixture-task-1\"],\"unchecked\":[\"fixture不评价业务质量\"],\"resolutions\":[]}",
+      "tools": [
+        "skill",
+        "skill_read",
+        "readFile"
+      ],
+      "steps": 4,
+      "modelId": "mock-model-id",
+      "inputTokens": 48,
+      "outputTokens": 80,
+      "invocation": {
+        "version": "invocation-evidence.v1",
+        "invocationId": "8a0332be5a46bdcb220ed699ff588cf5661c7e9f23cac6134f2eefe35eb814a4",
+        "roleId": "reviewer",
+        "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+        "inputHash": "9b3ed1f02ae0569e3eb91a05c8f82074960bf13f2b678bcf35bf764bc86f4343",
+        "outputContract": "assessment.output.v1",
+        "outputHash": "c50135310eadb9f6d068a39d4ef49cfce562fe468822f4afbc1cdb554d64ac72",
+        "toolEvidenceRefs": [
+          "readFile",
+          "skill",
+          "skill_read"
+        ],
+        "toolReceipts": [
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:7f8f5160a3f075e313600c67",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "8a0332be5a46bdcb220ed699ff588cf5661c7e9f23cac6134f2eefe35eb814a4",
+            "toolId": "readFile",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:7f8f5160a3f075e313600c67",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "9b3ed1f02ae0569e3eb91a05c8f82074960bf13f2b678bcf35bf764bc86f4343",
+              "payloadHash": "efd3013ccdef63c56210573852ee078342477d5864546cba8989478029e1625f",
+              "refs": [],
+              "hash": "7f8f5160a3f075e313600c67989bd7c730439732fd314c05b81bd076504bc216"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:bd8c3ffcf2f4c2294c28df3e",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "8a0332be5a46bdcb220ed699ff588cf5661c7e9f23cac6134f2eefe35eb814a4",
+            "toolId": "skill",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:bd8c3ffcf2f4c2294c28df3e",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "9b3ed1f02ae0569e3eb91a05c8f82074960bf13f2b678bcf35bf764bc86f4343",
+              "payloadHash": "a4cfb56a685bbe554b1e50ffb956229b50591d13e88876961c1a97077b534c0b",
+              "refs": [],
+              "hash": "bd8c3ffcf2f4c2294c28df3eaf6200d1c6b5f6c999a70bcfa2b2b6510495dd10"
+            }
+          },
+          {
+            "version": "tool-execution-receipt.v1",
+            "id": "tool:7749d71f0dbd0c8b78dbbb7d",
+            "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+            "invocationId": "8a0332be5a46bdcb220ed699ff588cf5661c7e9f23cac6134f2eefe35eb814a4",
+            "toolId": "skill_read",
+            "inputHash": null,
+            "outputHash": null,
+            "status": "succeeded",
+            "evidence": {
+              "version": "evidence-record.v1",
+              "id": "evidence:7749d71f0dbd0c8b78dbbb7d",
+              "kind": "tool-receipt",
+              "runId": "7b7e5921-a047-483f-9a20-6c8978f25ba2",
+              "sourceHash": "9b3ed1f02ae0569e3eb91a05c8f82074960bf13f2b678bcf35bf764bc86f4343",
+              "payloadHash": "a20d93c972f7e4d53481d9a879b0b2ee0035a7ec10a53d30e2074a0b76b6affa",
+              "refs": [],
+              "hash": "7749d71f0dbd0c8b78dbbb7d23f0497a76e5c8ab8aa6d47ddf667eb57ba51623"
+            }
+          }
+        ],
+        "usage": {
+          "inputTokens": 48,
+          "outputTokens": 80,
+          "steps": 4,
+          "modelId": "mock-model-id"
+        }
+      },
+      "artifact": {
+        "version": "artifact.v1",
+        "id": "reviewer:c50135310eadb9f6d068a39d4ef49cfce562fe468822f4afbc1cdb554d64ac72",
+        "kind": "assessment",
+        "schemaVersion": "assessment.output.v1",
+        "content": "{\"verdict\":\"PASS\",\"findings\":[],\"coverageRefs\":[\"product:L1\",\"product:L2\",\"product:L3\",\"product:L4\",\"task:fixture-task-1\"],\"unchecked\":[\"fixture不评价业务质量\"],\"resolutions\":[]}",
+        "hash": "ad9b3368bd025476c3c161ef15aeca4611a5c2f927f89dc80e64366b0debdb2e",
+        "evidenceRefs": [
+          {
+            "id": "8a0332be5a46bdcb220ed699ff588cf5661c7e9f23cac6134f2eefe35eb814a4",
+            "kind": "invocation",
+            "hash": "34d7c9733f580f4243beab0b83725763a06668d4c452acf8e1bd51cc093edbb8"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "syntax:src/recruitment-slice.mjs",
+      "command": "node --max-old-space-size=128 --check src/recruitment-slice.mjs",
+      "exitCode": 0,
+      "processExitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "durationMs": 31,
+      "timedOut": false,
+      "stdoutTruncated": false,
+      "stderrTruncated": false
+    },
+    {
+      "id": "test:smoke.mjs",
+      "command": "node --max-old-space-size=128 --test --test-reporter=tap --test-timeout=25000 smoke.mjs",
+      "exitCode": 0,
+      "processExitCode": 0,
+      "stdout": "TAP version 13\n# Subtest: fixture candidate\nok 1 - fixture candidate\n  ---\n  duration_ms: 0.325417\n  type: 'test'\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 1\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 38.4505\n",
+      "stderr": "",
+      "durationMs": 75,
+      "timedOut": false,
+      "stdoutTruncated": false,
+      "stderrTruncated": false
+    }
+  ],
+  "checkpointHash": "dd6fe98925c75e313de78ac71947ff2f503511d20c16b36c75662e7ec43d7702",
+  "delivery": null,
+  "round": 0,
+  "outcome": "in-progress"
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "role": "product",
+    "artifactHash": "d1ae05a7e980d0a6edf3637786408758ecb7f03b481137a15ceb4d8e19ede1f6",
+    "decision": "approve",
+    "reviewer": "local-product-owner",
+    "comment": "本轮全新 HRM fixture Run；按当前暂停材料核对后继续，真实业务质量与线上发布另行验收。"
+  }
+]

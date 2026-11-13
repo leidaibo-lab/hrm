@@ -1,0 +1,102 @@
+{
+  "status": "pending",
+  "plan": {
+    "content": "# 测试计划样例（fixture，未执行）\n需求映射：标题长度→空串、空白、1、80、81 字符；去空格→前后空格。\n尚缺：Unicode 计数口径、接口集成、实际运行报告。\n测试人员确认的是计划覆盖，不能视为测试通过。",
+    "sourceHash": "dd6fe98925c75e313de78ac71947ff2f503511d20c16b36c75662e7ec43d7702",
+    "hash": "44e9a630b995a56c89f0e37c6c24cdc6d853cb8cbd823b2657dc6658ba1f7755",
+    "browserMethodHash": "8a65cb01ebe6bb6ea49ff07bc31ed99596b1a1e8dfbc49781192b76ebfc96fef",
+    "invocation": {
+      "version": "invocation-evidence.v1",
+      "invocationId": "6f4856c00733202607fee6db4d8bd5d161dd7c8fea83854e734fb6e28c84c40f",
+      "roleId": "testing",
+      "bundleHash": "fd8b068c01dea6a42db47b278288f9ea6631ed99177030696409fc3ea8006e04",
+      "inputHash": "c16ba441c976578d25471372ee413dedecafdb1824e6f607cba59eee9a8c0094",
+      "outputContract": "test-plan.output.v1",
+      "outputHash": "b747629d120e5f4f53839a924ddda8268292f31f7371f0cebac29c124cc34763",
+      "toolEvidenceRefs": [],
+      "toolReceipts": [],
+      "usage": {
+        "inputTokens": 10,
+        "outputTokens": 20,
+        "steps": 1,
+        "modelId": "mock-model-id"
+      }
+    },
+    "artifact": {
+      "version": "artifact.v1",
+      "id": "test-plan:b747629d120e5f4f53839a924ddda8268292f31f7371f0cebac29c124cc34763",
+      "kind": "test-plan",
+      "schemaVersion": "test-plan.output.v1",
+      "content": "# 测试计划样例（fixture，未执行）\n需求映射：标题长度→空串、空白、1、80、81 字符；去空格→前后空格。\n尚缺：Unicode 计数口径、接口集成、实际运行报告。\n测试人员确认的是计划覆盖，不能视为测试通过。",
+      "hash": "2c2f3409ad56d0e92985a04b0ea6e33b6e76048f9155d3b145152c0e26d18d16",
+      "evidenceRefs": [
+        {
+          "id": "6f4856c00733202607fee6db4d8bd5d161dd7c8fea83854e734fb6e28c84c40f",
+          "kind": "invocation",
+          "hash": "6311153a570cbbadabb728ad929df8f95d38ccec8f537451fd9becb56126b64a"
+        }
+      ]
+    }
+  },
+  "approval": {
+    "reviewer": "local-product-owner",
+    "comment": "本轮全新 HRM fixture Run；按当前暂停材料核对后继续，真实业务质量与线上发布另行验收。",
+    "hash": "44e9a630b995a56c89f0e37c6c24cdc6d853cb8cbd823b2657dc6658ba1f7755",
+    "decision": "approve",
+    "cases": [
+      {
+        "id": "hrm-case-1",
+        "requirementRefs": [
+          "product:L1"
+        ],
+        "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+        "method": "registered-check",
+        "checkRefs": [
+          "syntax:src/recruitment-slice.mjs",
+          "test:smoke.mjs"
+        ]
+      },
+      {
+        "id": "hrm-case-2",
+        "requirementRefs": [
+          "product:L2"
+        ],
+        "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+        "method": "registered-check",
+        "checkRefs": [
+          "syntax:src/recruitment-slice.mjs",
+          "test:smoke.mjs"
+        ]
+      },
+      {
+        "id": "hrm-case-3",
+        "requirementRefs": [
+          "product:L3"
+        ],
+        "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+        "method": "registered-check",
+        "checkRefs": [
+          "syntax:src/recruitment-slice.mjs",
+          "test:smoke.mjs"
+        ]
+      },
+      {
+        "id": "hrm-case-4",
+        "requirementRefs": [
+          "product:L4"
+        ],
+        "expected": "候选初筛与邀约记录的已批准范围可被测试计划追踪。",
+        "method": "registered-check",
+        "checkRefs": [
+          "syntax:src/recruitment-slice.mjs",
+          "test:smoke.mjs"
+        ]
+      }
+    ]
+  },
+  "checks": [],
+  "results": [],
+  "sourceHash": null,
+  "reportHash": null,
+  "review": null
+}
