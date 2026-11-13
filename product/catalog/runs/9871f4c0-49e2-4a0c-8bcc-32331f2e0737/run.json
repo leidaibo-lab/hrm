@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "json-repair-test",
+    "runId": "9871f4c0-49e2-4a0c-8bcc-32331f2e0737",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-13T10:37:26.517Z",
+  "briefHash": "9ebd54bba943e625a1593377c54f347e17c0d4686e7478aea7dbb968fde45f39"
+}
