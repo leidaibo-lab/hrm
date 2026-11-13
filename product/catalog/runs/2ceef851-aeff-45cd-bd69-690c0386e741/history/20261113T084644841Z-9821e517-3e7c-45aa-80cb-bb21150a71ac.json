@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "run-archive.v1",
+  "authority": "mastra-store-projection",
+  "projectId": "hrm",
+  "iterationId": "unassigned-test",
+  "runId": "2ceef851-aeff-45cd-bd69-690c0386e741",
+  "workflowId": "productDevelopmentWorkflow",
+  "workflowDefinitionId": "product-development-resources-v1",
+  "workflowVersion": "product-development.archive.v1",
+  "mode": "live",
+  "scope": "run",
+  "stage": "freeze-role-resources",
+  "status": "failed",
+  "observedAt": "2026-11-13T08:46:44.841Z",
+  "reason": "step-failed",
+  "code": {
+    "revision": "29c71550a4e44ef9ea04cb5d533877c9c9602c1b",
+    "dirty": true
+  },
+  "artifacts": [],
+  "artifactPaths": [],
+  "recovery": {
+    "source": "Mastra Store",
+    "portable": false,
+    "condition": "inspect-native-failure"
+  }
+}
