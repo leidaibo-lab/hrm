@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "run-archive.v1",
+  "authority": "mastra-store-projection",
+  "projectId": "hrm",
+  "iterationId": "hrm-recruitment-live-v1-20261113",
+  "runId": "b09d9733-bd03-4689-bfa1-6978d0e8469a",
+  "workflowId": "productDevelopmentWorkflow",
+  "workflowDefinitionId": "product-development",
+  "workflowVersion": "product-development.archive.v1",
+  "mode": "live",
+  "scope": "run",
+  "stage": null,
+  "status": "running",
+  "observedAt": "2026-11-13T12:39:30.407Z",
+  "reason": null,
+  "code": {
+    "revision": "fb967ca5bf0ff99aea2a5ca994ff58e56f4e7b39",
+    "dirty": false
+  },
+  "artifacts": [],
+  "artifactPaths": [],
+  "recovery": {
+    "source": "Mastra Store",
+    "portable": false,
+    "condition": "inspect-native-state"
+  }
+}
