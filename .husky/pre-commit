@@ -1,0 +1,7 @@
+pnpm exec lint-staged
+pnpm check:changed --mode staged --quick
+pnpm check:docs
+pnpm check:rules
+pnpm check:protected
+pnpm typecheck
+pnpm --filter @cip/api test

@@ -1,12 +1,36 @@
-node_modules/
-.next/
-dist/
-coverage/
-.data/
-.env
-.env.*
+.*
+!.vscode/
+!.gitignore
+!.gitlab-ci.yml
 !.env.example
+!.husky/
+
+
+# 依赖
+node_modules/
+.pnp.*
+.yarn/*
+
+# 构建产物
+dist/
+out/
+build/
+coverage/
+
+# TypeScript 增量构建产物与 next 生成类型
 *.tsbuildinfo
+next-env.d.ts
+
+
+# 生成产物（codegen / prisma generate，不入库）
+apps/web/lib/api-client/
+apps/api/src/platform/prisma/generated/
+
+# 系统文件与日志
 .DS_Store
-packages/database/generated/
-apps/web/next-env.d.ts
+*.log
+*.pem
+
+# 本地 compose 端口冲突覆盖（per-machine，不入库）
+docker-compose.override.yml
+design-audit-shots/

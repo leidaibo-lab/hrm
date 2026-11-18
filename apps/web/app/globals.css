@@ -1,1 +1,233 @@
-*{box-sizing:border-box} :root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#17202a;background:#f4f7fb;font-synthesis:none} body{margin:0;min-width:1180px}.app-shell{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{background:#102a43;color:#d9e7f5;padding:24px 18px;position:relative}.brand{display:flex;align-items:center;gap:10px;margin-bottom:36px}.brand-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#49c6a7;color:#102a43;font-weight:800}.brand strong,.brand small{display:block}.brand strong{color:#fff}.brand small{margin-top:3px;color:#9fb3c8;font-size:12px}.sidebar nav{display:grid;gap:8px}.sidebar nav button{border:0;border-radius:8px;background:transparent;color:inherit;text-align:left;padding:11px 12px;font:inherit;cursor:pointer}.sidebar nav button:hover,.sidebar nav .nav-active{background:#1f4c6d;color:#fff}.sidebar nav em{float:right;color:#91a7bc;font-size:11px;font-style:normal}.sidebar-foot{position:fixed;bottom:22px;color:#829ab1;font-size:12px;line-height:1.7}.workspace{padding:28px 34px;max-width:1560px;width:100%}.topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}.eyebrow{margin:0;color:#668096;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.topbar h1{margin:6px 0;font-size:28px}.topbar p{margin:0;color:#6b7c8f}.role-switch{display:flex;gap:12px;align-items:end}.role-switch label,.modal label,.action-form label{display:grid;gap:6px;color:#52606d;font-size:13px}.role-switch select,.modal input,.modal select,.modal textarea,.action-form input,.action-form select,.action-form textarea{border:1px solid #ccd6e0;border-radius:7px;background:#fff;padding:10px;font:inherit;color:#17202a}.role-switch select{min-width:150px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.stat,.panel{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 2px 8px #102a4309}.stat{padding:17px}.stat span,.stat small,.panel-title p,.todo small,.candidate small,.activity small,.detail-card span,.interview small{display:block;color:#718096;font-size:12px}.stat strong{display:block;font-size:28px;margin:7px 0}.two-column{display:grid;grid-template-columns:minmax(320px,.8fr) minmax(640px,1.8fr);gap:18px;margin-top:18px}.panel{padding:18px}.panel-title{display:flex;justify-content:space-between;align-items:start;gap:15px;margin-bottom:16px}.panel-title h2,.drawer h2,.modal h2{margin:0;font-size:18px}.panel-title p,.drawer p,.modal p{margin:5px 0 0}.primary,.ghost,.icon-button{border:0;border-radius:8px;padding:10px 14px;font:inherit;cursor:pointer}.primary{background:#1769aa;color:#fff;font-weight:700}.ghost{background:#e8f1f8;color:#1769aa}.primary:disabled{opacity:.5;cursor:wait}.todo-list{display:grid;gap:8px}.todo{display:flex;align-items:center;gap:10px;width:100%;border:1px solid #edf1f5;border-radius:9px;background:#fff;padding:11px;text-align:left;cursor:pointer}.todo:hover,.candidate:hover{border-color:#70a7d1;box-shadow:0 2px 9px #1769aa18}.todo strong{display:block}.todo span:nth-child(2){flex:1}.avatar{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#d9f5ee;color:#147d64;font-weight:800}.arrow{color:#1769aa;font-size:20px}.board{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.column{min-height:260px;padding:11px;border:1px solid #e3e9f0;border-radius:10px;background:#f7f9fc}.column h3{margin:0 0 10px;color:#52606d;font-size:13px}.candidate{display:block;width:100%;margin-bottom:9px;padding:12px;border:1px solid #e3e9f0;border-radius:8px;background:#fff;text-align:left;cursor:pointer}.candidate strong{display:block;margin-bottom:7px}.candidate small{margin-top:9px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;background:#eef2f7;color:#52606d;font-size:12px}.pill.blue{background:#e4f0fb;color:#1769aa}.pill.orange{background:#fff0d6;color:#9c5a00}.pill.green{background:#e0f6ed;color:#147d64}.pill.red{background:#fde7e7;color:#b42318}.activity-panel{margin-top:18px}.activity-list{display:grid;gap:12px}.activity{display:flex;gap:12px;align-items:flex-start}.activity-dot{flex:none;width:9px;height:9px;margin-top:5px;border-radius:50%;background:#2aa876}.activity strong{font-size:13px}.notice{display:flex;justify-content:space-between;gap:10px;margin:0 0 14px;padding:11px 14px;border:1px solid #f0d49a;border-radius:8px;background:#fff8e6;color:#805b00}.notice button{border:0;background:transparent;color:inherit;font-size:18px;cursor:pointer}.empty{display:grid;place-items:center;min-height:90px;color:#718096;font-size:13px}.modal-backdrop{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:24px;background:#102a434d}.modal{display:grid;gap:13px;width:min(520px,90vw);max-height:90vh;overflow:auto;padding:22px;border-radius:14px;background:#fff}.modal-head,.drawer-head{display:flex;justify-content:space-between;align-items:start}.icon-button{padding:2px 8px;background:#eef2f7;color:#52606d;font-size:20px}.modal textarea,.action-form textarea{min-height:90px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:5px}.drawer{position:fixed;z-index:5;top:0;right:0;width:430px;height:100vh;overflow:auto;padding:28px 24px;background:#fff;box-shadow:-8px 0 26px #102a4320}.drawer-head{margin-bottom:22px}.detail-card{margin-bottom:14px;padding:14px;border-radius:9px;background:#f7f9fc}.detail-card p{line-height:1.7;color:#52606d}.interview{padding:10px 0;border-bottom:1px solid #e7edf3}.interview:last-child{border-bottom:0}.action-form{display:grid;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid #e7edf3}.action-form h3{margin:0;font-size:14px}.muted{color:#718096}
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-tint: var(--tint);
+  --color-faint: var(--faint);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans-stack:
+    var(--font-inter), ui-sans-serif, -apple-system, "PingFang SC",
+    "HarmonyOS Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  --font-sans: var(--font-sans-stack);
+  --font-heading: var(--font-sans-stack);
+  --font-mono:
+    ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  /* 字阶：只用这几档，禁止散装字号 */
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.4;
+  --text-body: 0.875rem;
+  --text-body--line-height: 1.5;
+  --text-aux: 0.8125rem;
+  --text-aux--line-height: 1.5;
+  --text-section: 1rem;
+  --text-section--line-height: 1.4;
+  --text-title: 1.5rem;
+  --text-title--line-height: 1.2;
+  --text-display: 1.875rem;
+  --text-display--line-height: 1.15;
+  --text-figure: 1.6875rem;
+  --text-figure--line-height: 1;
+
+  --radius-sm: 5px;
+  --radius-md: 7px;
+  --radius-lg: 9px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-4xl: 24px;
+
+  /* 阴影只给浮层；内容区只用 hairline + surface */
+  --shadow-overlay:
+    0 18px 44px rgba(9, 9, 11, 0.1), 0 2px 6px rgba(9, 9, 11, 0.05);
+
+  --default-transition-duration: 140ms;
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --primary-hover: #27272a;
+
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+
+  --destructive: #dc2626;
+  --success: #16824d;
+  --warning: #985e00;
+  --tint: #f4f4f5;
+  --faint: #a1a1aa;
+
+  --border: #e4e4e7;
+  --input: #71717a;
+  --ring: #71717a;
+
+  --chart-1: #8e51ff;
+  --chart-2: #7f22fe;
+  --chart-3: #7008e7;
+  --chart-4: #5d0ec0;
+  --chart-5: #4a1897;
+
+  --sidebar: #fafafa;
+  --sidebar-foreground: #09090b;
+  --sidebar-primary: #18181b;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #18181b;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #a1a1aa;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --popover: #18181b;
+  --popover-foreground: #fafafa;
+
+  --primary: #e4e4e7;
+  --primary-foreground: #18181b;
+  --primary-hover: #d4d4d8;
+
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+
+  --destructive: #ff6467;
+  --success: #4cc38a;
+  --warning: #e0a64a;
+  --tint: #27272a;
+  --faint: #71717a;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #71717a;
+  --ring: #71717a;
+
+  --chart-1: #c4b4ff;
+  --chart-2: #b398ff;
+  --chart-3: #a174ff;
+  --chart-4: #9256ff;
+  --chart-5: #8335ff;
+
+  --sidebar: #18181b;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #1447e6;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #27272a;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #71717a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    font-family:
+      var(--font-sans-stack), -apple-system, "PingFang SC", "HarmonyOS Sans SC",
+      "Microsoft YaHei", "Segoe UI", sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: var(--faint) transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--tint);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+}
+
+@utility transition-control {
+  transition-property:
+    transform, opacity, color, background-color, border-color;
+  transition-duration: 140ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility transition-panel {
+  transition-property: transform, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion 必须压过工具类动画 */
+      transition-duration: 0.01ms !important;
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion 必须压过工具类动画 */
+      animation-duration: 0.01ms !important;
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion 必须压过工具类动画 */
+      animation-iteration-count: 1 !important;
+      /* biome-ignore lint/complexity/noImportantStyles: reduced-motion 必须压过工具类动画 */
+      scroll-behavior: auto !important;
+    }
+  }
+}

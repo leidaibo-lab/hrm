@@ -1,3 +1,15 @@
 packages:
-  - 'apps/*'
-  - 'packages/*'
+  - apps/*
+  - packages/*
+
+allowBuilds:
+  "@prisma/engines": true
+  prisma: true
+  "@scarf/scarf": false
+  esbuild: false
+  # pino 依赖链的可选原生加速模块，有 JS 回退，无需构建
+  msgpackr-extract: false
+
+minimumReleaseAgeExclude:
+  - "@ai-sdk/openai-compatible@3.0.84"
+  - "@ai-sdk/provider-utils@5.0.74"

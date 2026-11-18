@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "exclude": [".turbo", "node_modules"],
+  "include": ["scripts/**/*.ts"]
+}

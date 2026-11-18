@@ -1,0 +1,24 @@
+image: node:24-bookworm
+
+variables:
+  GIT_DEPTH: "0"
+
+verify:
+  stage: test
+  before_script:
+    - npm install --global pnpm@12.9.1
+    - pnpm install --frozen-lockfile
+  script:
+    - pnpm audit:drift
+    - pnpm lint
+    - pnpm check:changed --mode ci
+    - pnpm exec tsc -p tsconfig.json
+    - DATABASE_URL=postgresql://unused:unused@127.0.0.1:1/unused pnpm --filter @cip/api generate
+    - pnpm --filter @cip/api export:openapi
+    - OPENAPI_INPUT=../api/node_modules/.tmp/openapi.json pnpm --filter @cip/web codegen
+    - pnpm --filter @cip/shared typecheck
+    - pnpm --filter @cip/api typecheck:ci
+    - pnpm --filter @cip/web typecheck:ci
+    - pnpm --filter @cip/shared test
+    - pnpm --filter @cip/api test:unit
+    - pnpm --filter @cip/web test

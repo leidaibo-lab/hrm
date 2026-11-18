@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"],
+      "@cip/shared": ["../../packages/shared/src/index.ts"]
+    },
+    "tsBuildInfoFile": "./node_modules/.tmp/web-ci.tsbuildinfo"
+  },
+  "exclude": ["node_modules", ".next"]
+}

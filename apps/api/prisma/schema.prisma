@@ -1,0 +1,1046 @@
+// CIP 数据模型。业务模型按模块建设时追加，迁移经 prisma migrate 管理。
+// Prisma 7：连接串不写在 schema，见 prisma.config.ts 的 datasource.url。
+//
+// 物理映射策略（architecture.md 数据层规则 1，自本迁移起统一确定，禁止混用）：
+// model 名 PascalCase 单数，物理表名经 @@map 蛇形复数；字段名保持 camelCase 不做 @map。
+// 模型首行声明与表名前缀规则见 docs/conventions/database.md DB-4.2；
+// 存量模型在首次修改时补齐声明。
+generator client {
+  provider = "prisma-client"
+  output   = "../src/platform/prisma/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// 域: audit
+// 审计日志（docs/conventions/architecture.md 横切机制）：谁、何时、对什么、做了什么。
+// 模型/agent 计量另表，不混入此表。
+model AuditLog {
+  id         String   @id @default(uuid())
+  traceId    String
+  actorId    String?
+  action     String
+  method     String
+  path       String
+  statusCode Int
+  detail     Json?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([actorId])
+
+  @@map("audit_logs")
+}
+
+// 域: iam
+// 平台登录账号（词义绑定见 ADR-0009）；本地账密用户有 passwordHash。
+model User {
+  id           String     @id @default(uuid())
+  username     String     @unique
+  name         String
+  email        String?    @unique
+  passwordHash String?
+  status       UserStatus @default(active)
+  roles        UserRole[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@map("iam_users")
+  scopeMemberships ScopeMembership[]
+}
+
+// 域: iam
+// 平台级授权角色（词义绑定见 ADR-0009）。
+model Role {
+  id          String                @id @default(uuid())
+  code        String                @unique
+  name        String
+  description String?
+  isBuiltin   Boolean               @default(false)
+  users       UserRole[]
+  permissions RolePermissionPoint[]
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+
+  @@map("iam_roles")
+}
+
+// 域: iam
+// 权限点：shared 目录的 DB 投影（docs/conventions/authorization.md「同步与投影」）。
+// 结构列只读（由同步维护）；summary 为运营覆盖列，null = 跟随目录默认。
+model PermissionPoint {
+  code     String    @id
+  resource String
+  action   String
+  summary  String?
+  state    SyncState @default(active)
+  roles    RolePermissionPoint[]
+
+  @@index([resource])
+  @@map("iam_permission_points")
+}
+
+// 域: iam
+// 账号与角色的关联。
+model UserRole {
+  userId String
+  roleId String
+  user   User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  role   Role @relation(fields: [roleId], references: [id], onDelete: Restrict)
+
+  @@id([userId, roleId])
+  @@map("iam_user_roles")
+}
+
+// 域: iam
+// 角色与权限点的关联。
+model RolePermissionPoint {
+  roleId          String
+  permissionCode  String
+  role            Role            @relation(fields: [roleId], references: [id], onDelete: Restrict)
+  permissionPoint PermissionPoint @relation(fields: [permissionCode], references: [code], onDelete: Restrict)
+
+  @@id([roleId, permissionCode])
+  @@map("iam_role_permission_points")
+}
+
+// 域: iam
+// 导航节点：shared 导航目录的同步镜像 + 运营覆盖列（单可空，null = 跟随目录）。
+model NavigationNode {
+  code           String    @id
+  parentCode     String?
+  path           String?
+  permissionCode String?
+  title          String?
+  icon           String?
+  sort           Int?
+  visible        Boolean   @default(true)
+  state          SyncState @default(active)
+
+  @@index([parentCode])
+  @@map("iam_navigation_nodes")
+}
+
+enum UserStatus {
+  active
+  suspended
+
+  @@map("user_status")
+}
+
+enum SyncState {
+  active
+  deprecated
+
+  @@map("sync_state")
+}
+
+// ---- model-providers 域（ADR-0015）----
+
+// 域: model-gateway
+// 模型服务商：OpenAI 兼容接入点 + 凭据密文 + 限流参数；页面动态管理，零 env 注入。
+model ModelProvider {
+  id                 String          @id @default(uuid())
+  slug               String          @unique
+  name               String
+  baseUrl            String
+  apiKeyCipher       String
+  timeoutMs          Int?
+  rateLimitPerMinute Int?
+  maxConcurrent      Int?
+  enabled            Boolean         @default(true)
+  models             ProviderModel[]
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  @@map("model_gateway_model_providers")
+}
+
+// 域: model-gateway
+// 服务商下的模型注册：logicalKey 全局唯一（业务调用名）；capabilities 为 shared schema 的 JSON。
+model ProviderModel {
+  id            String         @id @default(uuid())
+  providerId    String
+  provider      ModelProvider  @relation(fields: [providerId], references: [id], onDelete: Restrict)
+  modelId       String
+  logicalKey    String         @unique
+  displayName   String
+  capabilities  Json
+  defaultParams Json?
+  enabled       Boolean        @default(true)
+  pricings      ModelPricing[]
+  usages        ModelUsage[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@index([providerId])
+  @@unique([providerId, modelId])
+  @@map("model_gateway_provider_models")
+}
+
+// 域: model-gateway
+// 价格版本：一版一行，新调价新增行；生效价 = effectiveFrom <= now 的最新一版。金额禁 float。
+model ModelPricing {
+  id            String         @id @default(uuid())
+  modelId       String
+  model         ProviderModel  @relation(fields: [modelId], references: [id], onDelete: Restrict)
+  currency      String         @default("USD")
+  input         Decimal        @db.Decimal(18, 8)
+  output        Decimal        @db.Decimal(18, 8)
+  cacheRead     Decimal?       @db.Decimal(18, 8)
+  cacheWrite    Decimal?       @db.Decimal(18, 8)
+  reasoning     Decimal?       @db.Decimal(18, 8)
+  effectiveFrom DateTime
+  usages        ModelUsage[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@index([modelId, effectiveFrom])
+  @@map("model_gateway_model_pricings")
+}
+
+// 模型调用计量（ADR-0015）：账务事实源；pricingId 快照防调价漂移；只增不改。
+enum UsageStatus {
+  success
+  failed
+  rate_limited
+
+  @@map("usage_status")
+}
+
+// 域: model-gateway
+// 模型调用的计量事实。
+model ModelUsage {
+  id                String        @id @default(uuid())
+  modelId           String
+  model             ProviderModel @relation(fields: [modelId], references: [id], onDelete: Restrict)
+  pricingId         String?
+  pricing           ModelPricing? @relation(fields: [pricingId], references: [id], onDelete: Restrict)
+  inputTokens       Int           @default(0)
+  outputTokens      Int           @default(0)
+  reasoningTokens   Int           @default(0)
+  cachedInputTokens Int           @default(0)
+  cacheWriteTokens  Int           @default(0)
+  cost              Decimal?      @db.Decimal(18, 8)
+  latencyMs         Int?
+  status            UsageStatus
+  caller            String?
+  traceId           String?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([modelId, createdAt])
+  @@index([traceId])
+  @@map("model_gateway_model_usages")
+}
+
+// ---- agentic 域（ADR-0042 / ADR-0043 / ADR-0044 / ADR-0045）----
+
+// 域: agentic
+// 线程：同一外部对象的连续事件流；维护方 agentic；对象关闭后保留 1 年。
+model Thread {
+  id             String       @id @default(uuid())
+  sourceType     SourceType
+  externalKey    String
+  scopeKey       String?
+  status         ThreadStatus @default(open)
+  summary        String?
+  summaryVersion Int          @default(0)
+  lastEventAt    DateTime?    @db.Timestamptz(3)
+  createdAt      DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime     @updatedAt @db.Timestamptz(3)
+
+  triggers      Trigger[]
+  tickets       Ticket[]
+  subscriptions Subscription[]
+  replyTargets  ReplyTarget[]
+  decisions     Decision[]
+
+  @@unique([sourceType, externalKey])
+  @@index([status, lastEventAt])
+  @@index([scopeKey, status])
+  @@map("agentic_threads")
+}
+
+// 域: agentic
+// 不可变事件：幂等入口；维护方 agentic；保留 90 天后归档。
+model Trigger {
+  id             String      @id @default(uuid())
+  dedupeKey      String      @unique
+  sourceType     SourceType
+  instanceId     String
+  threadId       String
+  scopeKey       String?
+  actorId        String
+  actorUserId    String?
+  addressed      Addressed?
+  text           String
+  payload        Json
+  payloadVersion Int         @default(1)
+  occurredAt     DateTime    @db.Timestamptz(3)
+  receivedAt     DateTime    @default(now()) @db.Timestamptz(3)
+  disposition    Disposition @default(pending)
+  disposedAt     DateTime?   @db.Timestamptz(3)
+  filterReason   String?
+
+  instance  SourceInstance    @relation(fields: [instanceId], references: [id], onDelete: Restrict)
+  thread    Thread            @relation(fields: [threadId], references: [id], onDelete: Restrict)
+  decisions DecisionTrigger[]
+
+  @@index([threadId, occurredAt])
+  @@index([sourceType, occurredAt])
+  @@index([scopeKey, disposition])
+  @@index([instanceId])
+  @@map("agentic_triggers")
+}
+
+// 域: agentic
+// 线程写侧地址：出站定位；维护方 agentic；随线程保留。
+model ReplyTarget {
+  id         String     @id @default(uuid())
+  threadId   String
+  sourceType SourceType
+  addressKey String
+  address    Json
+  createdAt  DateTime   @default(now()) @db.Timestamptz(3)
+
+  thread Thread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+
+  @@unique([threadId, addressKey])
+  @@index([sourceType])
+  @@map("agentic_reply_targets")
+}
+
+// 域: agentic
+// 策略版本：准入与研判规则快照；维护方 agentic；永久保留。
+model Policy {
+  id         String          @id @default(uuid())
+  version    Int             @unique
+  acceptMode MandateStrength @default(explicit)
+  rules      Json
+  createdBy  String
+  createdAt  DateTime        @default(now()) @db.Timestamptz(3)
+
+  admissionRules AdmissionRule[]
+  decisions      Decision[]
+  mandates       Mandate[]
+
+  @@index([createdAt])
+  @@map("agentic_policies")
+}
+
+// 域: agentic
+// 准入表：策略版本下源实例与范围行的单元格；维护方 agentic；随策略保留。
+model AdmissionRule {
+  id               String        @id @default(uuid())
+  policyId         String
+  sourceInstanceId String
+  scopeRow         String
+  cell             AdmissionCell
+  allowed          Boolean
+  createdAt        DateTime      @default(now()) @db.Timestamptz(3)
+
+  policy         Policy         @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  sourceInstance SourceInstance @relation(fields: [sourceInstanceId], references: [id], onDelete: Restrict)
+
+  @@unique([policyId, sourceInstanceId, scopeRow, cell])
+  @@index([sourceInstanceId, scopeRow])
+  @@map("agentic_admission_rules")
+}
+
+// 域: agentic
+// 评估结论：不可变，记录策略版本与依据；维护方 agentic；永久保留。
+model Decision {
+  id             String          @id @default(uuid())
+  threadId       String
+  kind           DecisionKind
+  strength       MandateStrength
+  scope          Json
+  matchedRuleIds Json?
+  policyId       String
+  policyVersion  Int
+  reason         String?
+  createdAt      DateTime        @default(now()) @db.Timestamptz(3)
+
+  thread   Thread            @relation(fields: [threadId], references: [id], onDelete: Restrict)
+  policy   Policy            @relation(fields: [policyId], references: [id], onDelete: Restrict)
+  triggers DecisionTrigger[]
+
+  @@index([threadId, createdAt])
+  @@index([kind, createdAt])
+  @@map("agentic_decisions")
+}
+
+// 域: agentic
+// 结论与触发事件关联：只追加；维护方 agentic；随结论保留。
+model DecisionTrigger {
+  decisionId String
+  triggerId  String
+
+  decision Decision @relation(fields: [decisionId], references: [id], onDelete: Cascade)
+  trigger  Trigger  @relation(fields: [triggerId], references: [id], onDelete: Restrict)
+
+  @@id([decisionId, triggerId])
+  @@index([triggerId])
+  @@map("agentic_decision_triggers")
+}
+
+// 域: agentic
+// 授权快照：范围、强度与策略版本；不可变；维护方 agentic；永久保留。
+model Mandate {
+  id            String          @id @default(uuid())
+  policyId      String
+  policyVersion Int
+  strength      MandateStrength
+  scope         Json
+  actorId       String
+  actorUserId   String?
+  sourceType    SourceType
+  matchedRules  Json?
+  createdAt     DateTime        @default(now()) @db.Timestamptz(3)
+
+  policy Policy  @relation(fields: [policyId], references: [id], onDelete: Restrict)
+  ticket Ticket?
+
+  @@index([actorUserId, createdAt])
+  @@index([policyId])
+  @@map("agentic_mandates")
+}
+
+// 域: agentic
+// 被授权的工作单元：自有状态；维护方 agentic；结束后保留 1 年。
+model Ticket {
+  id        String       @id @default(uuid())
+  mandateId String       @unique
+  threadId  String
+  scopeKey  String?
+  kind      TicketKind
+  status    TicketStatus @default(open)
+  openedAt  DateTime     @default(now()) @db.Timestamptz(3)
+  endedAt   DateTime?    @db.Timestamptz(3)
+  endReason String?
+  createdAt DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime     @updatedAt @db.Timestamptz(3)
+
+  mandate       Mandate        @relation(fields: [mandateId], references: [id], onDelete: Restrict)
+  thread        Thread         @relation(fields: [threadId], references: [id], onDelete: Restrict)
+  assignments   Assignment[]
+  subscriptions Subscription[]
+  attentions    Attention[]
+  artifacts     Artifact[]
+
+  @@index([threadId, status])
+  @@index([status, openedAt])
+  @@index([scopeKey, status])
+  @@map("agentic_tickets")
+}
+
+// 域: agentic
+// 工单与执行器绑定：每次尝试一行；维护方 agentic；保留 180 天。
+model Assignment {
+  id            String           @id @default(uuid())
+  ticketId      String
+  status        AssignmentStatus @default(pending)
+  attempt       Int              @default(1)
+  executorRunId String?          @unique
+  startedAt     DateTime?        @db.Timestamptz(3)
+  endedAt       DateTime?        @db.Timestamptz(3)
+  error         String?
+  createdAt     DateTime         @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime         @updatedAt @db.Timestamptz(3)
+
+  ticket    Ticket     @relation(fields: [ticketId], references: [id], onDelete: Restrict)
+  artifacts Artifact[]
+  reports   Report[]
+
+  @@index([ticketId, status])
+  @@index([status, updatedAt])
+  @@map("agentic_assignments")
+}
+
+// 域: agentic
+// 工单与线程订阅：只给上下文不授权；维护方 agentic；随工单保留。
+model Subscription {
+  ticketId  String
+  threadId  String
+  reason    SubscriptionReason
+  createdAt DateTime           @default(now()) @db.Timestamptz(3)
+
+  ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  thread Thread @relation(fields: [threadId], references: [id], onDelete: Restrict)
+
+  @@id([ticketId, threadId])
+  @@index([threadId])
+  @@map("agentic_subscriptions")
+}
+
+// 域: agentic
+// 待人工决定的问题：维护方 agentic；关闭后保留 1 年。
+model Attention {
+  id         String          @id @default(uuid())
+  ticketId   String
+  kind       AttentionKind
+  question   String
+  options    Json?
+  status     AttentionStatus @default(open)
+  assignee   String
+  deadline   DateTime        @db.Timestamptz(3)
+  decidedBy  String?
+  decidedAt  DateTime?       @db.Timestamptz(3)
+  answer     Json?
+  createdAt  DateTime        @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime        @updatedAt @db.Timestamptz(3)
+
+  ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Restrict)
+
+  @@index([status, deadline])
+  @@index([ticketId, status])
+  @@map("agentic_attentions")
+}
+
+// 域: agentic
+// 产物版本链：澄清稿、拆解等；只追加；维护方 agentic；永久保留。
+model Artifact {
+  id           String         @id @default(uuid())
+  ticketId     String
+  kind         ArtifactKind
+  version      Int
+  payload      Json
+  status       ArtifactStatus @default(draft)
+  assignmentId String?
+  createdAt    DateTime       @default(now()) @db.Timestamptz(3)
+
+  ticket     Ticket      @relation(fields: [ticketId], references: [id], onDelete: Restrict)
+  assignment Assignment? @relation(fields: [assignmentId], references: [id], onDelete: Restrict)
+
+  @@unique([ticketId, kind, version])
+  @@index([ticketId, createdAt])
+  @@index([assignmentId])
+  @@map("agentic_artifacts")
+}
+
+// 域: agentic
+// 事件源实例：类型与配置；维护方 agentic；永久保留。
+model SourceInstance {
+  id         String     @id @default(uuid())
+  sourceType SourceType
+  name       String
+  config     Json
+  botId      String?
+  enabled    Boolean    @default(true)
+  createdAt  DateTime   @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime   @updatedAt @db.Timestamptz(3)
+
+  triggers       Trigger[]
+  admissionRules AdmissionRule[]
+  cursor         SourceCursor?
+  outbound       OutboundMessage[]
+  health         SourceHealth[]
+  authorizations SourceAuthorization[]
+
+  @@unique([sourceType, name])
+  @@index([enabled])
+  @@map("agentic_source_instances")
+}
+
+// 域: agentic
+// 源读取位置：崩溃后续读；维护方 agentic；随实例保留。
+model SourceCursor {
+  instanceId String   @id
+  cursor     Json
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+
+  instance SourceInstance @relation(fields: [instanceId], references: [id], onDelete: Cascade)
+
+  @@map("agentic_source_cursors")
+}
+
+// 域: agentic
+// 出站消息与重试：幂等键唯一；维护方 agentic；成功 30 天后清理。
+model OutboundMessage {
+  id             String         @id @default(uuid())
+  instanceId     String
+  targetId       String?
+  address        Json
+  payload        Json
+  idempotencyKey String         @unique
+  status         OutboundStatus @default(pending)
+  attempts       Int            @default(0)
+  nextAttemptAt  DateTime?      @db.Timestamptz(3)
+  sentAt         DateTime?      @db.Timestamptz(3)
+  error          String?
+  createdAt      DateTime       @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime       @updatedAt @db.Timestamptz(3)
+
+  instance SourceInstance @relation(fields: [instanceId], references: [id], onDelete: Restrict)
+
+  @@index([status, nextAttemptAt])
+  @@index([instanceId, createdAt])
+  @@map("agentic_outbound_messages")
+}
+
+// 域: agentic
+// 外部副作用幂等：重放前按幂等键查；只追加；维护方 agentic；永久保留。
+model Effect {
+  id             String       @id @default(uuid())
+  idempotencyKey String       @unique
+  kind           EffectKind
+  target         String
+  status         EffectStatus @default(pending)
+  result         Json?
+  createdAt      DateTime     @default(now()) @db.Timestamptz(3)
+  completedAt    DateTime?    @db.Timestamptz(3)
+
+  @@index([status, createdAt])
+  @@map("agentic_effects")
+}
+
+// 域: agentic
+// 执行回报：只追加；维护方 agentic；保留 180 天。
+model Report {
+  id           String     @id @default(uuid())
+  assignmentId String
+  kind         ReportKind
+  payload      Json
+  createdAt    DateTime   @default(now()) @db.Timestamptz(3)
+
+  assignment Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+
+  @@index([assignmentId, createdAt])
+  @@map("agentic_reports")
+}
+
+// 域: agentic
+// 源健康：按实例与条目记录；维护方 agentic；随实例保留。
+model SourceHealth {
+  instanceId String
+  entry      String
+  state      HealthState @default(starting)
+  detail     String?
+  checkedAt  DateTime    @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime    @default(now()) @updatedAt @db.Timestamptz(3)
+
+  instance SourceInstance @relation(fields: [instanceId], references: [id], onDelete: Cascade)
+
+  @@id([instanceId, entry])
+  @@index([state, checkedAt])
+  @@map("agentic_source_health")
+}
+
+// 域: agentic
+// 来源授权：群/范围授权记录（授权人、有效期、撤销）；维护方 agentic；按合规保留。
+model SourceAuthorization {
+  id               String    @id @default(uuid())
+  sourceInstanceId String
+  scopeKey         String
+  authorizedBy     String
+  expiresAt        DateTime? @db.Timestamptz(3)
+  revokedAt        DateTime? @db.Timestamptz(3)
+  createdAt        DateTime  @default(now()) @db.Timestamptz(3)
+
+  sourceInstance SourceInstance @relation(fields: [sourceInstanceId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceInstanceId, scopeKey])
+  @@index([sourceInstanceId])
+  @@index([expiresAt])
+  @@map("agentic_source_authorizations")
+}
+
+// 域: agentic
+// 数据范围成员：用户可访问的项目/空间；维护方 agentic；随成员关系保留。
+model ScopeMembership {
+  id        String   @id @default(uuid())
+  userId    String
+  scopeKey  String
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, scopeKey])
+  @@index([userId])
+  @@index([scopeKey])
+  @@map("agentic_scope_memberships")
+}
+
+enum SourceType {
+  lark
+  zentao
+  gitlab
+
+  @@map("agentic_source_type")
+}
+
+enum Addressed {
+  mention
+  direct
+
+  @@map("agentic_addressed")
+}
+
+enum Disposition {
+  pending
+  filtered
+  evaluated
+  fanned_out
+
+  @@map("agentic_disposition")
+}
+
+enum ThreadStatus {
+  open
+  dormant
+  closed
+
+  @@map("agentic_thread_status")
+}
+
+enum DecisionKind {
+  accept
+  stop
+  ignore
+  unavailable
+
+  @@map("agentic_decision_kind")
+}
+
+enum MandateStrength {
+  explicit
+  inferred
+
+  @@map("agentic_mandate_strength")
+}
+
+enum TicketKind {
+  requirement
+  bug
+  release
+
+  @@map("agentic_ticket_kind")
+}
+
+enum TicketStatus {
+  open
+  ended
+
+  @@map("agentic_ticket_status")
+}
+
+enum AssignmentStatus {
+  pending
+  running
+  ended
+
+  @@map("agentic_assignment_status")
+}
+
+enum SubscriptionReason {
+  started
+  pull_request
+  context
+
+  @@map("agentic_subscription_reason")
+}
+
+enum AttentionKind {
+  confirm
+  clarify
+  review
+  approval
+
+  @@map("agentic_attention_kind")
+}
+
+enum AttentionStatus {
+  open
+  answered
+  expired
+
+  @@map("agentic_attention_status")
+}
+
+enum ArtifactKind {
+  clarify
+  breakdown
+  analysis
+  report
+
+  @@map("agentic_artifact_kind")
+}
+
+enum ArtifactStatus {
+  draft
+  confirmed
+  superseded
+
+  @@map("agentic_artifact_status")
+}
+
+enum AdmissionCell {
+  listed_unaddressed
+  unlisted_addressed
+  unlisted_unaddressed
+
+  @@map("agentic_admission_cell")
+}
+
+enum OutboundStatus {
+  pending
+  sent
+  gone
+
+  @@map("agentic_outbound_status")
+}
+
+enum EffectKind {
+  create_issue
+  send_card
+  update_status
+
+  @@map("agentic_effect_kind")
+}
+
+enum EffectStatus {
+  pending
+  succeeded
+  failed
+  gone
+
+  @@map("agentic_effect_status")
+}
+
+enum ReportKind {
+  progress
+  waiting
+  ready
+  blocked
+  failed
+
+  @@map("agentic_report_kind")
+}
+
+enum HealthState {
+  starting
+  ready
+  error
+  paused
+
+  @@map("agentic_health_state")
+}
+
+// ---- model-gateway 域（ADR-0084）----
+
+enum ModelGatewayProtocol {
+  openai_compatible
+
+  @@map("model_gateway_protocol")
+}
+
+enum ModelGatewayHealth {
+  healthy
+  degraded
+
+  @@map("model_gateway_health")
+}
+
+enum ModelGatewayPriceSource {
+  manual
+  models_dev
+
+  @@map("model_gateway_price_source")
+}
+
+enum ModelGatewayUsagePriceSource {
+  manual
+  models_dev
+  missing
+
+  @@map("model_gateway_usage_price_source")
+}
+
+enum ModelGatewayUsageStatus {
+  success
+  failed
+  rate_limited
+  cancelled
+
+  @@map("model_gateway_usage_status")
+}
+
+enum ModelGatewayCatalogSyncStatus {
+  success
+  failed
+  partial
+
+  @@map("model_gateway_catalog_sync_status")
+}
+
+enum ModelGatewayFxSource {
+  manual
+
+  @@map("model_gateway_fx_source")
+}
+
+// 域: model-gateway
+/// 供应商接入点：凭据只存密文；enabled 与 health 正交。
+model ModelGatewayProvider {
+  id                 String                   @id @default(uuid())
+  name               String
+  slug               String                   @unique
+  protocol           ModelGatewayProtocol      @default(openai_compatible)
+  baseUrl            String                   @map("base_url")
+  apiKeyCipher       String                   @map("api_key_cipher")
+  catalogProviderId  String?                  @map("catalog_provider_id")
+  timeoutMs          Int?                     @map("timeout_ms")
+  enabled            Boolean                  @default(true)
+  health             ModelGatewayHealth        @default(healthy)
+  openUntil          DateTime?                @map("open_until") @db.Timestamptz(3)
+  consecutiveFailures Int                     @default(0) @map("consecutive_failures")
+  rateLimitPerMinute Int?                     @map("rate_limit_per_minute")
+  maxConcurrent      Int?                     @map("max_concurrent")
+  candidates         ModelGatewayCandidate[]
+  createdAt          DateTime                 @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt          DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([enabled, health])
+  @@map("model_gateway_providers")
+}
+
+// 域: model-gateway
+/// 逻辑模型：业务调用名与候选链锚点。
+model ModelGatewayLogicalModel {
+  id          String                  @id @default(uuid())
+  logicalKey  String                  @unique @map("logical_key")
+  displayName String                  @map("display_name")
+  enabled     Boolean                 @default(true)
+  maxAttempts Int                     @default(3) @map("max_attempts")
+  candidates  ModelGatewayCandidate[]
+  usages      ModelGatewayUsage[]
+  createdAt   DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime                @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("model_gateway_logical_models")
+}
+
+// 域: model-gateway
+/// 候选：逻辑模型在某供应商上的实现；能力事实落在这里。
+model ModelGatewayCandidate {
+  id              String            @id @default(uuid())
+  logicalModelId  String            @map("logical_model_id")
+  logicalModel    ModelGatewayLogicalModel @relation(fields: [logicalModelId], references: [id], onDelete: Restrict)
+  providerId      String            @map("provider_id")
+  provider        ModelGatewayProvider @relation(fields: [providerId], references: [id], onDelete: Restrict)
+  providerModelId String            @map("provider_model_id")
+  catalogModelId  String?           @map("catalog_model_id")
+  priority        Int
+  enabled         Boolean           @default(true)
+  timeoutMs       Int?              @map("timeout_ms")
+  capabilities    Json
+  defaultParams   Json?             @map("default_params")
+  prices          ModelGatewayPrice[]
+  usages          ModelGatewayUsage[]
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@unique([logicalModelId, providerId, providerModelId])
+  @@index([logicalModelId, enabled, priority])
+  @@index([providerId])
+  @@map("model_gateway_candidates")
+}
+
+// 域: model-gateway
+/// 价格版本：手动优先、目录兜底；单位 USD/百万 token（原币）。
+model ModelGatewayPrice {
+  id            String                  @id @default(uuid())
+  candidateId   String                  @map("candidate_id")
+  candidate     ModelGatewayCandidate   @relation(fields: [candidateId], references: [id], onDelete: Restrict)
+  source        ModelGatewayPriceSource
+  currency      String                  @db.Char(3)
+  input         Decimal                 @db.Decimal(18, 8)
+  output        Decimal                 @db.Decimal(18, 8)
+  cacheRead     Decimal?                @map("cache_read") @db.Decimal(18, 8)
+  cacheWrite    Decimal?                @map("cache_write") @db.Decimal(18, 8)
+  reasoning     Decimal?                @db.Decimal(18, 8)
+  effectiveFrom DateTime                @map("effective_from") @db.Timestamptz(3)
+  fetchedAt     DateTime?               @map("fetched_at") @db.Timestamptz(3)
+  usages        ModelGatewayUsage[]
+  createdAt     DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@unique([candidateId, source, effectiveFrom])
+  @@index([candidateId, source, effectiveFrom(sort: Desc)])
+  @@map("model_gateway_prices")
+}
+
+// 域: model-gateway
+/// 汇率版本：1 单位原币折合多少 USD。
+model ModelGatewayFxRate {
+  id            String               @id @default(uuid())
+  baseCurrency  String               @default("USD") @map("base_currency") @db.Char(3)
+  quoteCurrency String               @map("quote_currency") @db.Char(3)
+  rateToBase    Decimal              @map("rate_to_base") @db.Decimal(18, 8)
+  effectiveFrom DateTime             @map("effective_from") @db.Timestamptz(3)
+  source        ModelGatewayFxSource @default(manual)
+  usages        ModelGatewayUsage[]
+  createdAt     DateTime             @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@unique([baseCurrency, quoteCurrency, effectiveFrom])
+  @@index([baseCurrency, quoteCurrency, effectiveFrom(sort: Desc)])
+  @@map("model_gateway_fx_rates")
+}
+
+// 域: model-gateway
+/// 一次尝试的计量：只追加；成本与汇率在调用完成时冻结。
+model ModelGatewayUsage {
+  id               String                      @id @default(uuid())
+  callId           String                      @unique @map("call_id")
+  traceId          String?                     @map("trace_id")
+  caller           String?
+  logicalModelId   String                      @map("logical_model_id")
+  logicalModel     ModelGatewayLogicalModel    @relation(fields: [logicalModelId], references: [id], onDelete: Restrict)
+  candidateId      String                      @map("candidate_id")
+  candidate        ModelGatewayCandidate       @relation(fields: [candidateId], references: [id], onDelete: Restrict)
+  spaceId          String?                     @map("space_id")
+  agentKey         String?                     @map("agent_key")
+  inputTokens      Int                         @default(0) @map("input_tokens")
+  outputTokens     Int                         @default(0) @map("output_tokens")
+  cacheReadTokens  Int                         @default(0) @map("cache_read_tokens")
+  cacheWriteTokens Int                         @default(0) @map("cache_write_tokens")
+  reasoningTokens  Int                         @default(0) @map("reasoning_tokens")
+  priceId          String?                     @map("price_id")
+  price            ModelGatewayPrice?          @relation(fields: [priceId], references: [id], onDelete: Restrict)
+  priceSource      ModelGatewayUsagePriceSource @map("price_source")
+  currency         String?                     @db.Char(3)
+  costOriginal     Decimal?                    @map("cost_original") @db.Decimal(18, 8)
+  cost             Decimal?                    @db.Decimal(18, 8)
+  fxRate           Decimal?                    @map("fx_rate") @db.Decimal(18, 8)
+  fxRateId         String?                     @map("fx_rate_id")
+  fxRateRelation   ModelGatewayFxRate?         @relation(fields: [fxRateId], references: [id], onDelete: Restrict)
+  fxMissing        Boolean                     @default(false) @map("fx_missing")
+  status           ModelGatewayUsageStatus
+  errorCode        String?                     @map("error_code")
+  latencyMs        Int?                        @map("latency_ms")
+  createdAt        DateTime                    @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@index([spaceId, createdAt])
+  @@index([candidateId, createdAt])
+  @@index([traceId])
+  @@map("model_gateway_usages")
+}
+
+// 域: model-gateway
+/// models.dev 同步记录。
+model ModelGatewayCatalogSync {
+  id            String                        @id @default(uuid())
+  startedAt     DateTime                      @map("started_at") @db.Timestamptz(3)
+  finishedAt    DateTime?                     @map("finished_at") @db.Timestamptz(3)
+  status        ModelGatewayCatalogSyncStatus
+  providers     Int                           @default(0)
+  models        Int                           @default(0)
+  pricesWritten Int                           @default(0) @map("prices_written")
+  unmatched     Int                           @default(0)
+  error         String?
+  createdAt     DateTime                      @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@map("model_gateway_catalog_syncs")
+}

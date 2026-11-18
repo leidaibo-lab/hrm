@@ -1,0 +1,140 @@
+# 权限矩阵（自动生成，勿手改）
+
+user:manage
+  POST /users/query
+  PUT /users/:id/status
+  PUT /users/:id/roles
+role:manage
+  POST /roles/query
+  GET /roles/:id
+  POST /roles
+  PATCH /roles/:id
+  PUT /roles/:id/permission-points
+  DELETE /roles/:id
+  GET /permission-points
+navigation:manage
+  GET /navigation-nodes
+  PUT /navigation-nodes/:code
+permission-point:manage
+  PUT /permission-points/:code/summary
+model.gateway:read
+  GET /model-gateway/providers
+  GET /model-gateway/providers/:id
+  GET /model-gateway/models
+  GET /model-gateway/models/:id
+  GET /model-gateway/models/:id/candidates
+  GET /model-gateway/fx-rates
+  GET /model-gateway/catalog
+  GET /model-gateway/catalog/syncs
+  GET /model-gateway/catalog/:providerId
+  POST /model-gateway/usages/query
+  GET /model-gateway/usages/summary
+model.gateway:manage
+  POST /model-gateway/providers
+  PATCH /model-gateway/providers/:id
+  PUT /model-gateway/providers/:id/enabled
+  POST /model-gateway/providers/:id/test
+  POST /model-gateway/models
+  PATCH /model-gateway/models/:id
+  PUT /model-gateway/models/:id/enabled
+  POST /model-gateway/models/:id/candidates
+  PATCH /model-gateway/candidates/:id
+  PUT /model-gateway/candidates/:id/enabled
+  GET /model-gateway/candidates/:id/prices
+  POST /model-gateway/candidates/:id/prices
+  DELETE /model-gateway/candidates/:id/prices/:priceId
+  POST /model-gateway/fx-rates
+  POST /model-gateway/catalog/sync
+model-provider:manage
+  POST /ai/providers/query
+  GET /ai/providers/:id
+  POST /ai/providers
+  PATCH /ai/providers/:id
+  PUT /ai/providers/:id/enabled
+  DELETE /ai/providers/:id
+  POST /ai/providers/:id/test
+  POST /ai/providers/:id/models
+  POST /ai/providers/:id/import
+  POST /ai/models/query
+  GET /ai/models
+  GET /ai/models/:id
+  PATCH /ai/models/:id
+  PUT /ai/models/:id/enabled
+  DELETE /ai/models/:id
+  GET /ai/models/:id/pricings
+  POST /ai/models/:id/pricings
+  GET /ai/catalog
+  GET /ai/catalog/:providerId
+  POST /ai/usages/query
+ticket:read
+  GET /agentic/tickets
+  GET /agentic/tickets/:id
+  GET /agentic/attention
+  GET /agentic/threads
+  GET /agentic/threads/:key
+ticket:decide
+  POST /agentic/tickets/:id/writeback/revoke
+  POST /agentic/attention/:id/answer
+ticket:update
+  POST /agentic/tickets/:id/end
+  POST /agentic/tickets/:id/reopen
+policy:configure
+  GET /agentic/scopes/:scopeKey/members
+  POST /agentic/scopes/:scopeKey/members
+  DELETE /agentic/scopes/:scopeKey/members/:userId
+  GET /agentic/policies/current
+  POST /agentic/policies
+  GET /agentic/policies/:id/admission-rules
+  POST /agentic/policies/:id/admission-rules
+audit:read
+  GET /agentic/tickets/:id/timeline
+  GET /agentic/audit
+  GET /agentic/audit/traces/:traceId
+source:configure
+  POST /connector/sources
+  PATCH /connector/sources/:id
+  GET /connector/sources
+  GET /connector/sources/:id/health
+  POST /connector/sources/:id/enable
+  POST /connector/sources/:id/disable
+  GET /connector/sources/:id/authorizations
+  POST /connector/sources/:id/authorizations
+  DELETE /connector/sources/:id/authorizations/:scopeKey
+agent:configure
+  POST /agentic/agents/:key/regression
+artifact:write
+  POST /agentic/tickets/:id/artifacts/restore
+  POST /agentic/tickets/:id/writeback/revoke
+
+## 导航引用
+  ticket:read ← ferry
+  ticket:read ← ferry.threads
+  audit:read ← ferry.console
+  audit:read ← ferry.audit
+  policy:configure ← ferry.policies
+  source:configure ← ferry.sources
+  ticket:read ← ferry.attention
+  user:manage ← admin.users
+  role:manage ← admin.roles
+  navigation:manage ← admin.menus
+  role:manage ← admin.permission-points
+  model.gateway:read ← model-gateway.providers
+  model.gateway:read ← model-gateway.usages
+
+## 仅登录端点
+  GET /auth/me
+
+## @Public 端点
+  POST /internal/runs
+  POST /internal/reports
+  POST /internal/effects/reconcile
+  POST /internal/artifacts
+  GET /internal/metrics
+  GET /internal/retention
+  POST /internal/retention/apply
+  POST /connector/lark/:instanceId/events
+  POST /auth/login
+  POST /auth/register
+  POST /auth/logout
+  GET /healthz
+  GET /readyz

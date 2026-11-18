@@ -1,0 +1,428 @@
+# CIP 模板首次导入问题清单（历史记录）
+
+- 模板来源版本：`09b1214a8cc7e577ae6b0f6aaafddc3ce9e83fe4`。
+- 检查来源：原始模板整体导入 HRM 后，执行 `pnpm check:changed --mode staged --quick` 的记录。
+- 本清单记录首次导入时的观察结果，不豁免检查。相关代码和数据库模型已修订，后续以实际检查结果为准。
+- 本次记录的源码路径与行号对应导入时的候选快照；导入内容变化后应重新检查。
+- 条目数：418。
+
+## 检查结果
+
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:21`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:22`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:23`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:31`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/navigation.service.ts:32`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/permission.service.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/permission.service.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/permission.service.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/application/permission.service.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/navigation-node.repository.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-point.repository.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-point.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-point.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-point.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-point.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-point.repository.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-set.entity.ts:3`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-set.entity.ts:4`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-set.entity.ts:4`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-set.entity.ts:4`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/iam/domain/permission-set.entity.ts:4`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/fx.service.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/fx.service.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/fx.service.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/fx.service.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/fx.service.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/fx.service.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/fx.service.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:20`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:21`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:33`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:34`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:35`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:36`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:37`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/gateway-export.service.ts:38`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:31`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:32`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:33`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:38`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:39`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:40`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:41`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:42`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:43`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:44`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:45`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:46`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:47`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/model.service.ts:48`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:20`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:21`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:22`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:23`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:31`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:32`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:33`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:34`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:39`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:40`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:41`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/application/provider.service.ts:42`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:23`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.port.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:23`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:35`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/catalog.repository.ts:36`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/fx.repository.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model-call.error.ts:5`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model-call.error.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model-call.error.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model-call.error.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:20`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:21`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:22`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:23`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:34`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:35`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:36`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:37`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:38`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:43`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:44`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:45`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:50`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:51`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:56`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:57`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:58`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:59`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:60`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:61`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:62`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:63`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:68`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:69`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:70`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:71`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:72`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:73`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:78`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:79`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:80`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:81`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:82`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:86`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:87`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:88`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:89`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:90`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:91`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/model.repository.ts:95`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:31`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:32`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:33`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:34`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:35`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:36`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:41`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:42`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:43`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:44`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:45`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:46`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:47`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:48`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:53`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:54`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:55`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:56`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:57`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/price.repository.ts:58`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:20`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:21`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:22`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:31`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:32`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:33`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:34`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:39`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:40`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:41`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:42`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:43`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:44`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:45`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:50`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:51`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:52`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:53`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:54`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/domain/provider.repository.ts:55`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/infrastructure/usage-metering.helper.ts:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/infrastructure/usage-metering.helper.ts:20`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/infrastructure/usage-metering.helper.ts:21`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/infrastructure/usage-metering.helper.ts:22`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/infrastructure/usage-metering.helper.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-gateway/infrastructure/usage-metering.helper.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/application/usage-record.service.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:23`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/catalog.port.ts:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.entity.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.entity.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.entity.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.entity.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.entity.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-pricing.repository.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/model-registration.port.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/provider-connection.port.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/provider-connection.port.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/provider-connection.port.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/provider-connection.port.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/domain/provider-connection.port.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/model-rate-limiter.service.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/model-rate-limiter.service.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `QLT-6.1` `apps/api/src/modules/model-providers/infrastructure/gateway/model-rate-limiter.service.ts:82`：禁止空 catch，必须显式处理失败或回退
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `QLT-6.1` `apps/api/src/modules/model-providers/infrastructure/gateway/usage-metering.helper.ts:183`：禁止空 catch，必须显式处理失败或回退
+- `QLT-5.1` `apps/api/src/modules/model-providers/infrastructure/model-persistence.helper.ts:16`：禁止嵌套三元，使用命名条件与明确分支
+- `QLT-5.1` `apps/api/src/modules/model-providers/infrastructure/provider-connection.service.ts:37`：禁止嵌套三元，使用命名条件与明确分支
+- `CMT-4.5` `apps/api/src/pipeline/guards/session-user.type.ts:3`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/pipeline/guards/session-user.type.ts:4`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/pipeline/guards/session-user.type.ts:5`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/pipeline/guards/session-user.type.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/pipeline/pipes/zod-validation.pipe.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/api/src/pipeline/pipes/zod-validation.pipe.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `WEB-7.1` `apps/web/components/confirm-dialog.tsx:41`：JSX 单分支显示使用布尔条件与 &&
+- `WEB-7.1` `apps/web/components/confirm-dialog.tsx:45`：JSX 单分支显示使用布尔条件与 &&
+- `QLT-5.1` `apps/web/components/layout/theme-toggle.tsx:24`：禁止嵌套三元，使用命名条件与明确分支
+- `WEB-7.1` `apps/web/components/table-view/parts/row-detail-drawer.tsx:39`：JSX 单分支显示使用布尔条件与 &&
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:12`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:13`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:14`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:20`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/access-control/components/menu-node-row.tsx:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `WEB-7.1` `apps/web/features/access-control/components/menu-node-row.tsx:63`：JSX 单分支显示使用布尔条件与 &&
+- `WEB-7.1` `apps/web/features/access-control/components/menu-node-row.tsx:70`：JSX 单分支显示使用布尔条件与 &&
+- `WEB-7.1` `apps/web/features/access-control/components/menu-node-row.tsx:83`：JSX 单分支显示使用布尔条件与 &&
+- `WEB-7.1` `apps/web/features/access-control/components/permission-points-table.tsx:141`：JSX 单分支显示使用布尔条件与 &&
+- `WEB-7.1` `apps/web/features/access-control/components/permission-points-table.tsx:146`：JSX 单分支显示使用布尔条件与 &&
+- `WEB-7.1` `apps/web/features/access-control/components/role-settings-editor/index.tsx:39`：JSX 单分支显示使用布尔条件与 &&
+- `QLT-6.1` `apps/web/features/access-control/components/role-settings-editor/index.tsx:130`：禁止空 catch，必须显式处理失败或回退
+- `WEB-7.1` `apps/web/features/access-control/components/role-settings-editor/permissions-form.tsx:189`：JSX 单分支显示使用布尔条件与 &&
+- `QLT-5.1` `apps/web/features/model-providers/components/model-detail.tsx:206`：禁止嵌套三元，使用命名条件与明确分支
+- `QLT-5.1` `apps/web/features/model-providers/components/model-detail.tsx:213`：禁止嵌套三元，使用命名条件与明确分支
+- `CMT-4.5` `apps/web/features/model-providers/components/providers-table/provider-form-dialog.tsx:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/model-providers/components/providers-table/provider-form-dialog.tsx:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/model-providers/components/providers-table/provider-form-dialog.tsx:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/model-providers/components/providers-table/provider-form-dialog.tsx:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/model-providers/components/providers-table/provider-form-dialog.tsx:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/model-providers/components/providers-table/provider-form-dialog.tsx:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `apps/web/features/model-providers/components/providers-table/provider-form-dialog.tsx:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `WEB-7.1` `apps/web/features/workspace/components/workspace-header.tsx:76`：JSX 单分支显示使用布尔条件与 &&
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:9`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:15`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:16`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:17`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:18`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:19`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:20`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/navigation/merge.ts:21`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/pagination.ts:3`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/pagination.ts:10`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/pagination.ts:11`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/permissions/define.ts:6`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/permissions/define.ts:7`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/permissions/define.ts:8`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/session.ts:24`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/session.ts:25`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/session.ts:26`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/session.ts:27`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/session.ts:28`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/session.ts:29`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `CMT-4.5` `packages/shared/src/session.ts:30`：公开对象类型的自行声明字段/方法必须有 JSDoc
+- `DB-4.2` `apps/api/prisma/schema.prisma:17`：AuditLog: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:36`：User: 域 iam 的表名必须以 iam_ 开头
+- `DB-4.2` `apps/api/prisma/schema.prisma:53`：Role: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:68`：PermissionPoint: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.1` `apps/api/prisma/schema.prisma:82`：UserRole: 模型必须有职责说明、显式主键和蛇形物理表映射
+- `DB-4.2` `apps/api/prisma/schema.prisma:82`：UserRole: 模型首行必须声明 `// 域: <上下文>`
+- `DB-5.1` `apps/api/prisma/schema.prisma:82`：UserRole: 持有外键的关系必须显式声明 onDelete，具体策略需要评审
+- `DB-5.1` `apps/api/prisma/schema.prisma:82`：UserRole: 持有外键的关系必须显式声明 onDelete，具体策略需要评审
+- `DB-4.1` `apps/api/prisma/schema.prisma:92`：RolePermissionPoint: 模型必须有职责说明、显式主键和蛇形物理表映射
+- `DB-4.2` `apps/api/prisma/schema.prisma:92`：RolePermissionPoint: 模型首行必须声明 `// 域: <上下文>`
+- `DB-5.1` `apps/api/prisma/schema.prisma:92`：RolePermissionPoint: 持有外键的关系必须显式声明 onDelete，具体策略需要评审
+- `DB-5.1` `apps/api/prisma/schema.prisma:92`：RolePermissionPoint: 持有外键的关系必须显式声明 onDelete，具体策略需要评审
+- `DB-4.2` `apps/api/prisma/schema.prisma:102`：NavigationNode: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:134`：ModelProvider: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:152`：ProviderModel: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:173`：ModelPricing: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.1` `apps/api/prisma/schema.prisma:202`：ModelUsage: 模型必须有职责说明、显式主键和蛇形物理表映射
+- `DB-4.2` `apps/api/prisma/schema.prisma:202`：ModelUsage: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:872`：ModelGatewayProvider: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:896`：ModelGatewayLogicalModel: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:911`：ModelGatewayCandidate: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:936`：ModelGatewayPrice: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:958`：ModelGatewayFxRate: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:974`：ModelGatewayUsage: 模型首行必须声明 `// 域: <上下文>`
+- `DB-4.2` `apps/api/prisma/schema.prisma:1012`：ModelGatewayCatalogSync: 模型首行必须声明 `// 域: <上下文>`

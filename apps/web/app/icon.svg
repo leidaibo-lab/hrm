@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <title>CIP 平台</title>
+  <rect width="96" height="96" rx="21" fill="#09090b"/>
+  <path d="M 58.91 26.70 A 26 26 0 1 0 58.91 69.30" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M 70 38 L 70 60" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="70.5" cy="22" r="6.5" fill="#a1a1aa"/>
+</svg>

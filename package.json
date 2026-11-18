@@ -1,39 +1,41 @@
 {
-  "name": "hrm",
+  "name": "cip-platform",
   "private": true,
-  "version": "0.1.0",
-  "packageManager": "pnpm@10.6.0",
-  "engines": {
-    "node": ">=24 <25",
-    "pnpm": "10.6.0"
-  },
+  "packageManager": "pnpm@12.9.1",
+  "type": "module",
   "scripts": {
-    "dev:web": "pnpm --filter @hrm/web dev",
-    "dev:api": "pnpm --filter @hrm/api dev",
-    "db:generate": "pnpm --filter @hrm/database generate",
-    "db:validate": "pnpm --filter @hrm/database validate",
-    "db:migrate": "pnpm --filter @hrm/database migrate:dev",
-    "db:deploy": "pnpm --filter @hrm/database migrate:deploy",
-    "check": "pnpm db:generate && pnpm --filter @hrm/database build && pnpm -r check",
-    "build": "pnpm db:generate && pnpm -r build",
-    "smoke": "node scripts/smoke.mjs",
-    "smoke:recruitment": "node scripts/smoke-recruitment.mjs",
-    "docker:up": "docker --context desktop-linux compose up --build -d --wait",
-    "docker:down": "docker --context desktop-linux compose down",
-    "docker:logs": "docker --context desktop-linux compose logs -f"
+    "dev": "turbo run dev --ui=tui",
+    "dev:api": "turbo run dev --filter @cip/api",
+    "dev:web": "turbo run dev --filter @cip/web",
+    "generate": "turbo run generate",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "check:docs": "tsx scripts/checks/docs.ts",
+    "check:rules": "tsx scripts/checks/rules.ts",
+    "check:protected": "tsx scripts/checks/protected.ts",
+    "audit:drift": "pnpm check:docs && pnpm check:rules && pnpm check:protected",
+    "prepare": "husky",
+    "check:changed": "tsx scripts/checks/changed.ts"
   },
   "devDependencies": {
-    "typescript": "5.9.3",
-    "@types/node": "24.0.0"
+    "@biomejs/biome": "^2.6.4",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@commitlint/types": "^21.2.3",
+    "@types/node": "^26.6.6",
+    "conventional-changelog-conventionalcommits": "^10.4.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "tsx": "^4.23.15",
+    "turbo": "^2.11.10",
+    "typescript": "^5.9.3"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@nestjs/core",
-      "@prisma/engines",
-      "prisma",
-      "sharp",
-      "unrs-resolver",
-      "esbuild"
+  "lint-staged": {
+    "*.{ts,tsx,json,jsonc,md,css}": [
+      "biome check --write --no-errors-on-unmatched"
     ]
   }
 }

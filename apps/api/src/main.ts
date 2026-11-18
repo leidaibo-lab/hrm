@@ -1,23 +1,46 @@
-import 'reflect-metadata';
-import {Module} from '@nestjs/common';
-import {NestFactory} from '@nestjs/core';
-import {DatabaseService} from './database.service.js';
-import {HealthController} from './health.controller.js';
-import {RecruitmentController} from './recruitment.controller.js';
+import { RequestMethod } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import cookieParser from 'cookie-parser';
+import { Logger } from 'nestjs-pino';
+import { AppModule } from './app.module';
+import { env } from './config/env';
+import { applyProblemDetailsContract } from './openapi';
+import { ProblemDetailsExceptionFilter } from './pipeline/filters';
 
-/** 装配独立业务API；Mastra编排继续由ai-platform负责。 */
-@Module({controllers: [HealthController, RecruitmentController], providers: [DatabaseService]})
-class ApplicationModule {}
+async function bootstrap(): Promise<void> {
+  const app = await NestFactory.create(AppModule, {
+    logger: false,
+    rawBody: true,
+  });
+  app.useLogger(app.get(Logger));
+  app.setGlobalPrefix('api/v1', {
+    exclude: [
+      { path: 'healthz', method: RequestMethod.GET },
+      { path: 'readyz', method: RequestMethod.GET },
+    ],
+  });
+  app.enableCors({
+    credentials: true,
+    origin: env.AUTH_ALLOWED_ORIGINS,
+  });
+  app.use(cookieParser());
+  app.useGlobalFilters(new ProblemDetailsExceptionFilter());
 
-/** 启动API并注册关闭钩子，端口必须是合法TCP端口。 */
-async function main(): Promise<void> {
-  const port = Number(process.env.PORT ?? 3001);
-  if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('PORT无效');
-  const app = await NestFactory.create(ApplicationModule);
-  app.setGlobalPrefix('api');
-  app.enableShutdownHooks();
-  await app.listen(port, '0.0.0.0');
+  const config = new DocumentBuilder()
+    .setTitle('CIP API')
+    .setVersion('1')
+    .setOpenAPIVersion('3.1.0')
+    .build();
+  const document = applyProblemDetailsContract(
+    SwaggerModule.createDocument(app, config),
+  );
+  // Swagger 端点仅非生产注册（contracts.md 契约管线 5）；生产契约 diff 走离线导出 export:openapi
+  if (process.env.NODE_ENV !== 'production') {
+    SwaggerModule.setup('api/v1/docs', app, document);
+  }
+
+  await app.listen(env.PORT);
 }
 
-// 启动失败只返回固定诊断，避免原始异常泄露服务端配置。
-main().catch(() => { console.error('HRM API启动失败，请检查服务端配置。'); process.exitCode = 1; });
+void bootstrap();

@@ -15,11 +15,11 @@
 
 ## 验证映射
 
-| 需求 | 验证 |
-| --- | --- |
-| 页面与同源 API | `pnpm --filter @hrm/web build`、页面 smoke |
-| 数据库模型 | `pnpm --filter @hrm/database generate/build`、Prisma migration |
-| 招聘闭环 | API smoke：录入→筛选→初筛→面试→评价→录用 |
-| 权限与脱敏 | 角色 overview API 与浏览器角色切换 |
+| 需求           | 验证                                                           |
+| -------------- | -------------------------------------------------------------- |
+| 页面与同源 API | `pnpm --filter @hrm/web build`、页面 smoke                     |
+| 数据库模型     | `pnpm --filter @hrm/database generate/build`、Prisma migration |
+| 招聘闭环       | API smoke：录入→筛选→初筛→面试→评价→录用                       |
+| 权限与脱敏     | 角色 overview API 与浏览器角色切换                             |
 
 当前不覆盖真实认证、外部接口、生产附件和跨实例并发；这些不属于本次已实现边界。

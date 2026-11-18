@@ -1,0 +1,50 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalEnv": [
+    "ALLOW_GATE_CHANGE",
+    "CI_MERGE_REQUEST_DIFF_BASE_SHA",
+    "CI_COMMIT_BEFORE_SHA"
+  ],
+  "tasks": {
+    "generate": {
+      "inputs": ["$TURBO_DEFAULT$", "!src/platform/prisma/generated"],
+      "outputs": ["src/platform/prisma/generated/**"],
+      "env": ["DATABASE_URL"]
+    },
+    "build": {
+      "dependsOn": ["^build", "generate"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "env": [
+        "DATABASE_URL",
+        "CREDENTIAL_MASTER_KEY",
+        "REDIS_URL",
+        "NEXT_PUBLIC_API_BASE_URL"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": ["^build", "generate"]
+    },
+    "test": {
+      "dependsOn": ["^build", "generate"],
+      "env": ["TEST_DATABASE_URL"]
+    },
+    "dev": {
+      "dependsOn": ["generate"],
+      "cache": false,
+      "persistent": true
+    }
+  },
+  "globalPassThroughEnv": [
+    "AGENTIC_ATTENTION_ID",
+    "AGENTIC_BASE_URL",
+    "AGENTIC_LOAD_COOKIE",
+    "AGENTIC_LOAD_DECISION",
+    "AGENTIC_LOAD_INTERNAL_TOKEN",
+    "AGENTIC_LOAD_MAX_ERROR_RATE",
+    "AGENTIC_LOAD_P95_MS",
+    "AGENTIC_LOAD_REQUESTS",
+    "AGENTIC_LOAD_TOKEN",
+    "AGENTIC_LOAD_URL",
+    "INTERNAL_API_TOKEN"
+  ]
+}
