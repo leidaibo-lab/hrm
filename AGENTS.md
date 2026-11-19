@@ -12,6 +12,10 @@
 
 一次任务默认最多读 5 篇（入口两篇不计）；新建带权限模块最多 8 篇。篇数口径以 `docs/governance.md`「规模预算」为准。不要预读整个 `docs/`。
 
+## 开发规格
+
+根据获准实施的需求生成开发规格时，读取 [产品、开发和测试共用 OpenSpec](product/AGENTS.md)。
+
 ## 硬约束
 
 细则见 `docs/process/boundaries.md`，此处只列不可协商项：
