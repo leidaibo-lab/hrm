@@ -1,0 +1,234 @@
+{
+  "mode": "live",
+  "productHash": "5e6add26d4fb638bfc531157a2d2189d944a00f99e5e4d0b6c79f25172542e67",
+  "requirements": [
+    {
+      "id": "REQ-SCOPE-FEISHU-BOUNDARY",
+      "line": 377,
+      "text": "HRM 仅承接飞书已完成职位发布后的招聘协作，不重建招聘需求申请、审批和职位发布 | 验收: 在产品范围和流程中可明确区分飞书负责阶段与 HRM 负责阶段，HRM 无需完成飞书审批即可进入候选人协作流程。",
+      "hash": "5774e45be5b22067a545ce90ea70629ae10b97dec4fa805911775ac3faeb00a9"
+    },
+    {
+      "id": "REQ-POSITION-CREATE",
+      "line": 378,
+      "text": "系统支持将已在飞书发布的职位录入 HRM，并记录职位基础信息、招聘状态、招聘 HR 和用人负责人 | 验收: HR 创建职位后，职位详情可展示上述信息并可进入候选人管理。",
+      "hash": "2ae7a37efdea340c3e752f87a479482649ee2bcdded0763d09c518ef8178b149"
+    },
+    {
+      "id": "REQ-POSITION-RESPONSIBILITY",
+      "line": 379,
+      "text": "每个进入招聘协作的职位必须具备招聘 HR 和用人负责人，缺少责任人时不得进入完整招聘流程 | 验收: 缺少必要责任人时，系统阻止流程推进并明确提示需补充责任人。",
+      "hash": "667dcc94cef6fa4ccb4d89b54e1e5f32a2ba5ced61efcb133065ed59034ec643"
+    },
+    {
+      "id": "REQ-ACCOUNT-ROLE",
+      "line": 380,
+      "text": "系统能够维护用户账号、系统角色和组织归属，并将职位责任与系统角色分开管理 | 验收: 同一用户可被配置为系统角色，同时可在具体职位上承担招聘 HR、用人负责人或面试官责任。",
+      "hash": "1a054f4b205044f8e92732ec925613e256a1c78da518c75f262b1c96481d9b5d"
+    },
+    {
+      "id": "REQ-CANDIDATE-CREATE",
+      "line": 381,
+      "text": "有权限的 HR 可以将候选人手工录入指定职位，并保存候选人基本信息和简历 | 验收: 录入成功后，候选人出现在对应职位候选人列表和详情页中。",
+      "hash": "926fc9689f6764c276021ea2b11f12987c2a7ef91bac2d11600de7f9c8ab3a66"
+    },
+    {
+      "id": "REQ-CANDIDATE-REQUIRED",
+      "line": 382,
+      "text": "候选人缺少本期定义的必填信息时不得保存为可推进的招聘记录 | 验收: 提交缺失字段时系统阻止进入下一阶段并显示缺失字段。",
+      "hash": "47fd7820ddcc224c763036b8931b5eb95d96ac5ce584c10a85db4b5ea4976631"
+    },
+    {
+      "id": "REQ-CANDIDATE-DUPLICATE",
+      "line": 383,
+      "text": "系统在录入候选人时对已存在的疑似重复信息进行提示 | 验收: 输入与既有候选人匹配的关键资料后，系统展示疑似重复提示；合并、复用或继续新增规则须按确认后的方案执行。",
+      "hash": "b8c45a69059e7685a340d6022152ed2db5cccc55d2523b1e04b0d17d0d45689a"
+    },
+    {
+      "id": "REQ-CANDIDATE-JOB-LINK",
+      "line": 384,
+      "text": "候选人必须关联至少一个招聘职位才能进入职位招聘流程 | 验收: 未关联职位的候选人不能进入筛选、面试或招聘决策流程。",
+      "hash": "49b79c20d660122d92a9d1b0a37e71bd9f2ae50dd1930d34979a1ffa043e601d"
+    },
+    {
+      "id": "REQ-CANDIDATE-STATUS",
+      "line": 385,
+      "text": "候选人具有可识别的招聘阶段状态，并能展示当前状态和下一步动作 | 验收: 候选人详情和职位列表展示当前状态，状态变化后可追踪变化前后结果。",
+      "hash": "df4391a57049dd5edfbc0d18cc8faef3b9664a176c35ccf2f82adcea3db1398a"
+    },
+    {
+      "id": "REQ-HR-SCREEN",
+      "line": 386,
+      "text": "HR 可以记录候选人筛选结果并将候选人推荐给指定用人负责人 | 验收: 完成筛选并提交推荐后，候选人进入待用人负责人初筛状态，并在对应待办中出现。",
+      "hash": "807276e819a3c31c8bf00344d9b99904c2cd80f77468d83274784f2b5fe760a1"
+    },
+    {
+      "id": "REQ-HIRING-MANAGER-SCREEN",
+      "line": 387,
+      "text": "用人负责人可以对被推荐候选人提交初筛结果 | 验收: 用人负责人提交通过、拒绝或暂缓结果后，候选人状态和初筛记录同步更新。",
+      "hash": "bf4f2d0033394bc26973181c96ae1125b40afdd90caf20d0910ecd7b9a09e423"
+    },
+    {
+      "id": "REQ-SCREEN-REASON",
+      "line": 388,
+      "text": "初筛拒绝或暂缓结果可以记录原因 | 验收: 按确认后的规则要求原因时，缺少原因不得提交；提交后详情页可查看原因。",
+      "hash": "e5b74606977b9978f8fc9aad76c3db33fe08ee303d9f553fea289efdba65d700"
+    },
+    {
+      "id": "REQ-OUTREACH-RECORD",
+      "line": 389,
+      "text": "HR 可以记录外部联系和邀约结果，包括联系时间、方式、结果和下一步计划 | 验收: 保存邀约记录后，候选人详情的外部邀约区域显示完整记录及记录人。",
+      "hash": "bb910d93cb8068d1e91d76e301b3a6d035a9f9fbb87719b385f21943f62fcd69"
+    },
+    {
+      "id": "REQ-INTERVIEW-CREATE",
+      "line": 390,
+      "text": "有权限的 HR 可以为候选人创建一轮或多轮面试并指定面试官 | 验收: 创建成功后，面试出现在候选人详情、职位详情及指定面试官工作台。",
+      "hash": "061ca58e5fd851b6cb8f4a21d86f99b45eca0aa0d4a7f597e8ea130584984a1f"
+    },
+    {
+      "id": "REQ-INTERVIEW-INFO",
+      "line": 391,
+      "text": "面试记录包含候选人、职位、轮次、面试官、计划时间、地点或会议方式和面试状态 | 验收: 面试详情可展示上述信息，缺少确认的必要字段时不得创建面试。",
+      "hash": "2bdec97487d92302255bf9de0ddd50cdae4cf2e3e5aafee7a98c08b888c1c14b"
+    },
+    {
+      "id": "REQ-INTERVIEW-OVERDUE",
+      "line": 392,
+      "text": "系统能够根据确认后的时间口径识别已逾期面试 | 验收: 超过逾期判断条件的面试在相关工作台和面试列表中标记为逾期。",
+      "hash": "cab65e5ce7051a0529960d4b9cb714ce9b4a8a1672df36430a828d01d25498da"
+    },
+    {
+      "id": "REQ-INTERVIEW-EVALUATION",
+      "line": 393,
+      "text": "被指定的面试官可以查看本人面试任务并提交面试评价 | 验收: 指定面试官提交评价后，评价状态变为已提交并记录提交人和提交时间。",
+      "hash": "cd9ed2e91e999532576f445d9d3aad269b0a07fb0abecde9506c99673792af4b"
+    },
+    {
+      "id": "REQ-EVALUATION-PENDING",
+      "line": 394,
+      "text": "面试结束后未提交评价的任务进入待提交状态，并显示在相关待办中 | 验收: 面试结束且评价未提交时，面试官工作台出现待提交评价事项。",
+      "hash": "869bccedc5626d6ca30c1d95c01d0e7b75f51030963e14e280ad35e2c9267d32"
+    },
+    {
+      "id": "REQ-EVALUATION-AUTHORITY",
+      "line": 395,
+      "text": "未被指定的用户不能提交其他面试任务的评价 | 验收: 使用无权账号提交其他面试评价时，系统拒绝操作且不产生评价记录。",
+      "hash": "1a3fde159c5b4e27a70350ce7cdd6476ab5eeeac0944956754e674455f44230b"
+    },
+    {
+      "id": "REQ-EVALUATION-COMPLETE",
+      "line": 396,
+      "text": "面试未形成必要评价时不得被无条件视为评价完成 | 验收: 面试评价状态仍为待提交时，系统不显示为已完成评价。",
+      "hash": "feb93c03e1f64315ff41e877906a0959b1e324116372c6d926d05bbe133856ea"
+    },
+    {
+      "id": "REQ-DECISION-SUBMIT",
+      "line": 397,
+      "text": "具备招聘决策权限的责任人可以提交录用、淘汰或暂缓等最终招聘结果 | 验收: 提交成功后，候选人详情显示决策结果、决策人、决策时间和原因。",
+      "hash": "a7b5611df87b00f158a70bfd13cdcaae62117819fa57939d0b213ad3bdf61b70"
+    },
+    {
+      "id": "REQ-DECISION-REASON",
+      "line": 398,
+      "text": "最终招聘决策必须记录必要原因 | 验收: 决策结果需要原因但原因为空时，系统阻止提交并显示原因字段提示。",
+      "hash": "06ff7a93b6bdea32a42c86b146cb09dcb87c5f3bf87b229751b46845726f891a"
+    },
+    {
+      "id": "REQ-DECISION-STATUS",
+      "line": 399,
+      "text": "最终招聘决策提交后，候选人状态与决策结果保持一致 | 验收: 提交录用、淘汰或暂缓后，候选人列表、详情和工作台展示一致结果。",
+      "hash": "a257195689b49f3e11ec83aec0c3d9593f55d289e193107a407dca98e2cc5c8a"
+    },
+    {
+      "id": "REQ-DECISION-AUDIT",
+      "line": 400,
+      "text": "最终决策及后续修改必须保留操作人、操作时间、结果和原因历史 | 验收: 查看操作记录时可区分原始决策与后续修改，且不可显示为无历史变更。",
+      "hash": "84cf0b43a26f56ab913b3867a4d067e8a46700bff81cfe9fbd74c9334e1616e9"
+    },
+    {
+      "id": "REQ-DASHBOARD-PERSONAL",
+      "line": 401,
+      "text": "工作台仅展示当前用户有权处理的待办和异常事项 | 验收: 用户登录后看不到无关职位、候选人和面试任务的待办。",
+      "hash": "f05afb6b5b850048b384fb63c0fd06d2b7a3e174641a3ba0383d806daf39de72"
+    },
+    {
+      "id": "REQ-DASHBOARD-TODO",
+      "line": 402,
+      "text": "工作台支持展示待初筛、待评价、待决策、逾期面试和长期未推进候选人 | 验收: 对满足条件的业务记录，工作台展示对应事项并可进入具体处理页面。",
+      "hash": "6dc607819617226c79486ac441a670f76ebb89f947b297924670116d68b94e16"
+    },
+    {
+      "id": "REQ-DASHBOARD-LINK",
+      "line": 403,
+      "text": "每条工作台待办都能跳转到具体业务对象和处理动作 | 验收: 点击待办后进入对应职位、候选人、面试或决策页面，且页面提供当前用户可执行动作。",
+      "hash": "bfc140b6cec2aa37f8f6c58e9ffcb0816284d8d253103bbaa973d2d042cd5113"
+    },
+    {
+      "id": "REQ-LONG-STAGNATION",
+      "line": 404,
+      "text": "系统根据确认后的时间阈值识别长期未推进候选人 | 验收: 候选人超过阈值且无有效业务动作时被标记为长期未推进；阈值变化后识别结果按新规则计算。",
+      "hash": "1949c66cee2c692b8062eb9e51a3e6ad1a4da8e907dcddcd9260cb30158e49fe"
+    },
+    {
+      "id": "REQ-AUTH-POSITION",
+      "line": 405,
+      "text": "用户只能访问其角色或职位责任范围内的候选人、面试和评价数据 | 验收: 无关职位用户访问对象详情时被拒绝，且不会返回敏感字段。",
+      "hash": "4484963d7ab0cfe11a20709c1b11ff6889aa934422cdcd10dcbdae53aba171c3"
+    },
+    {
+      "id": "REQ-AUTH-BYPASS",
+      "line": 406,
+      "text": "通过修改请求参数或其他非页面入口访问无权数据时仍必须执行权限校验 | 验收: 使用无权对象标识请求数据时，系统拒绝访问且不返回对象内容。",
+      "hash": "39c5ffa36f73c18d2ea80c4646fa4bcfda37c7b0594f277827c9440c84588323"
+    },
+    {
+      "id": "REQ-ADMIN-AUDIT",
+      "line": 407,
+      "text": "管理员维护账号和角色的操作必须可追踪，管理员不能无痕替换业务决策人 | 验收: 管理员变更账号、角色或职位责任后，可查看变更人、时间和变更内容。",
+      "hash": "c0493e85d96c45fceeca5358de07923e5aedd21e4440d9ef73a9afb07aaa789f"
+    },
+    {
+      "id": "REQ-SAVE-FAILURE",
+      "line": 408,
+      "text": "业务数据保存失败时系统必须明确反馈失败，不得显示为成功 | 验收: 模拟保存失败后，页面显示失败提示，刷新页面不会出现未成功保存的假记录。",
+      "hash": "797cd03c09fb4fee9c7d6ff9ee3da02c95e10ee7339b075b07cd447904b0d510"
+    },
+    {
+      "id": "REQ-STATUS-AUDIT",
+      "line": 409,
+      "text": "关键状态变化必须记录变更前状态、变更后状态、操作人、操作时间和必要原因 | 验收: 查看候选人操作时间线时可以还原关键状态变化。",
+      "hash": "c190dec6afe3ebcdf6aceda0b7bf5ccd9f8f659aa1f2945f0bfb864e6bed60ca"
+    },
+    {
+      "id": "REQ-SENSITIVE-RESUME",
+      "line": 410,
+      "text": "简历查看、下载、修改和删除受权限控制并按确认规则记录操作 | 验收: 无权限用户无法执行相关操作，有权限用户操作后产生对应记录。",
+      "hash": "3c3c3211e02a9b178362196bb7e82820da1431c7e8cecddb81da45b4591b6b4b"
+    },
+    {
+      "id": "REQ-TRIAL-CLOSURE",
+      "line": 411,
+      "text": "首批试点支持技术部前端招聘从候选人录入到招聘决策的完整闭环 | 验收: 使用试点职位和测试账号，可以依次完成录入、筛选、邀约记录、面试、评价和最终决策。",
+      "hash": "83f59df74abf9493c1bc5c77cbaab16f4c7072ea0fc35ed37a05839ab3c42ca8"
+    },
+    {
+      "id": "REQ-NON-GOAL-PERFORMANCE",
+      "line": 412,
+      "text": "完整绩效管理不属于招聘闭环一期交付范围 | 验收: 一期需求、页面和验收清单中不要求绩效目标、绩效周期、评价或结果流程。",
+      "hash": "c650b24584e3d1f6ffcd4177cace7110bf4225c68999b81c817a307415574234"
+    }
+  ],
+  "context": null,
+  "plan": null,
+  "planHash": null,
+  "reviews": [],
+  "readiness": null,
+  "codeReviews": [],
+  "work": [],
+  "checks": [],
+  "checkpointHash": "9c95db75a9c7045581c6420e0f15d53fd53bb38805c6ab4e720288226c974447",
+  "delivery": null,
+  "round": 0,
+  "outcome": "in-progress"
+}
