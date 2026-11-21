@@ -1,0 +1,56 @@
+{
+  "hash": "f7755fa94168895ae56fae4335ce0d32c179d608b119f30cecc1784cc9fc253b",
+  "evidence": "model-proposal",
+  "resources": {
+    "source": "http://127.0.0.1:18848",
+    "namespace": "public",
+    "prompt": {
+      "name": "product-manager",
+      "version": "1.4.0",
+      "sha256": "c996851dde7ee123799fd6eeb2567be1871ffff11fa997fb4f66a265399b010c"
+    },
+    "skill": {
+      "name": "product-pm-product-requirements-alignment",
+      "version": "1.4.0",
+      "sha256": "d0a40f6d2bb6ab13995f861b74952383e9ea306c38cce28536516a2d17fcba90"
+    },
+    "reviewerPrompt": {
+      "name": "product-reviewer",
+      "version": "1.4.0",
+      "sha256": "080312167a585465dd60ab19424845ae793b4dba79ef1040dde649869f43712e"
+    },
+    "additionalSkills": [
+      {
+        "name": "product-requirements-handoff",
+        "version": "1.4.0",
+        "sha256": "aecf7febe8d5088cc1de90d7b1abc4cfd9516e2cee994eae1020b7d7387318a2"
+      },
+      {
+        "name": "product-pm-create-prd",
+        "version": "1.4.0",
+        "sha256": "377263f9da52b0c6bddddfc927175749a569a797dedae5c66ca48c62650ad3fc"
+      },
+      {
+        "name": "product-pm-user-stories",
+        "version": "1.4.0",
+        "sha256": "eeaebbb72932dbca32a2da268e7fc9e2e050515cd67a28fd84f5bd7de1543dde"
+      },
+      {
+        "name": "product-pm-test-scenarios",
+        "version": "1.4.0",
+        "sha256": "97a068500abe0d5e8f22140145439d1f478d503c9c47f33e84516d58e2c93b3d"
+      },
+      {
+        "name": "product-pm-strategy-red-team",
+        "version": "1.4.0",
+        "sha256": "a4d93e7df5f19238b6d6694c81fff2ba1fb85d8f989c3aba770006d96d8fb69c"
+      }
+    ],
+    "reviewerSkills": [
+      "product-pm-product-requirements-alignment",
+      "product-requirements-handoff",
+      "product-pm-test-scenarios",
+      "product-pm-strategy-red-team"
+    ]
+  }
+}
