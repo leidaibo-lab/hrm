@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "hrm-screening-invitation",
+    "runId": "6cf24277-a222-4854-acd2-045d62e5fe93",
+    "workflowId": "productDevelopmentWorkflow"
+  },
+  "createdAt": "2026-11-21T16:37:34.290Z",
+  "briefHash": "e2ee6e104071cf08b9af607fce6aba47b39b337fed468b67c9ee1f2867ab8aa5"
+}
