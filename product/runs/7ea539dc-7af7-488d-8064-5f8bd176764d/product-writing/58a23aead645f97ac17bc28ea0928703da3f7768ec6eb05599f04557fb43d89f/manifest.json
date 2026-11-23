@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 2,
+  "repository": "https://github.com/leidaibo-lab/hrm.git",
+  "runId": "7ea539dc-7af7-488d-8064-5f8bd176764d",
+  "stage": "product-writing",
+  "mode": "live",
+  "event": "completed",
+  "projectionHash": "58a23aead645f97ac17bc28ea0928703da3f7768ec6eb05599f04557fb43d89f",
+  "authority": "workflow-export",
+  "correlation": {
+    "projectId": "hrm",
+    "iterationId": "hrm-screening-invitation",
+    "runId": "7ea539dc-7af7-488d-8064-5f8bd176764d",
+    "workflowId": "productTeamRun"
+  },
+  "createdAt": "2026-11-23T06:04:51.444Z",
+  "files": {
+    "brief.md": "e2ee6e104071cf08b9af607fce6aba47b39b337fed468b67c9ee1f2867ab8aa5",
+    "reviews.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outcome.json": "f372cf6fde249267308d0c0dda841445db72ec9f720428776375c2212c6a0ceb",
+    "intake.json": "ccd6317628c7aef252a69379f59f42d663df43283d0152781fd9aaf313f71984",
+    "role-writing.md": "3bb70a88152868d0307ed914f1171e64ad56adc04e0cf3268918bbae40d7602c",
+    "product.md": "3bb70a88152868d0307ed914f1171e64ad56adc04e0cf3268918bbae40d7602c",
+    "product-version.json": "3d8dff2677976dccd54f7307ff2ac09e71b5d066cae77bde820f43a47b1cbe11",
+    "event.json": "ad0220589ffa362d1b081c82292c5db8a0470c1074b79f3b881162acf1db4e62",
+    "sources-observed-at-export.json": "be93c85c2bbd6df1e9b414975cced1cf2457715635dfb1247788a69c3ebb6097"
+  }
+}

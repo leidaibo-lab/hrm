@@ -1,0 +1,594 @@
+{
+  "hash": "d04cfd37ca372beebe96e46085cd86042b3bf76d12b45eed74067e930817b07f",
+  "evidence": "model-proposal",
+  "resources": {
+    "source": "http://127.0.0.1:50854",
+    "namespace": "public",
+    "prompt": {
+      "name": "product-manager",
+      "version": "1.0.0",
+      "sha256": "6c4ae50f2e46d7d2ca9e2434c12e541350cb5521e763cecc4496a2ba6f7d0203"
+    },
+    "skill": {
+      "name": "product-pm-ab-test-analysis",
+      "version": "1.0.0",
+      "sha256": "5cd94bdc9423bedcba49e2a6849c4e9903b0cdcaade183704dfa9492b75b34f8"
+    },
+    "reviewerPrompt": {
+      "name": "product-reviewer",
+      "version": "1.0.0",
+      "sha256": "4ad7eb05bf7ef692fefc9746ddf97aca135178baf4ba002e892fe0ffb8297824"
+    },
+    "additionalSkills": [
+      {
+        "name": "product-pm-analyze-feature-requests",
+        "version": "1.0.0",
+        "sha256": "847c29f48250f627d0a2bacdeab480a0eb3346584de3fa363fc12b2518b3cf07"
+      },
+      {
+        "name": "product-pm-ansoff-matrix",
+        "version": "1.0.0",
+        "sha256": "b59b060814c712de7753b680b931846aeb5853225a0e8f1b11b9465b456a2403"
+      },
+      {
+        "name": "product-pm-beachhead-segment",
+        "version": "1.0.0",
+        "sha256": "3bd831dd479d95161f8a1f96cdcb96ba87be005529c0b021c0c5f1e6db0a7233"
+      },
+      {
+        "name": "product-pm-brainstorm-experiments-existing",
+        "version": "1.0.0",
+        "sha256": "73d83afaeb009c986caa53a802e20c2ee04e705e92b4ce247ae8e5f8216ae8de"
+      },
+      {
+        "name": "product-pm-brainstorm-experiments-new",
+        "version": "1.0.0",
+        "sha256": "87ab9df7a4510924feb87ce3bdffefa067140c4e0761143a8dc01c827d5851f3"
+      },
+      {
+        "name": "product-pm-brainstorm-ideas-existing",
+        "version": "1.0.0",
+        "sha256": "279919f71c25d75ea444f151316ec50c962f54d0b17e15ee3c3a36bed6ecf45a"
+      },
+      {
+        "name": "product-pm-brainstorm-ideas-new",
+        "version": "1.0.0",
+        "sha256": "edcad5c794095e9898b44b3c10a854f386ebb33a1af3252b6e9467b496d8366d"
+      },
+      {
+        "name": "product-pm-brainstorm-okrs",
+        "version": "1.0.0",
+        "sha256": "87214535d1600745aa39e71fb7bbeaf9a202843a0559d19ae554d0aea8c94337"
+      },
+      {
+        "name": "product-pm-business-model",
+        "version": "1.0.0",
+        "sha256": "c3bad76885852381b9bc8d4c750e900dbee4d0d1f4b251308a1fb3e4f5fb971d"
+      },
+      {
+        "name": "product-pm-catalog",
+        "version": "1.0.0",
+        "sha256": "38eb10c01ffecdcae8e569c6bda46879626baee3b19e21eb83d95119048779af"
+      },
+      {
+        "name": "product-pm-code-review",
+        "version": "1.0.0",
+        "sha256": "f93a51a208339a2df86eda911cdea0b541eee0f6bfd2c429bddce64f5afd9c99"
+      },
+      {
+        "name": "product-pm-cohort-analysis",
+        "version": "1.0.0",
+        "sha256": "1d45a0810ff942067520ff657421a5b7aad9bdd4c0592a321b600deea2fc3d8c"
+      },
+      {
+        "name": "product-pm-competitive-battlecard",
+        "version": "1.0.0",
+        "sha256": "5c8933c5173af09cc68d58a95d02dbd8ea6832d628c38117b22647b4bf2ed066"
+      },
+      {
+        "name": "product-pm-competitor-analysis",
+        "version": "1.0.0",
+        "sha256": "9a55e256b10ad8273aa3ac97a2aa42ef2435c0559bac3f2f8873b46c11e2406d"
+      },
+      {
+        "name": "product-pm-create-prd",
+        "version": "1.0.0",
+        "sha256": "2bae525dd98767e086994ae0b8205675d55f15d0a7bb6591b9b22f3904142eeb"
+      },
+      {
+        "name": "product-pm-customer-journey-map",
+        "version": "1.0.0",
+        "sha256": "340c54558779f74589ef26d9706a3de4e6bace77945b2f81a29705b7c2a87204"
+      },
+      {
+        "name": "product-pm-draft-nda",
+        "version": "1.0.0",
+        "sha256": "9acf15bb910711569c7824395dcf46d0051468bbc30fb20801701ad4ae7c337b"
+      },
+      {
+        "name": "product-pm-dummy-dataset",
+        "version": "1.0.0",
+        "sha256": "04c476071fde74205ccd33e1048638bf78a21e3b038951672cfda4c0476cb22b"
+      },
+      {
+        "name": "product-pm-flow-analyze-cohorts",
+        "version": "1.0.0",
+        "sha256": "d004e61041cf0d260cea4eaf554ec10ef678bf18fba7c7123bc56a6ca0b556a6"
+      },
+      {
+        "name": "product-pm-flow-analyze-feedback",
+        "version": "1.0.0",
+        "sha256": "16bca8a09839f8e8e1acf4169cfb97792dc9d19ee68df9c614ca1ac8ed777a05"
+      },
+      {
+        "name": "product-pm-flow-analyze-test",
+        "version": "1.0.0",
+        "sha256": "005cd88ce19792b881dab3db86c0d407288f235eaa6c439d3a5c7d7ce01d82ac"
+      },
+      {
+        "name": "product-pm-flow-battlecard",
+        "version": "1.0.0",
+        "sha256": "2687d33bf01c08348d16924e4e89b47767799062b218c32830cd674af7391ecb"
+      },
+      {
+        "name": "product-pm-flow-brainstorm",
+        "version": "1.0.0",
+        "sha256": "c0166ea60cba446c9d07d4240910cc74f760593b2569a59c872be0a4a4dc3834"
+      },
+      {
+        "name": "product-pm-flow-business-model",
+        "version": "1.0.0",
+        "sha256": "98a831611b07e5d9767a7540f49e9f81898e83268ffd4d08e6d9ca2afbebc6d0"
+      },
+      {
+        "name": "product-pm-flow-competitive-analysis",
+        "version": "1.0.0",
+        "sha256": "22168003aaf0171f699c8951c4d08c473afe12c4c3c108302471a0352e145e2c"
+      },
+      {
+        "name": "product-pm-flow-derive-tests",
+        "version": "1.0.0",
+        "sha256": "a848eafd290f08b351eb2ec77591b21988e94bdd78962889eb1a27da391e1ee5"
+      },
+      {
+        "name": "product-pm-flow-discover",
+        "version": "1.0.0",
+        "sha256": "1d1e39a98669616b7fb742445f340b9693647824ed95e9ddd3952d79f370c365"
+      },
+      {
+        "name": "product-pm-flow-document-app",
+        "version": "1.0.0",
+        "sha256": "09fc45f3c59bfe33f74a493705f750e45d20b996a012c4992da08fa25112e1e2"
+      },
+      {
+        "name": "product-pm-flow-draft-nda",
+        "version": "1.0.0",
+        "sha256": "da160e615aa97f1b80590ef2e63c6c0b519d0a300694ef2e360d7e4ecd1dcb61"
+      },
+      {
+        "name": "product-pm-flow-generate-data",
+        "version": "1.0.0",
+        "sha256": "c7b19f1b1db90c4884de6a4150d2d6b9b2e7c1fff36a2366121838122bea1cf1"
+      },
+      {
+        "name": "product-pm-flow-growth-strategy",
+        "version": "1.0.0",
+        "sha256": "c1c8afb640a330813f666689bf76b1ec574003849c80bda718d0a49a6d4aea48"
+      },
+      {
+        "name": "product-pm-flow-interview",
+        "version": "1.0.0",
+        "sha256": "b009fadc080da85feb80ec5116a1ecc765f5b442297bb746ca6b5bd8c8cbc66d"
+      },
+      {
+        "name": "product-pm-flow-market-product",
+        "version": "1.0.0",
+        "sha256": "51d84e33178d110a8b99cdf17a5ae4f6ca1bbb69d8e9ebdb1d3478d7a3ef1d03"
+      },
+      {
+        "name": "product-pm-flow-market-scan",
+        "version": "1.0.0",
+        "sha256": "28f1e3ec477af556a5e1aedd9d0421f6e5bce89ec02d81f09c3315db84e19eb4"
+      },
+      {
+        "name": "product-pm-flow-meeting-notes",
+        "version": "1.0.0",
+        "sha256": "f315be1e6044acfc807fa149f75abb6d6aca2eddaa4d733b31708a3e6d0cb36c"
+      },
+      {
+        "name": "product-pm-flow-north-star",
+        "version": "1.0.0",
+        "sha256": "ff7f1776b8147de80f8190ba3aad9daa75d1099b2ca81ee3cc082880092adf16"
+      },
+      {
+        "name": "product-pm-flow-performance-audit-static",
+        "version": "1.0.0",
+        "sha256": "070ef5fa07888650479e580b95ee8ef3a01b5cdaeada40c0b2854b1ed58d8c07"
+      },
+      {
+        "name": "product-pm-flow-plan-launch",
+        "version": "1.0.0",
+        "sha256": "0a9f8ff6319c6d7689945c2975e4ec6078b3d3ff910f4ff96da2a0cf61e84b79"
+      },
+      {
+        "name": "product-pm-flow-plan-okrs",
+        "version": "1.0.0",
+        "sha256": "f955ad2c71698d57050d1f5ee8f32a0d7c57e171bccfd0792e2e07530e9ee09b"
+      },
+      {
+        "name": "product-pm-flow-pre-mortem",
+        "version": "1.0.0",
+        "sha256": "29716aa775d2d85862e9d4bd2773c7dde68f7126ea06e2ca64b55941a60219fc"
+      },
+      {
+        "name": "product-pm-flow-pricing",
+        "version": "1.0.0",
+        "sha256": "145b0da9244432847955995f6b1635732f9130044c82ab82cb0c4369a40fa4ac"
+      },
+      {
+        "name": "product-pm-flow-privacy-policy",
+        "version": "1.0.0",
+        "sha256": "77ec4b806e5c9095ec137e601957efcbcf99534790b71ac75de727183ec2103c"
+      },
+      {
+        "name": "product-pm-flow-proofread",
+        "version": "1.0.0",
+        "sha256": "31bc7253e7782045cd827d40d2d3aac1699664e8b244e2d5b8a86a28b77533cb"
+      },
+      {
+        "name": "product-pm-flow-red-team-prd",
+        "version": "1.0.0",
+        "sha256": "79e50f0ea7009f82adad28ed36cf28323cfe55a643fbf9bc718e9a7bed9b1f66"
+      },
+      {
+        "name": "product-pm-flow-research-users",
+        "version": "1.0.0",
+        "sha256": "5916fbb53b989c24afd75d3dc9c4f6456373669e0d905a0dbf6f7a7fce7c522e"
+      },
+      {
+        "name": "product-pm-flow-review-resume",
+        "version": "1.0.0",
+        "sha256": "a122ca8d06c1a68ec605b652a0e5ba073e8b0d1928d2ee1c8dad9383e1e7e204"
+      },
+      {
+        "name": "product-pm-flow-security-audit-static",
+        "version": "1.0.0",
+        "sha256": "4ba62440ec3b7184c478d86a0a02970a4312d2830bcce989b5c185d087ad1c24"
+      },
+      {
+        "name": "product-pm-flow-setup-metrics",
+        "version": "1.0.0",
+        "sha256": "4b3543e70a0dc698ae2fd1b43f691be10d337e390c7bc36e048cbf48577947dc"
+      },
+      {
+        "name": "product-pm-flow-ship-check",
+        "version": "1.0.0",
+        "sha256": "e90e4b13d516ea55a38860e5e0696fe88afc6ce18cdaa7223e9de9ff5d8c6f6c"
+      },
+      {
+        "name": "product-pm-flow-sprint",
+        "version": "1.0.0",
+        "sha256": "6b6527833e1b33e1a316baf8174ba1bd7592e0ac0b16c35f5a7299eda714e5a3"
+      },
+      {
+        "name": "product-pm-flow-stakeholder-map",
+        "version": "1.0.0",
+        "sha256": "46596ea8fcfaacc8cc73ee36488e7f7913401bdedc41b3bf18bcf8d3a1b7871d"
+      },
+      {
+        "name": "product-pm-flow-strategy",
+        "version": "1.0.0",
+        "sha256": "4cc1a866c79307dca92137c79e22bb1f0eabc6cc22a368f2e4d6041e38f5fa81"
+      },
+      {
+        "name": "product-pm-flow-tailor-resume",
+        "version": "1.0.0",
+        "sha256": "7bba76d0cf110b72d7e23cb9c7ce384a1c6eb16b781c0ff22f712a0803649ac0"
+      },
+      {
+        "name": "product-pm-flow-test-scenarios",
+        "version": "1.0.0",
+        "sha256": "bae44df78e112b66f464ee953a4311474c21a05293c60c5872288ad87f4dd0f7"
+      },
+      {
+        "name": "product-pm-flow-transform-roadmap",
+        "version": "1.0.0",
+        "sha256": "46265a8386ceb574bce01daaae0e91cffe3cbf3c73d8f5d6fbb7f98b270661cb"
+      },
+      {
+        "name": "product-pm-flow-triage-requests",
+        "version": "1.0.0",
+        "sha256": "7f3d19e810d1744f4112cf18d81a407f02f22c526706ea7cf8301485abefaa55"
+      },
+      {
+        "name": "product-pm-flow-value-proposition",
+        "version": "1.0.0",
+        "sha256": "26f71dd38ca71565bc896178a0fe0275a9755157412e8166bcc44dfbca34ecf5"
+      },
+      {
+        "name": "product-pm-flow-write-prd",
+        "version": "1.0.0",
+        "sha256": "9ccbc306efe9438e0867107b2bc753b9f68fbff4c74345e0c316809d5f8660ff"
+      },
+      {
+        "name": "product-pm-flow-write-query",
+        "version": "1.0.0",
+        "sha256": "09b2514184ddcb715b390b351ffe65b9979e9f0da600c51b78ac3ba0ee8089de"
+      },
+      {
+        "name": "product-pm-flow-write-stories",
+        "version": "1.0.0",
+        "sha256": "e1cec7d844fa904ff53f9c1469e938fb003b333924c027586baf7252e3113733"
+      },
+      {
+        "name": "product-pm-grammar-check",
+        "version": "1.0.0",
+        "sha256": "f1b4fd578f8018e86280afc6321463768214cf7d2916f3113179d768f22d80c6"
+      },
+      {
+        "name": "product-pm-growth-loops",
+        "version": "1.0.0",
+        "sha256": "e5cd083afd86c59c7dd993a0b35e69be7e0ef4fba7981f63d2e66b57efbd424d"
+      },
+      {
+        "name": "product-pm-gtm-motions",
+        "version": "1.0.0",
+        "sha256": "a3663cc2623b96ceaef5f00b4ff99aa0a8a00bf3d695ce7cc419c73892655d08"
+      },
+      {
+        "name": "product-pm-gtm-strategy",
+        "version": "1.0.0",
+        "sha256": "7da1e4729985f422f5e2cbbcb47a49fde8a8c1f4e2246fd9f6477ba134868976"
+      },
+      {
+        "name": "product-pm-ideal-customer-profile",
+        "version": "1.0.0",
+        "sha256": "89c5c8b14fec9ee4f5daf629531fcdbc13155da08ba472a41ce4973627d78d64"
+      },
+      {
+        "name": "product-pm-identify-assumptions-existing",
+        "version": "1.0.0",
+        "sha256": "91c239ff6f3ce837384008626c18f68e555ee2d69abdd7da62c8518a6ec39bfd"
+      },
+      {
+        "name": "product-pm-identify-assumptions-new",
+        "version": "1.0.0",
+        "sha256": "cde50003757b803f9710af897ed0bcb267d99da9166b9de4b080fe1e61a18eaf"
+      },
+      {
+        "name": "product-pm-intended-vs-implemented",
+        "version": "1.0.0",
+        "sha256": "2cb424d53e54655a2aacba36e55d305b0f6e50b1a0d558dd2f5003e511fbc90c"
+      },
+      {
+        "name": "product-pm-interview-script",
+        "version": "1.0.0",
+        "sha256": "03da263005577c67aa549d1fb908c85f644ea0a1c92640dcdc774b39e47cc53f"
+      },
+      {
+        "name": "product-pm-job-stories",
+        "version": "1.0.0",
+        "sha256": "cb0e170adfa0def87818abb14f8118638fce3d37b9552d4de4ba6b32b0dd86f9"
+      },
+      {
+        "name": "product-pm-lean-canvas",
+        "version": "1.0.0",
+        "sha256": "48489b61f936046216947b428c60cd3bb27354f0d39c5c00a4b269a5593ff6eb"
+      },
+      {
+        "name": "product-pm-market-segments",
+        "version": "1.0.0",
+        "sha256": "a568d401931fe65501ece16ffdf9d6dc20643f3c85c158229cff9802175c7bf7"
+      },
+      {
+        "name": "product-pm-market-sizing",
+        "version": "1.0.0",
+        "sha256": "0402766f79a3c86206826ca67f91eabf83ac011c1f1e59d16cd4d1d3713f9c7e"
+      },
+      {
+        "name": "product-pm-marketing-ideas",
+        "version": "1.0.0",
+        "sha256": "79534c45d5dbc8990f7c34318bc2be1cc3436161dbcf23e3d6a34504f5ee77f7"
+      },
+      {
+        "name": "product-pm-metrics-dashboard",
+        "version": "1.0.0",
+        "sha256": "42c7940a6e2eae5e5a5000aa4232eabbcecc1a4506ad813d229f990819e63938"
+      },
+      {
+        "name": "product-pm-monetization-strategy",
+        "version": "1.0.0",
+        "sha256": "93b0f885a31829387471f8eeaf7090aaf43dfaa661d8cc17e21f0da75c5309c0"
+      },
+      {
+        "name": "product-pm-north-star-metric",
+        "version": "1.0.0",
+        "sha256": "ab4e10695ff3cd6c294b6512d6fe13edd326d8d15968b9eaff659cd46e0fcfb0"
+      },
+      {
+        "name": "product-pm-opportunity-solution-tree",
+        "version": "1.0.0",
+        "sha256": "7e77e764ddc2952fce0d7cf2a5daac3e83a81f22cc8a4faebaeda3d9764e4a85"
+      },
+      {
+        "name": "product-pm-outcome-roadmap",
+        "version": "1.0.0",
+        "sha256": "69d61c0e8c19d818fe2b15af450c1cda0d3cc1bf8e72f72e78a075368063cd0f"
+      },
+      {
+        "name": "product-pm-pestle-analysis",
+        "version": "1.0.0",
+        "sha256": "efa99688b6c4e002a3fe2f68e1006ad5ccc90973bb891285937a5d8a5c94db93"
+      },
+      {
+        "name": "product-pm-porters-five-forces",
+        "version": "1.0.0",
+        "sha256": "7df49baade8a16516adebe4cce8be0f8ed7019b8db701962355c777b0f538b20"
+      },
+      {
+        "name": "product-pm-positioning-ideas",
+        "version": "1.0.0",
+        "sha256": "024e92083ae7ffa22c9b19b1c88d9577ccf4206b4a8a9437031c3a1c5af54c4b"
+      },
+      {
+        "name": "product-pm-pre-mortem",
+        "version": "1.0.0",
+        "sha256": "dcbf4b342e4991d05fcc0ef52ffa53a9814bd846430347f17fe56b953156d209"
+      },
+      {
+        "name": "product-pm-pricing-strategy",
+        "version": "1.0.0",
+        "sha256": "61e6cdd653ec5e6a590dc00621f2266cf534a29844f6a8a7228e400ebcb0a79f"
+      },
+      {
+        "name": "product-pm-prioritization-frameworks",
+        "version": "1.0.0",
+        "sha256": "9e59df8a275ec0b9c924b02f4208631355e3df0e06578ec8c54e9de4e46a7b3f"
+      },
+      {
+        "name": "product-pm-prioritize-assumptions",
+        "version": "1.0.0",
+        "sha256": "05d6d5b67f85a32691540721994d1b8c4db8cfc00132c394ef02c27fd51146e0"
+      },
+      {
+        "name": "product-pm-prioritize-features",
+        "version": "1.0.0",
+        "sha256": "49fc758c40030fdafb63c696af63f8b2745a7aa084269103f7ff99632d03d051"
+      },
+      {
+        "name": "product-pm-privacy-policy",
+        "version": "1.0.0",
+        "sha256": "aceb3332df0580c12c8f7c6c2d0e15a914abeccfe9a33282d96933eb4398305a"
+      },
+      {
+        "name": "product-pm-product-name",
+        "version": "1.0.0",
+        "sha256": "9b8bfc3e03f0e559ac67dd5378ea8b1a5c779c7d594827da45040213f0b5003f"
+      },
+      {
+        "name": "product-pm-product-strategy",
+        "version": "1.0.0",
+        "sha256": "52604b67399e45a6cfd2a8f155a230bb89802c75f7e3044344a9297e7ef6ae56"
+      },
+      {
+        "name": "product-pm-product-vision",
+        "version": "1.0.0",
+        "sha256": "50a6a1a7bde5db0606c16003a45ea62a774817605025599d2dbc3d1272c8e6ef"
+      },
+      {
+        "name": "product-pm-release-notes",
+        "version": "1.0.0",
+        "sha256": "7519d331ebcf2441c9dcb0a849d5af445d0ac1a520ce60c45d46a297a4802c25"
+      },
+      {
+        "name": "product-pm-retro",
+        "version": "1.0.0",
+        "sha256": "65a1953ffd8b885abbaa4456326813263441dfd7434941c301ca5415410a0e5b"
+      },
+      {
+        "name": "product-pm-review-resume",
+        "version": "1.0.0",
+        "sha256": "0b2e6eb56de355aa82c611d5c562b86dcb8ffb3719a6f2568b285806c9f9e26d"
+      },
+      {
+        "name": "product-pm-sentiment-analysis",
+        "version": "1.0.0",
+        "sha256": "bcee1d3ada1e768b3ed82199df9bb939df03c7bbafca7970796b613d7466bb9b"
+      },
+      {
+        "name": "product-pm-shipping-artifacts",
+        "version": "1.0.0",
+        "sha256": "19106cba47e3f32d5e5f6ca190eed36e6e6fb9077f0398ef612418c8a74f22da"
+      },
+      {
+        "name": "product-pm-sprint-plan",
+        "version": "1.0.0",
+        "sha256": "362ffb526d6df45c2adf28591232c470e292f17527c5d75987eeba649848e7b4"
+      },
+      {
+        "name": "product-pm-sql-queries",
+        "version": "1.0.0",
+        "sha256": "f2137ef0aae56287cc1ebb2dfc5c655d0440e21a1ce933ed978cffee967e2440"
+      },
+      {
+        "name": "product-pm-stakeholder-map",
+        "version": "1.0.0",
+        "sha256": "a284f05394872be958f451fc5fe26eda175e57c801a3e699dddea87047c54c84"
+      },
+      {
+        "name": "product-pm-startup-canvas",
+        "version": "1.0.0",
+        "sha256": "c202df5e641be416a034dde648e19a0c62875d2970660aeda88f1b3e2e161fc0"
+      },
+      {
+        "name": "product-pm-strategy-red-team",
+        "version": "1.0.0",
+        "sha256": "a55a52ff1c9f833e22676244a004522226633e90b006d66d00e25d9ed6e14b7c"
+      },
+      {
+        "name": "product-pm-summarize-interview",
+        "version": "1.0.0",
+        "sha256": "e432025115c3dc6fe9004f9bb461f07dade7c8a6352d99853854f4be907a4f99"
+      },
+      {
+        "name": "product-pm-summarize-meeting",
+        "version": "1.0.0",
+        "sha256": "c4b49b380d709ca2281cb0a02213f9ca514ad85a4b06ea97dd69690da18fb862"
+      },
+      {
+        "name": "product-pm-swot-analysis",
+        "version": "1.0.0",
+        "sha256": "ade458e2c227806ad7053577f5028697910221f603079ebe0f1d29c700ae5f96"
+      },
+      {
+        "name": "product-pm-test-scenarios",
+        "version": "1.0.0",
+        "sha256": "5e1449bdbeb6cf5e72c25bca641fb7fdee0b0cb6e58e989e19325195f9e4218d"
+      },
+      {
+        "name": "product-pm-user-personas",
+        "version": "1.0.0",
+        "sha256": "7b58e5a093a2d2b2b6381627aba4278103fdf068b3176b25e34183b3478dd868"
+      },
+      {
+        "name": "product-pm-user-segmentation",
+        "version": "1.0.0",
+        "sha256": "2b84a415b476b3e152a73ac553eaf4a5f3752d0bfcc82251fd8024d8d52ef61d"
+      },
+      {
+        "name": "product-pm-user-stories",
+        "version": "1.0.0",
+        "sha256": "e5e6fe12c1c72ec0330e5fc51cf487a3cd5366807202d32ee22243225b6a32a9"
+      },
+      {
+        "name": "product-pm-value-prop-statements",
+        "version": "1.0.0",
+        "sha256": "4a8bab40c0179924a607143a1839906e5519a698ac738cd4313d959c3d8efda4"
+      },
+      {
+        "name": "product-pm-value-proposition",
+        "version": "1.0.0",
+        "sha256": "04c6beaf36360beb44ee97c33fbcb63ff5d87b1692ff8a7e58ea5b5880006825"
+      },
+      {
+        "name": "product-pm-wwas",
+        "version": "1.0.0",
+        "sha256": "ac2780231768be8dea884bc3dc42cc1f1b92afd6da1f408dab2f56cd40777af8"
+      },
+      {
+        "name": "product-requirements-handoff",
+        "version": "1.0.0",
+        "sha256": "bc271839449452fab2e76b680a5f93c15fd419e0e982e0727b95240274209cdd"
+      }
+    ],
+    "reviewerSkills": [
+      "product-pm-test-scenarios",
+      "product-pm-strategy-red-team",
+      "product-pm-pre-mortem"
+    ],
+    "methods": {
+      "schemaVersion": "nacos-team-methods.v1",
+      "sha256": "1d502e46c36043f71b48d09238dc18bde1cb7cf5f75e563775166cf76df344c0"
+    }
+  }
+}
