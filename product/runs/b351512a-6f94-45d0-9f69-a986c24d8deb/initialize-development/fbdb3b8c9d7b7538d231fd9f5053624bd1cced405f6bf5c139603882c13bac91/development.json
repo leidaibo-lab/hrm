@@ -1,0 +1,54 @@
+{
+  "mode": "live",
+  "productHash": "0568e53887efc88cc755f0b9e857f0aaffd70fd20bf19d2db8506116eff1976f",
+  "requirements": [
+    {
+      "id": "product:L1",
+      "line": 1,
+      "text": "# HRM 新需求草案：候选人跟进待办",
+      "hash": "44fc8034a89b0c52a98465961418d0c84c365fb932a28aa46e413c450af6c140"
+    },
+    {
+      "id": "product:L3",
+      "line": 3,
+      "text": "## 目标\n让 HR 在招聘工作中看到需要跟进的候选人，并记录每次跟进结果，减少候选人遗漏。",
+      "hash": "2bee2e4079c89c84e4f779f1f62f30b81249f1b388b12210506ea828a390bec5"
+    },
+    {
+      "id": "product:L6",
+      "line": 6,
+      "text": "## 使用场景\nHR 打开招聘工作台，查看自己负责的候选人中需要跟进的事项；完成沟通后记录结果和下一次跟进时间。",
+      "hash": "926eedf00a2514c373c02615b143e981b498a9bab254ff6c4d5a9273223dd58b"
+    },
+    {
+      "id": "product:L9",
+      "line": 9,
+      "text": "## 拟议范围与验收\n1. HR 可为候选人创建跟进待办，填写跟进内容、负责人和计划时间；必填项缺失时不得保存。\n2. 工作台按待办展示候选人、负责人、计划时间和状态；可按负责人、状态筛选。\n3. HR 可将待办标记完成并填写跟进结果；完成后保留原计划时间、完成时间和结果。\n4. 已完成待办不再出现在未完成列表中；保存失败不改变原有状态。\n5. 候选人详情可查看其跟进记录，记录按时间倒序展示。",
+      "hash": "fac89707f17ea97c26c7adda22a85ebaaecac3ac43a97d648c76102d7788a688"
+    },
+    {
+      "id": "product:L16",
+      "line": 16,
+      "text": "## 待业务确认\n- 跟进待办是否由 HR 手动创建，还是需要根据招聘状态自动生成。\n- 是否需要逾期提醒，以及提醒方式和时间。\n- 哪些角色可以查看、创建或完成待办；数据可见范围如何划分。\n- 是否允许修改、取消已创建的待办，以及是否保留修改历史。",
+      "hash": "1ecb012b9aa371c8edc9e30eb1e777399b2a65881810a6a352fa300d713bee63"
+    },
+    {
+      "id": "product:L22",
+      "line": 22,
+      "text": "本稿为待确认的新增需求提案；未声称已有业务授权或审批。",
+      "hash": "a816aade1a015efcd067ef62473731d9e0a3ef8ab789209b2b397f73a5242e3b"
+    }
+  ],
+  "context": null,
+  "plan": null,
+  "planHash": null,
+  "reviews": [],
+  "readiness": null,
+  "codeReviews": [],
+  "work": [],
+  "checks": [],
+  "checkpointHash": "9c95db75a9c7045581c6420e0f15d53fd53bb38805c6ab4e720288226c974447",
+  "delivery": null,
+  "round": 0,
+  "outcome": "in-progress"
+}
