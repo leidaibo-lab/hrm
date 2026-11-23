@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "repository": "https://github.com/leidaibo-lab/hrm.git",
+  "runId": "hrm-independent-eval",
+  "stage": "prepare-context",
+  "mode": "live",
+  "event": "completed",
+  "projectionHash": "e2d5300d6ae5572058b52a651a67594bd2946a158c9ef0a3ef964baa0fd7f8f2",
+  "authority": "workflow-export",
+  "createdAt": "2026-11-23T04:28:39.624Z",
+  "files": {
+    "development.json": "b59b4bc8a04219609eabd5ba171e39da0a27ab86de8edf51c479bcb37801e1ad",
+    "event.json": "95922a006089a9ef28875a880663b4a66fd032610a53ce7c9637932dcf043e99",
+    "sources-observed-at-export.json": "be93c85c2bbd6df1e9b414975cced1cf2457715635dfb1247788a69c3ebb6097"
+  }
+}
