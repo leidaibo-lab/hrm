@@ -1,0 +1,51 @@
+{
+  "source": {
+    "kind": "evaluation",
+    "runId": "b351512a-6f94-45d0-9f69-a986c24d8deb",
+    "hash": "0568e53887efc88cc755f0b9e857f0aaffd70fd20bf19d2db8506116eff1976f",
+    "content": "# HRM 新需求草案：候选人跟进待办\n\n## 目标\n让 HR 在招聘工作中看到需要跟进的候选人，并记录每次跟进结果，减少候选人遗漏。\n\n## 使用场景\nHR 打开招聘工作台，查看自己负责的候选人中需要跟进的事项；完成沟通后记录结果和下一次跟进时间。\n\n## 拟议范围与验收\n1. HR 可为候选人创建跟进待办，填写跟进内容、负责人和计划时间；必填项缺失时不得保存。\n2. 工作台按待办展示候选人、负责人、计划时间和状态；可按负责人、状态筛选。\n3. HR 可将待办标记完成并填写跟进结果；完成后保留原计划时间、完成时间和结果。\n4. 已完成待办不再出现在未完成列表中；保存失败不改变原有状态。\n5. 候选人详情可查看其跟进记录，记录按时间倒序展示。\n\n## 待业务确认\n- 跟进待办是否由 HR 手动创建，还是需要根据招聘状态自动生成。\n- 是否需要逾期提醒，以及提醒方式和时间。\n- 哪些角色可以查看、创建或完成待办；数据可见范围如何划分。\n- 是否允许修改、取消已创建的待办，以及是否保留修改历史。\n\n本稿为待确认的新增需求提案；未声称已有业务授权或审批。",
+    "evidence": "evaluation-input"
+  },
+  "scopeApproval": {
+    "reviewer": "evaluation-operator",
+    "comment": "独立研发评测范围确认，不代表生产授权",
+    "productHash": "0568e53887efc88cc755f0b9e857f0aaffd70fd20bf19d2db8506116eff1976f"
+  },
+  "project": {
+    "id": "hrm",
+    "roles": [
+      "frontend",
+      "backend",
+      "infrastructure"
+    ],
+    "writablePaths": [
+      "apps/api/prisma/schema.prisma",
+      "apps/api/prisma/seed.ts",
+      "apps/api/src/app.module.ts",
+      "apps/api/src/modules/iam/application/permission.service.ts",
+      "apps/api/src/modules/iam/domain/permission-point.repository.ts",
+      "apps/api/src/modules/model-providers/model-providers.module.ts",
+      "apps/web/app/(workspace)/layout.tsx",
+      "packages/shared/src/index.ts",
+      "packages/shared/src/navigation/index.ts",
+      "packages/shared/src/navigation/nodes.ts",
+      "packages/shared/src/permissions/define.ts",
+      "packages/shared/src/permissions/index.ts"
+    ],
+    "checkFiles": [
+      "AGENTS.md",
+      "apps/api/package.json",
+      "apps/web/AGENTS.md",
+      "apps/web/package.json",
+      "docs/conventions/architecture.md",
+      "docs/conventions/authorization.md",
+      "docs/conventions/contracts.md",
+      "docs/conventions/database.md",
+      "docs/conventions/frontend.md",
+      "docs/index.md",
+      "docs/reference/verification.md",
+      "package.json"
+    ]
+  },
+  "maxReworks": 1
+}
