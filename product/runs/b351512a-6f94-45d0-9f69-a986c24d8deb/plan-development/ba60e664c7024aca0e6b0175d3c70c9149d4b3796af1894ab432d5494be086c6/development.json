@@ -1,0 +1,227 @@
+{
+  "mode": "live",
+  "productHash": "0568e53887efc88cc755f0b9e857f0aaffd70fd20bf19d2db8506116eff1976f",
+  "requirements": [
+    {
+      "id": "product:L1",
+      "line": 1,
+      "text": "# HRM 新需求草案：候选人跟进待办",
+      "hash": "44fc8034a89b0c52a98465961418d0c84c365fb932a28aa46e413c450af6c140"
+    },
+    {
+      "id": "product:L3",
+      "line": 3,
+      "text": "## 目标\n让 HR 在招聘工作中看到需要跟进的候选人，并记录每次跟进结果，减少候选人遗漏。",
+      "hash": "2bee2e4079c89c84e4f779f1f62f30b81249f1b388b12210506ea828a390bec5"
+    },
+    {
+      "id": "product:L6",
+      "line": 6,
+      "text": "## 使用场景\nHR 打开招聘工作台，查看自己负责的候选人中需要跟进的事项；完成沟通后记录结果和下一次跟进时间。",
+      "hash": "926eedf00a2514c373c02615b143e981b498a9bab254ff6c4d5a9273223dd58b"
+    },
+    {
+      "id": "product:L9",
+      "line": 9,
+      "text": "## 拟议范围与验收\n1. HR 可为候选人创建跟进待办，填写跟进内容、负责人和计划时间；必填项缺失时不得保存。\n2. 工作台按待办展示候选人、负责人、计划时间和状态；可按负责人、状态筛选。\n3. HR 可将待办标记完成并填写跟进结果；完成后保留原计划时间、完成时间和结果。\n4. 已完成待办不再出现在未完成列表中；保存失败不改变原有状态。\n5. 候选人详情可查看其跟进记录，记录按时间倒序展示。",
+      "hash": "fac89707f17ea97c26c7adda22a85ebaaecac3ac43a97d648c76102d7788a688"
+    },
+    {
+      "id": "product:L16",
+      "line": 16,
+      "text": "## 待业务确认\n- 跟进待办是否由 HR 手动创建，还是需要根据招聘状态自动生成。\n- 是否需要逾期提醒，以及提醒方式和时间。\n- 哪些角色可以查看、创建或完成待办；数据可见范围如何划分。\n- 是否允许修改、取消已创建的待办，以及是否保留修改历史。",
+      "hash": "1ecb012b9aa371c8edc9e30eb1e777399b2a65881810a6a352fa300d713bee63"
+    },
+    {
+      "id": "product:L22",
+      "line": 22,
+      "text": "本稿为待确认的新增需求提案；未声称已有业务授权或审批。",
+      "hash": "a816aade1a015efcd067ef62473731d9e0a3ef8ab789209b2b397f73a5242e3b"
+    }
+  ],
+  "context": {
+    "productHash": "0568e53887efc88cc755f0b9e857f0aaffd70fd20bf19d2db8506116eff1976f",
+    "baselineHash": "9c95db75a9c7045581c6420e0f15d53fd53bb38805c6ab4e720288226c974447",
+    "methodBundleHash": "07daed323ef0770370169bdb78a6ef7817e3a3dc17e00eaa0cfb42a074d425fd",
+    "files": {
+      "AGENTS.md": "f72510a0ec4bc25d4630f6f0d878ae417a5dc17442c63e4ba9fe81e87012bea9",
+      "apps/api/package.json": "c6e9bc8e6f751a765ec5a2436c4093899f0df610d47dc1754e950ed83c72325d",
+      "apps/api/prisma/schema.prisma": "e7b80d277b565e038e281b4e3d7c0a2b16b8eefc8946ae658815640e86c3cf01",
+      "apps/api/prisma/seed.ts": "0917989fa0b68a8733aecb87585a168d5540e6d8cd48a04a884c2ee5bc0d3024",
+      "apps/api/src/app.module.ts": "d6491cb8786ce227b75bb2c53fcf553a3b49e3986c76630bfc5dddd784ccb540",
+      "apps/api/src/modules/iam/application/permission.service.ts": "867511a126d11fcb29d5e1273bb2984b0b555f31682c415ac75d98697b706809",
+      "apps/api/src/modules/iam/domain/permission-point.repository.ts": "7222935a7fb9772501487cd7da989e258cabb5fee656f39c647ff3b58a6a0a87",
+      "apps/api/src/modules/model-providers/model-providers.module.ts": "629a2a0512ae42035f9697f378f3285e527dc2da45be6f0db3abff18f2bdd19a",
+      "apps/web/AGENTS.md": "063098f6cb31bb44c6f8fbea25b3876de7ee1e5f7d00a50dbab506f6415eb7f0",
+      "apps/web/app/(workspace)/layout.tsx": "ae43aeb794e3d6bf0fa286ffe18c6348fd09e05a1b191067a30a9df3f1bf99ac",
+      "apps/web/package.json": "477112ef4bcb83f5b0d598f7887a78b2063551240ea149611e1502e546e22812",
+      "docs/conventions/architecture.md": "62bcdd62aeae234f9e154fdd1961b9ebaceafeb179bf737b725c4ce5d929e26c",
+      "docs/conventions/authorization.md": "44e469aa98dbaca65894d1eea0a1f065a8f38db602b356abc84d4a569a8789d4",
+      "docs/conventions/contracts.md": "3c7f57de5c8dd8c3530e8d3ea9464c1a1ecdc9bd93d457814594f82ad6bf8892",
+      "docs/conventions/database.md": "878701dfd07a16cca28640d183b17c860460362bdad881f6362735f43032d5f6",
+      "docs/conventions/frontend.md": "6430ef55e29ceef0885e4a1253d6dd5c3c8720e66f2219e02a9ad5bd1cf59389",
+      "docs/index.md": "778a473f46ee78b8edc503bc7ab684fd7051704e8ecde59f9a122c731148c7f7",
+      "docs/reference/verification.md": "d38d833b959c3d1614a75a83aa7955b052ff955a8428d559355ab6286b39fcf2",
+      "package.json": "e56b6a9ad160aa6a4a186f3081e2e9c27a85cdc34316b1df1b9b853c5be02f60",
+      "packages/shared/src/index.ts": "2821037273d78f5cd4ced9c7887dcece6873482b2eceea417f377776f6dfccdf",
+      "packages/shared/src/navigation/index.ts": "25a075573d2e4a9d4e478dc03b83a6f24b0e2007a6443cca100aada4130b31a6",
+      "packages/shared/src/navigation/nodes.ts": "a9f87cc131e8557cae104ed59ac0d52d11bb39b128c270c376a6e9e64def0892",
+      "packages/shared/src/permissions/define.ts": "490a50ebd51f54dae7d8cd67b90cbbcf9a87d62f44668f44c338097d82a09452",
+      "packages/shared/src/permissions/index.ts": "37d03dc92db13df557168bd4c341fd07475877d65237fd676b6df65a8221ca7f"
+    },
+    "rules": [
+      {
+        "text": "项目使用 pnpm + Turborepo monorepo，包含 apps/api（NestJS）、apps/web（Next.js）和 packages/shared；输出使用中文。",
+        "refs": [
+          "file:AGENTS.md"
+        ]
+      },
+      {
+        "text": "开发前先核对 docs/index.md；不得编造命令、路径、版本或测试结果，未执行的验证不得表述为已验证；范围外不修改。",
+        "refs": [
+          "file:AGENTS.md",
+          "file:docs/index.md"
+        ]
+      },
+      {
+        "text": "修改 apps/web 前需遵循当前仓库安装的 Next.js 版本及其对应指南；该规则仅适用于 apps/web。",
+        "refs": [
+          "file:apps/web/AGENTS.md"
+        ]
+      },
+      {
+        "text": "后端业务应遵循 controller/dto → application → domain → infrastructure 分层；业务请求使用 /api/v1；apps/web 不承担业务后端职责。",
+        "refs": [
+          "file:docs/conventions/architecture.md"
+        ]
+      },
+      {
+        "text": "application 层不得直接依赖 infrastructure、dto、controller 或 module 根文件；领域层不得依赖 NestJS、Prisma 或其他基础设施；模块间通过导出的 application service 或领域事件通信。",
+        "refs": [
+          "file:docs/conventions/architecture.md"
+        ]
+      },
+      {
+        "text": "带权限的业务模块必须先在 packages/shared/src/permissions/ 登记权限目录，业务代码不得手写权限点字面量；数据权限由 application service 判定，Space 是数据可见性边界。",
+        "refs": [
+          "file:docs/conventions/authorization.md",
+          "file:packages/shared/src/permissions/define.ts",
+          "file:packages/shared/src/permissions/index.ts"
+        ]
+      },
+      {
+        "text": "API 契约以 Nest DTO/schema 与 Swagger 为唯一事实源，前端 API 类型使用生成 client；成功响应返回裸载荷，失败响应遵循 RFC 9457，列表响应遵循项目既有分页形态。",
+        "refs": [
+          "file:docs/conventions/contracts.md"
+        ]
+      },
+      {
+        "text": "前端业务应进入 features/ 垂直切片；业务请求使用生成的 API client 与 TanStack Query，禁止手写 fetch；app/ 仅负责路由与布局。",
+        "refs": [
+          "file:docs/conventions/frontend.md",
+          "file:apps/web/package.json"
+        ]
+      },
+      {
+        "text": "新增或修改 Prisma model 时必须声明业务域、显式主键与表名映射，外键关系显式声明 onDelete，并为真实过滤、排序、关联或分页查询设计索引；结构差异需对应迁移。",
+        "refs": [
+          "file:docs/conventions/database.md",
+          "file:apps/api/prisma/schema.prisma"
+        ]
+      },
+      {
+        "text": "当前已读取源码显示后端已有 iam、model-gateway、agentic、audit 等域模型与模块；AppModule 注册 Prisma、IAM、模型、Agentic 等模块，并按 Origin → Session → Policies 顺序注册全局 guard。",
+        "refs": [
+          "file:apps/api/prisma/schema.prisma",
+          "file:apps/api/src/app.module.ts"
+        ]
+      },
+      {
+        "text": "当前 seed 仅负责幂等创建 super-admin 角色及可选初始管理员账号，不构成候选人跟进业务授权或数据初始化依据。",
+        "refs": [
+          "file:apps/api/prisma/seed.ts"
+        ]
+      },
+      {
+        "text": "候选人跟进待办需求当前只是待确认的新增需求提案，不能当作已批准需求直接实施。",
+        "refs": [
+          "product:L22"
+        ]
+      },
+      {
+        "text": "以下业务选择仍需确认后才能形成可实施规格：手动创建还是按招聘状态自动生成、逾期提醒的方式与时间、角色及数据可见范围、待办修改或取消规则以及历史保留策略。",
+        "refs": [
+          "product:L16"
+        ]
+      }
+    ],
+    "unknowns": [
+      "engineeringAssessment 中 candidateFiles 及工程缺口未能通过当前已登记材料定位核实，因此无法区分文件未发现、未纳入安全读取、技术栈不匹配和证据不足。",
+      "当前候选文件中未发现候选人跟进待办实现，但未读取整个仓库或未登记的相关实现，不能据此断言仓库不存在该功能。",
+      "候选人、招聘状态、负责人、Space/角色映射及候选人详情的现有业务模型和 API 尚未在已登记候选文件中得到核实。",
+      "本阶段未执行验证命令，因此没有测试、类型检查、构建或迁移验证结果。"
+    ]
+  },
+  "plan": null,
+  "planHash": null,
+  "reviews": [],
+  "readiness": null,
+  "codeReviews": [],
+  "work": [
+    {
+      "role": "context",
+      "round": 0,
+      "text": "{\"rules\":[{\"text\":\"项目使用 pnpm + Turborepo monorepo，包含 apps/api（NestJS）、apps/web（Next.js）和 packages/shared；输出使用中文。\",\"refs\":[\"file:AGENTS.md\"]},{\"text\":\"开发前先核对 docs/index.md；不得编造命令、路径、版本或测试结果，未执行的验证不得表述为已验证；范围外不修改。\",\"refs\":[\"file:AGENTS.md\",\"file:docs/index.md\"]},{\"text\":\"修改 apps/web 前需遵循当前仓库安装的 Next.js 版本及其对应指南；该规则仅适用于 apps/web。\",\"refs\":[\"file:apps/web/AGENTS.md\"]},{\"text\":\"后端业务应遵循 controller/dto → application → domain → infrastructure 分层；业务请求使用 /api/v1；apps/web 不承担业务后端职责。\",\"refs\":[\"file:docs/conventions/architecture.md\"]},{\"text\":\"application 层不得直接依赖 infrastructure、dto、controller 或 module 根文件；领域层不得依赖 NestJS、Prisma 或其他基础设施；模块间通过导出的 application service 或领域事件通信。\",\"refs\":[\"file:docs/conventions/architecture.md\"]},{\"text\":\"带权限的业务模块必须先在 packages/shared/src/permissions/ 登记权限目录，业务代码不得手写权限点字面量；数据权限由 application service 判定，Space 是数据可见性边界。\",\"refs\":[\"file:docs/conventions/authorization.md\",\"file:packages/shared/src/permissions/define.ts\",\"file:packages/shared/src/permissions/index.ts\"]},{\"text\":\"API 契约以 Nest DTO/schema 与 Swagger 为唯一事实源，前端 API 类型使用生成 client；成功响应返回裸载荷，失败响应遵循 RFC 9457，列表响应遵循项目既有分页形态。\",\"refs\":[\"file:docs/conventions/contracts.md\"]},{\"text\":\"前端业务应进入 features/ 垂直切片；业务请求使用生成的 API client 与 TanStack Query，禁止手写 fetch；app/ 仅负责路由与布局。\",\"refs\":[\"file:docs/conventions/frontend.md\",\"file:apps/web/package.json\"]},{\"text\":\"新增或修改 Prisma model 时必须声明业务域、显式主键与表名映射，外键关系显式声明 onDelete，并为真实过滤、排序、关联或分页查询设计索引；结构差异需对应迁移。\",\"refs\":[\"file:docs/conventions/database.md\",\"file:apps/api/prisma/schema.prisma\"]},{\"text\":\"当前已读取源码显示后端已有 iam、model-gateway、agentic、audit 等域模型与模块；AppModule 注册 Prisma、IAM、模型、Agentic 等模块，并按 Origin → Session → Policies 顺序注册全局 guard。\",\"refs\":[\"file:apps/api/prisma/schema.prisma\",\"file:apps/api/src/app.module.ts\"]},{\"text\":\"当前 seed 仅负责幂等创建 super-admin 角色及可选初始管理员账号，不构成候选人跟进业务授权或数据初始化依据。\",\"refs\":[\"file:apps/api/prisma/seed.ts\"]},{\"text\":\"候选人跟进待办需求当前只是待确认的新增需求提案，不能当作已批准需求直接实施。\",\"refs\":[\"product:L22\"]},{\"text\":\"以下业务选择仍需确认后才能形成可实施规格：手动创建还是按招聘状态自动生成、逾期提醒的方式与时间、角色及数据可见范围、待办修改或取消规则以及历史保留策略。\",\"refs\":[\"product:L16\"]}],\"unknowns\":[\"engineeringAssessment 中 candidateFiles 及工程缺口未能通过当前已登记材料定位核实，因此无法区分文件未发现、未纳入安全读取、技术栈不匹配和证据不足。\",\"当前候选文件中未发现候选人跟进待办实现，但未读取整个仓库或未登记的相关实现，不能据此断言仓库不存在该功能。\",\"候选人、招聘状态、负责人、Space/角色映射及候选人详情的现有业务模型和 API 尚未在已登记候选文件中得到核实。\",\"本阶段未执行验证命令，因此没有测试、类型检查、构建或迁移验证结果。\"]}",
+      "tools": [
+        "skill",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "locate",
+        "skill_read",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file",
+        "mastra_workspace_read_file"
+      ],
+      "files": [
+        "AGENTS.md",
+        "apps/api/package.json",
+        "apps/api/prisma/schema.prisma",
+        "apps/api/prisma/seed.ts",
+        "apps/api/src/app.module.ts",
+        "apps/web/AGENTS.md",
+        "apps/web/package.json",
+        "docs/conventions/architecture.md",
+        "docs/conventions/authorization.md",
+        "docs/conventions/contracts.md",
+        "docs/conventions/database.md",
+        "docs/conventions/frontend.md",
+        "docs/index.md",
+        "docs/reference/verification.md",
+        "package.json",
+        "references/upstream.md"
+      ],
+      "startedAt": "2026-11-23T08:50:50.562Z",
+      "endedAt": "2026-11-23T08:52:16.615Z",
+      "durationMs": 86053,
+      "steps": 4,
+      "modelId": "gpt-5.6-luna",
+      "inputTokens": 59764,
+      "outputTokens": 2131
+    }
+  ],
+  "checks": [],
+  "checkpointHash": "9c95db75a9c7045581c6420e0f15d53fd53bb38805c6ab4e720288226c974447",
+  "delivery": null,
+  "round": 0,
+  "outcome": "in-progress"
+}
